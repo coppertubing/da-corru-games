@@ -3,6 +3,110 @@
 
 var characters = [
     {
+        name: "akizet",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
+        singular: true,
+        image: "img/p/call/aki.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "cavik",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`],
+        singular: true,
+        image: "img/p/call/cav.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "kazki",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
+        singular: true,
+        image: "img/p/call/kaz.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "bozko",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`],
+        singular: true,
+        image: "img/p/call/boz.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "gakvu",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
+        singular: true,
+        image: "img/p/call/gak.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "tozik",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`],
+        singular: true,
+        image: "img/p/call/toz.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "miltza",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
+        singular: true,
+        image: "img/p/call/mil.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
+        name: "idril",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
+        singular: true,
+        image: "img/p/call/idr.PNG",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    /*{
         name: "duto",
         pronoun: [`they`,`them`,`their`,`theirs`,`themself`],
         singular: false,
@@ -118,7 +222,7 @@ var characters = [
         killedBy: undefined,
         oldKilledBys: [],
         revived: 0
-    },
+    },*/
 ]
 
 

@@ -6,7 +6,7 @@ var characters = [
         name: "Akizet",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],
         singular: true,
-        image: "https://cdn.discordapp.com/attachments/614905019224817670/1374775183415443608/image.png",
+        image: "https://cdn.discordapp.com/attachments/614905019224817670/1374767738383503470/aki.png?ex=682f3fba&is=682dee3a&hm=9863fee1372f988f71d9b391c6a30f294bc15748b2c494dc316b89b0bcd437d4&",
         alive: true,
         beenUsed: false,
         kills: 0,

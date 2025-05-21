@@ -1,4 +1,4 @@
-345// ---- ФУНКЦИИ -----
+// ---- ФУНКЦИИ -----
 // делают смешные кодоштучки и не только
 
 function updateDataBeforeUse() {
@@ -7473,7 +7473,7 @@ function declareKillPlacements() {
 }
 
 function declareRevivedPlacementsAndOther() {
-    var html = `<td><u><strong>REVIVALS::</strong></u><br><br>`
+    var html = `<td width="55%"><u><strong>REVIVALS::</strong></u><br><br>`
     var characterPlacement = sortCharactersByRevivals();
     for (var i = 0; i < characterPlacement.length; i++) {
         html += characterPlacement[i].revived + `::'<font color="ffff00">` + characterPlacement[i].name + `</font>';DEATH CAUSES::'<font color="aaaaaa">` + getKilledBysArray(characterPlacement[i]) + `</font>'<br>`;

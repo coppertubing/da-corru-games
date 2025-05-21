@@ -3,7 +3,7 @@
 
 var characters = [
     {
-        name: "akizet",
+        name: "Akizet",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],
         singular: true,
         image: "img/p/call/aki.PNG",
@@ -16,7 +16,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "cavik",
+        name: "Cavik",
         pronoun: [`he`,`him`,`his`,`his`,`himself`],
         singular: true,
         image: "img/p/call/cav.PNG",
@@ -29,7 +29,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "kazki",
+        name: "Kazki",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],
         singular: true,
         image: "img/p/call/kaz.PNG",
@@ -42,7 +42,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "bozko",
+        name: "Bozko",
         pronoun: [`he`,`him`,`his`,`his`,`himself`],
         singular: true,
         image: "img/p/call/boz.PNG",
@@ -55,7 +55,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "gakvu",
+        name: "Gakvu",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],
         singular: true,
         image: "img/p/call/gak.PNG",
@@ -68,7 +68,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "tozik",
+        name: "Tozik",
         pronoun: [`he`,`him`,`his`,`his`,`himself`],
         singular: true,
         image: "img/p/call/toz.PNG",
@@ -81,7 +81,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "miltza",
+        name: "Miltza",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],
         singular: true,
         image: "img/p/call/mil.PNG",
@@ -94,7 +94,7 @@ var characters = [
         revived: 0
     },
     {
-        name: "idril",
+        name: "Idril",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],
         singular: true,
         image: "img/p/call/idr.PNG",

@@ -1689,6 +1689,10 @@ var eventCycle = {
                 playerCount: 2
             },
             {
+                string: "<1> and <2> battle for enrichment",
+                playerCount: 2
+            },
+            {
                 string: "<1> masterfully defeats numerous foes. <2> is in awe",
                 playerCount: 2
             },
@@ -1949,7 +1953,7 @@ var eventCycle = {
     playerCount: 2
 },
 {
-    string: "<1> tries to scare away <1>, but accidentally becomes <2their> friend",
+    string: "<1> tries to scare away <2>, but accidentally becomes <2their> friend",
     playerCount: 2
 },
 {

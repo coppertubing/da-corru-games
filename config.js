@@ -4,6 +4,33 @@
 var characters = [
     
     {
+        name: "Kotzu",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`],
+        singular: true,
+        image: "https://cdn.discordapp.com/attachments/1332667392526123019/1375026705483431977/kotzuportraitripple.gif?ex=683030e9&is=682edf69&hm=6b0f08b450f03e5b11a57e764723faa2358e53325b09993b01c46aabe5efe99b&",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+
+    {
+        name: "Azzun",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`],
+        singular: true,
+        image: "https://cdn.discordapp.com/attachments/1332667392526123019/1375026705953062982/azzunportraitripple.gif?ex=683030e9&is=682edf69&hm=3cc64bfa83a6a45ea5e0e8dd60a2d6330bb893e11cbd8ea82d8756ed9c464ccf&",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
+    {
         name: "CARNAGE ☄️",
         pronoun: [`he`,`him`,`his`,`his`,`himself`],
         singular: true,

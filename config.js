@@ -106,7 +106,7 @@ var characters = [
         oldKilledBys: [],
         revived: 0
     },
-    /*{
+    {
         name: "duto",
         pronoun: [`they`,`them`,`their`,`theirs`,`themself`],
         singular: false,
@@ -222,7 +222,7 @@ var characters = [
         killedBy: undefined,
         oldKilledBys: [],
         revived: 0
-    },*/
+    },
 ]
 
 

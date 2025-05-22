@@ -2,271 +2,122 @@
 // здесь дуто разрешает тыкаться в нужные штуки
 
 var characters = [
-    
-    {
-        name: "Kotzu",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "https://cdn.discordapp.com/attachments/1332667392526123019/1375026705483431977/kotzuportraitripple.gif?ex=683030e9&is=682edf69&hm=6b0f08b450f03e5b11a57e764723faa2358e53325b09993b01c46aabe5efe99b&",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-
-    {
-        name: "Azzun",
-        pronoun: [`they`,`them`,`their`,`theirs`,`themself`],
-        singular: true,
-        image: "https://cdn.discordapp.com/attachments/1332667392526123019/1375026705953062982/azzunportraitripple.gif?ex=683030e9&is=682edf69&hm=3cc64bfa83a6a45ea5e0e8dd60a2d6330bb893e11cbd8ea82d8756ed9c464ccf&",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "CARNAGE ☄️",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "https://i.ibb.co/bMmBHZKw/carnar.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Akizet",
-        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
-        singular: true,
-        image: "https://i.ibb.co/rKkNgHJ6/aki.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Cavik",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "https://i.ibb.co/G33NB4pf/cav.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Kazki",
-        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
-        singular: true,
-        image: "https://i.ibb.co/6JfCRdCq/kaz.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Bozko",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "https://i.ibb.co/0wBRWwZ/boz.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Gakvu",
-        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
-        singular: true,
-        image: "https://i.ibb.co/jZGSB9bs/gak.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Tozik",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "https://i.ibb.co/fzDwWCFR/toz.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Miltza",
-        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
-        singular: true,
-        image: "https://i.ibb.co/6cnWCFjF/mil.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
-    {
-        name: "Idril",
-        pronoun: [`she`,`her`,`her`,`hers`,`herself`],
-        singular: true,
-        image: "https://i.ibb.co/Wp4GwhYV/idr.png",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
-    },
     {
         name: "duto",
-        pronoun: [`they`,`them`,`their`,`theirs`,`themself`],
-        singular: false,
-        image: "img/p/duto.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "img/participants/we/duto.PNG",
     },
     {
         name: "gakvu \"the antisun\"",
-        pronoun: [`they`,`them`,`their`,`theirs`,`themself`],
-        singular: false,
-        image: "img/p/gakvu.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "img/participants/we/gakvu.PNG",
     },
     {
         name: "haze/thesis/metadata",
-        pronoun: [`it`,`it`,`its`,`its`,`itself`],
-        singular: true,
-        image: "img/p/hazethesismetadata.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "img/participants/we/hazethesismetadata.PNG",
     },
     {
         name: "id?il",
-        pronoun: [`sh*`,`h*r`,`h*r`,`h*rs`,`h*rself`],
-        singular: true,
-        image: "img/p/idwil.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`sh*`,`h*r`,`h*r`,`h*rs`,`h*rself`], singular: true,
+        image: "img/participants/we/idwil.PNG",
     },
     {
         name: "Juniper",
-        pronoun: [`it`,`it`,`its`,`its`,`itself`],
-        singular: true,
-        image: "img/p/juniper.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "img/participants/we/juniper.PNG",
     },
     {
         name: "kazkin't",
-        pronoun: [`fae`,`faer`,`faer`,`faers`,`faerself`],
-        singular: true,
-        image: "img/p/kazkin't.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`fae`,`faer`,`faer`,`faers`,`faerself`], singular: true,
+        image: "img/participants/we/kazkin't.PNG",
     },
     {
         name: "knifefight",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "img/p/knifefight.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/we/knifefight.PNG",
     },
     {
         name: "tozikoric",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`],
-        singular: true,
-        image: "img/p/tozik.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/we/tozik.PNG",
     },
     {
         name: "TRANSLATORFRIEND",
-        pronoun: [`IT`,`IT`,`ITS`,`ITS`,`ITSELF`],
-        singular: true,
-        image: "img/p/trend.PNG",
-        alive: true,
-        beenUsed: false,
-        kills: 0,
-        hasKilled: [],
-        killedBy: undefined,
-        oldKilledBys: [],
-        revived: 0
+        pronoun: [`IT`,`IT`,`ITS`,`ITS`,`ITSELF`], singular: true,
+        image: "img/participants/we/trend.PNG",
+    },
+
+
+    {
+        name: "Akizet",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/canon/aki.png",
+    },
+    {
+        name: "Cavik",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/canon/cav.png",
+    },
+    {
+        name: "Kazki",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/canon/kaz.png",
+    },
+    {
+        name: "Bozko",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/canon/boz.png",
+    },
+    {
+        name: "Gakvu",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/canon/gak.png",
+    },
+    {
+        name: "Tozik",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/canon/toz.png",
+    },
+    {
+        name: "Miltza",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/canon/mil.png",
+    },
+    {
+        name: "Idril",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/canon/idr.png",
+    },
+    
+
+    
+    {
+        name: "CARNAGE ☄️",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/carnar.png",
+    },
+    {
+        name: "Kotzu",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/kotzu.gif",
+    },
+    {
+        name: "Azzun",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "img/participants/azzun.gif",
     },
 ]
 
-
+characters.forEach(function (element) {
+    element.alive = true
+    element.beenUsed = false
+    element.kills = 0,
+    element.hasKilled = []
+    element.killedBy = undefined
+    element.oldKilledBys = []
+    element.revived = 0
+});
 
 var placements = [];
 var killPlacements = [];

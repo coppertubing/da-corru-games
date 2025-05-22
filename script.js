@@ -76,6 +76,7 @@ function declareTheDiedThisCycleNumber() {
             diedThisCycle + " peoples",
             diedThisCycle + " participants are sludgy",
             "damn, " + diedThisCycle + " died",
+            "remember to stay hydrated guys ^^ those " + diedThisCycle + " sure didnt",
             "eating " + diedThisCycle + " participants"
         ],
         [
@@ -88,6 +89,7 @@ function declareTheDiedThisCycleNumber() {
             "today " + diedThisCycle + " died 👍",
             "kill kill die die kill kill die die (" + diedThisCycle + " died)",
             "i think " + diedThisCycle + " died. i think. dunno for sure",
+            "remember to stay hydrated guys ^^ those " + diedThisCycle + " sure didnt",
             "awwwwwwwwwwww (" + diedThisCycle + ")",
             "people say " + diedThisCycle + " is a lucky number",
             "the losses: " + (diedThisCycle - 1) + " qou and 1 funny",
@@ -107,6 +109,7 @@ function declareTheDiedThisCycleNumber() {
             "what action! what battle! what " + diedThisCycle + " dead participants!",
             "listen, the corru games are just like that, the corru games just kill " + diedThisCycle + " people a day",
             diedThisCycle + " okidoiad",
+            "remember to stay hydrated guys ^^ those " + diedThisCycle + " sure didnt",
             "..." + diedThisCycle + ". could be better.",
             "lets play a game!!!!!!! how many died? %>)<br/>A) " + (Math.round(Math.random() * 100) + 83) + "; B) " + (Math.round(Math.random() * 100)) + "; C) " + diedThisCycle + " (worng answrr)",
             "THE CORRU GAMES RECEIVED AN OFFERING OF " + diedThisCycle + " PARTICIPANTS. THE CORRU GAMES DEMAND MORE.",
@@ -579,6 +582,10 @@ var eventRace = {
                 playerCount: 1
             },
             {
+                string: "<1> cannot shake off the feelings of pain and anger",
+                playerCount: 1
+            },
+            {
                 string: "One of <1>'s limbs almost turns to sludge from the signal",
                 playerCount: 1
             },
@@ -602,16 +609,77 @@ var eventRace = {
                 string: "<1> watches the chaos unfold",
                 playerCount: 1
             },
+            {
+                string: "<1> notices something strange about the corrucystic machinery",
+                playerCount: 1
+            },
+            {
+                string: "<1> grabs everything <1they> can and runs for the exit. Too bad one cannot escape the Corru Games!",
+                playerCount: 1
+            },
+            {
+                string: "<1> plans to max out <1their> kill count",
+                playerCount: 1
+            },
+            {
+                string: "<1> cannot believe the absurdity of the situation",
+                playerCount: 1
+            },
+            {
+                string: "<1> yells for help as a golem approaches <1them>",
+                playerCount: 1
+            },
+            {
+                string: "<1> immediately rushes toward the exit, but it disappears before <1their> eyes. One cannot escape the Corru Games!",
+                playerCount: 1
+            },
+
+            // 2's
 
             {
-                string: "<1> ",
-                playerCount: 1
+                string: "<1> tells <2> that everything will be alright",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> make an agreement not to kill each other until the very end",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> stare at each other in shock",
+                playerCount: 2
+            },
+            {
+                string: "<1> offers <2> to work together, but <2they> respond2> by trying to kill <1them>",
+                playerCount: 2
+            },
+            {
+                string: "<1> turns to <2> to ask about what is happening, but <2> throws a cyst at <1them> and runs off",
+                playerCount: 2
+            },
+
+            // 3's
+
+            {
+                string: "<1> searches for anyone with a communicator, but neither <2> nor <3> has one in working condition",
+                playerCount: 3
+            },
+            {
+                string: "<1>, <2> and <3> panic and huddle together in a group",
+                playerCount: 3
+            },
+            {
+                string: "<1>, <2> and <3> debate over who will die first",
+                playerCount: 3
+            },
+            {
+                string: "<1>, <2> and <3> scatter in all directions",
+                playerCount: 3
             },
 
         ],
         lethal: [
             {
-                string: "<die1> just dies",
+                string: "<die1> manages to get out of the embassy before all exits close. For this crime, I kill <1them> personally",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -620,7 +688,20 @@ var eventRace = {
                     placements.push(player1);
 
                     player1.alive = false;
-                    player1.killedBy = `Because I said so`;
+                    player1.killedBy = `Tried to escape`;
+                },
+            },
+            {
+                string: "<die1> speedruns <1their> death",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+                    placements.push(player1);
+
+                    player1.alive = false;
+                    player1.killedBy = `Got a world record`;
                 },
             },
         ]
@@ -1576,7 +1657,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "<1> chats with a barfriend, who keeps insisting <1they> seek shelter, but <1> just does not stop talking",
+                string: "<1> chats with a barfriend, who keeps insisting <1they> seek1> shelter, but <1> just does not stop talking",
                 playerCount: 1
             },
             {
@@ -1612,6 +1693,10 @@ var eventCycle = {
                 playerCount: 1
             },
             {
+                string: "<Participant> finds a bug",
+                playerCount: 1
+            },
+            {
                 string: "<1> engages in a deep philosophical conversation with a newly-sapient chair",
                 playerCount: 1
             },
@@ -1620,7 +1705,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "<1> talks to a very strange door… It does not look like made out of corru…",
+                string: "<1> talks to a very strange door... It does not look like made out of corru…",
                 playerCount: 1
             },
             {
@@ -1631,7 +1716,165 @@ var eventCycle = {
                 string: "<1> curses Velzie",
                 playerCount: 1
             },
+            {
+                string: "<1> hopes not to die stupidly",
+                playerCount: 1
+            },
+            {
+                string: "<1> scribbles on a wall: \"<1> was here\"",
+                playerCount: 1
+            },
+            {
+                string: "<1> prays for Velzie to smile on <1them>",
+                playerCount: 1
+            },
+            {
+                string: "<1> feels a little lonely",
+                playerCount: 1
+            },
+            {
+                string: "<1> regrets <1their> actions",
+                playerCount: 1
+            },
+            {
+                string: "For a split blink, <1> hears someone calling out <1their> name",
+                playerCount: 1
+            },
+            {
+                string: "<1> prays for Velzie to play tricks on <1their> enemies",
+                playerCount: 1
+            },
+            {
+                string: "<1> bounces off the walls",
+                playerCount: 1
+            },
+            {
+                string: "<1> sings a tune",
+                playerCount: 1
+            },
+            {
+                string: "<1> begs <1their> creator for mercy",
+                playerCount: 1
+            },
+            {
+                string: "<1> breathes in, and out",
+                playerCount: 1
+            },
+            {
+                string: "<1> meows",
+                playerCount: 1
+            },
+            {
+                string: "<1> decides who will be <1their> victim in the next wink",
+                playerCount: 1
+            },
+            {
+                string: "<1> dreams about victory",
+                playerCount: 1
+            },
+            {
+                string: "<1> draws on the walls with sludge",
+                playerCount: 1
+            },
+            {
+                string: "<1> gets lost",
+                playerCount: 1
+            },
+            {
+                string: "<1> does a really cool flip",
+                playerCount: 1
+            },
+            {
+                string: "<1> hides from other participants",
+                playerCount: 1
+            },
+            {
+                string: "<1> thinks really hard",
+                playerCount: 1
+            },
+            {
+                string: "<1> forgets something extremely important",
+                playerCount: 1
+            },
+            {
+                string: "<1> eats a cyst",
+                playerCount: 1
+            },
+            {
+                string: "<1> laughs like a movie villain",
+                playerCount: 1
+            },
+            {
+                string: "<1> bows to the audience",
+                playerCount: 1
+            },
+            {
+                string: "<1> thinks about orange juice",
+                playerCount: 1
+            },
 
+            // 2's
+
+            {
+                string: "<1> plays dead to take <2> by surprise and kill <2them>, but accidentally falls asleep",
+                playerCount: 2
+            },
+            {
+                string: "<1> scribbles on a wall: \"<2> is a dumbass\"",
+                playerCount: 2
+            },
+            {
+                string: "<1> is sullenly silent to any attempts by <2> to make conversation. <2they> take2> offense and decide2> to kill <1> whenever possible in the future",
+                playerCount: 2
+            },
+            {
+                string: "<1> accidentally spills someone's secret to <2> and threatens to kill <2them>. <2> fearfully promises to keep <2their> mouth shut",
+                playerCount: 2
+            },
+            {
+                string: "<1> wants to win so badly that <2> starts rooting for <1them>",
+                playerCount: 2
+            },
+            {
+                string: "<1> shares a rumor with <2>, and <2> makes a surprised expression, knowing full well that <2they> started the rumor in the first place",
+                playerCount: 2
+            },
+            {
+                string: "<1> wants to grab a simulacrum, but <2> tells <1them> that this has no priority right now",
+                playerCount: 2
+            },
+            {
+                string: "<1> finds <1themself> in a very dark room and does not notice <2> hiding there",
+                playerCount: 2
+            },
+            {
+                string: "<1> endlessly yaps to <2> about something",
+                playerCount: 2
+            },
+            {
+                string: "At first <1> is afraid of <2>, but later relaxes from <2their> friendliness",
+                playerCount: 2
+            },
+            {
+                string: "<1>'s opinion of <2> changes dramatically for the worse",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> play a game of parasite",
+                playerCount: 2
+            },
+            {
+                string: "<1> insults <2>. <2they> brush2e> it off",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> gossip",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> plot together",
+                playerCount: 2
+            },
             {
                 string: "<1> is almost killed by a spire attendant, but <2> saves <1them>",
                 playerCount: 2
@@ -1665,7 +1908,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "<1> gives <2> a restorative cyst. <2> can not stop thanking <1them>",
+                string: "<1> gives <2> a restorative cyst. <2> cannot stop thanking <1them>",
                 playerCount: 2
             },
             {
@@ -1768,13 +2011,131 @@ var eventCycle = {
                 string: "<1> panics and throws a rabid container at <2>. <2they> <2are> unamused",
                 playerCount: 2
             },
-            
+            {
+                string: "<1> thinks <1they> <1have> found <2>'s corpse, but in reality <2> is pretending to be dead",
+                playerCount: 2
+            },
+            {
+                string: "<1> gifts <2> a trinket",
+                playerCount: 2
+            },
+            {
+                string: "<1> challenges <2> to a fight. No one wins, but they recognize each other's strength and become friends",
+                playerCount: 2
+            },
+            {
+                string: "<1> compliments <2>'s signature",
+                playerCount: 2
+            },
+            {
+                string: "<1> gives all the junk he found to <2> and takes away all the valuable stuff <1themself>",
+                playerCount: 2
+            },
+            {
+                string: "<1> trips over a cyst, picks it up and throws it away in anger; it hits <2> right on the head",
+                playerCount: 2
+            },
+            {
+                string: "<1> searches everywhere for <2>, wanting to give <2them> a gift. <2> hides desperately",
+                playerCount: 2
+            },
+            {
+                string: "<1> asks <2> if <2they> ever heard of the closed loop theory",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> bump into each other several times in a row and decide to go together, believing it to be a sign from Velzie",
+                playerCount: 2
+            },
+            {
+                string: "<1> tries to scare away <2>, but accidentally becomes <2their> friend",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> fight for the entire wink, but continue to evade each other's attacks over and over again",
+                playerCount: 2
+            },
+            {
+                string: "<1> sees <2> running away from something and helps <2them> escape",
+                playerCount: 2
+            },
+            {
+                string: "<1> hits <2> with a chair",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> both hide from each other, thinking that one wants to kill the other",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> make some kind of device together",
+                playerCount: 2
+            },
+            {
+                string: "<1> watches <2> and sees something <1they> should not have",
+                playerCount: 2
+            },
+            {
+                string: "<1> promises <2> not to kill <2them> in return for all <2their> supplies, but <2> only gives <1> a punch in the face",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> :)",
+                playerCount: 2
+            },
+            {
+                string: "<1> performs an exchange with <2>. All of a sudden, <2> frightfully points behind <1their> back and, while <1> is distracted, disappears with <1their> goods",
+                playerCount: 2
+            },
+            {
+                string: "<1> tries to wrestle a kavruka away from <2>, but <2they> throw2> it to the side, detonating it",
+                playerCount: 2
+            },
+
+            // 3's
+
+            {
+                string: "<1> notices <2> and <3> following <1them> and tries to escape",
+                playerCount: 3
+            },
+            {
+                string: "<1> explains the mechanics of the dull to <2> and <3> in excruciating detail. <2> is actually invested, but the other one wants to kill <1> just so <3they> do not have to listen to this",
+                playerCount: 3
+            },
+            {
+                string: "<1> intimidates <2> and <3> and kicks them out of <1their> tendril",
+                playerCount: 3
+            },
+            {
+                string: "<1> and <2> invite <3> to join them, but <3they> silently leave3>",
+                playerCount: 3
+            },
+            {
+                string: "<1> sees <2> waving and waves back. Then realizes that <2> is waving not to <1them>, but to <3>",
+                playerCount: 3
+            },
+            {
+                string: "<1> and <2> team up to kill <3>, but they never gather the courage to do it",
+                playerCount: 3
+            },
+            {
+                string: "<1> and <2> ambush <3>, but <3> is well armed and defends <3themself>",
+                playerCount: 3
+            },
+            {
+                string: "<1> blows up a bunch of sludged junk for fun, nearly killing <2> and <3> hiding nearby",
+                playerCount: 3
+            },
+            {
+                string: "<1> and <2> want to set up an ambush for <3>, but they cannot agree on a plan",
+                playerCount: 3
+            },
             {
                 string: "<1> and <2> find <3>'s personnel room and rummage through <3their> stuff. Not for resources, just because they can",
                 playerCount: 3
             },
             {
-                string: "<1> wants to kill <2> but can not risk attacking while <3> is nearby",
+                string: "<1> wants to kill <2> but cannot risk attacking while <3> is nearby",
                 playerCount: 3
             },
             {
@@ -1814,7 +2175,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "<1> wounds <2> badly but does not get enough time to finish <2them> off before <3> appears out of nowhere and scares <1them> off",
+                string: "<1> wounds <2> badly but does not get enough time to finish <2them> off before <3> appears out of nowhere and fights <1them> off",
                 playerCount: 3
             },
             {
@@ -1829,232 +2190,103 @@ var eventCycle = {
                 string: "<1> and <2> argue about the sides of the meteorite conflict. <3>, clueless about what are those two so angry about, listens in",
                 playerCount: 3
             },
+            {
+                string: "<1> sees no point in continuing to fight in the Сorru Games, but <2> reminds <1them> of the time <3> wronged <1them>, and <1> lights up with the idea of revenge",
+                playerCount: 3
+            },
+            {
+                string: "<1>, <2> and <3> argue about whose fate is worse. In the end, everyone agrees that <3> is the unhappiest and comforts <3them>",
+                playerCount: 3
+            },
+            {
+                string: "<1> attacks <2>, but at the last moment <2they> convince2> <1> not to kill <2them> in exchange for valuable information about <3>",
+                playerCount: 3
+            },
+            {
+                string: "<1> apologizes to <2> and <3> for everything",
+                playerCount: 3
+            },
+            {
+                string: "<1> tells <2> <1their> plan to kill <3>. <2>, as <3>'s best friend, listens intently",
+                playerCount: 3
+            },
+            {
+                string: "<1> gets annoyed at the memories of <2> and <3>, and then sits for a long time sharpening <1their> claws",
+                playerCount: 3
+            },
+            {
+                string: "<1> accidentally steps on <2>'s foot and blames it on <3>. An argument ensues",
+                playerCount: 3
+            },
+            {
+                string: "<1> betrays <2> and <3>, stealing their supplies and running away",
+                playerCount: 3
+            },
 
+            // 4's
+
+            {
+                string: "<1> proposes a plan to kill <2>, but <3> and <4> vehemently refuse",
+                playerCount: 4
+            },
+            {
+                string: "While <1> and <2> battle over supplies, <3> and <4> fight over the right to steal those very supplies",
+                playerCount: 4
+            },
+            {
+                string: "<1>, <2> and <3> watch some husks fight in a pit and place bets. <4>, who falls into the pit, wins",
+                playerCount: 4
+            },
+            {
+                string: "<1> stockpiles weapons, <2> steals them, <3> catches <2them> in the act and goes to tell everyone, and <4> tries <4their> best to stop that from happening",
+                playerCount: 4
+            },
+            {
+                string: "<1> and <2> run away from <3> and <4> in absolute terror",
+                playerCount: 4
+            },
+            {
+                string: "<1> and <2> try to track down and kill <3> and <4> while <3> and <4> try to track down and kill <1> and <2>",
+                playerCount: 4
+            },
+            {
+                string: "<1> informs <2> of a rumor that <3> recently almost killed <4>",
+                playerCount: 4
+            },
+            {
+                string: "<1> desperately tries to kill <2>; <3> and <4> have to drag <1them> into another room",
+                playerCount: 4
+            },
+            {
+                string: "<1>, <2>, <3> and <4> decide to play a cousinly game called \"Monopoly\", but no one knows the rules",
+                playerCount: 4
+            },
+
+            // 5's
+
+            {
+                string: "<1>, <2> and <3>, <4> are arguing over the right to take <5> on their team. Before it gets to a fight, <5> silently slips out of their sight",
+                playerCount: 5
+            },
+            {
+                string: "<1> declares that the Corru Games is an unfair and cold-blooded system. <1they> <1are> joined by <2> and <3>, wanting fairness, while <4> and <5>  laugh at the idea",
+                playerCount: 5
+            },
+            {
+                string: "<1> and <2> fight fiercely, but a group of <3>, <4> and <5> comes and chases them away",
+                playerCount: 5
+            },
             {
                 string: "<1> is rude to <2>, who gets upset and complains to <3>, who tells <4> about the situation, who asks <5> for help, who punches <1> in the face",
                 playerCount: 5
             },
 
+            // 6's
+
             {
-    string: "<1> hopes not to die stupidly",
-    playerCount: 1
-},
-{
-    string: "<1> scribbles on a wall: \"<1> was here\"",
-    playerCount: 1
-},
-{
-    string: "<1> prays for Velzie to smile on <1them>",
-    playerCount: 1
-},
-{
-    string: "<1> feels a little lonely",
-    playerCount: 1
-},
-{
-    string: "<1> regrets <1their> actions",
-    playerCount: 1
-},
-{
-    string: "<1> prays for Velzie to play tricks on <1their> enemies",
-    playerCount: 1
-},
-{
-    string: "<1> bounces off the walls",
-    playerCount: 1
-},
-{
-    string: "<1> sings a tune",
-    playerCount: 1
-},
-{
-    string: "<1> begs <1their> creator for mercy",
-    playerCount: 1
-},
-{
-    string: "<1> breathes in, and out",
-    playerCount: 1
-},
-{
-    string: "<1> meows",
-    playerCount: 1
-},
-{
-    string: "<1> decides who will be <1their> victim in the next wink",
-    playerCount: 1
-},
-{
-    string: "<1> dreams about victory",
-    playerCount: 1
-},
-{
-    string: "<1> draws on the walls with sludge",
-    playerCount: 1
-},
-{
-    string: "<1> gets lost",
-    playerCount: 1
-},
-{
-    string: "<1> does a really cool flip",
-    playerCount: 1
-},
-{
-    string: "<1> hides from other participants",
-    playerCount: 1
-},
-{
-    string: "<1> thinks really hard",
-    playerCount: 1
-},
-{
-    string: "<1> forgets something extremely important",
-    playerCount: 1
-},
-{
-    string: "<1> eats a cyst",
-    playerCount: 1
-},
-{
-    string: "<1> laughs like a movie villain",
-    playerCount: 1
-},
-{
-    string: "<1> bows to the audience",
-    playerCount: 1
-},
-
-{
-    string: "<1> thinks <1they> <1have> found <2>'s corpse, but in reality <2> is pretending to be dead",
-    playerCount: 2
-},
-{
-    string: "<1> gifts <2> a trinket",
-    playerCount: 2
-},
-{
-    string: "<1> challenges <2> to a fight. No one wins, but they recognize each other's strength and become friends",
-    playerCount: 2
-},
-{
-    string: "<1> compliments <2>'s signature",
-    playerCount: 2
-},
-{
-    string: "<1> trips over a cyst, picks it up and throws it away in anger; it hits <2> right on the head",
-    playerCount: 2
-},
-{
-    string: "<1> searches everywhere for <2>, wanting to give <2them> a gift. <2> hides desperately",
-    playerCount: 2
-},
-{
-    string: "<1> and <2> bump into each other several times in a row and decide to go together, believing it to be a sign from Velzie",
-    playerCount: 2
-},
-{
-    string: "<1> tries to scare away <2>, but accidentally becomes <2their> friend",
-    playerCount: 2
-},
-{
-    string: "<1> and <2> fight for the entire wink, but continue to evade each other's attacks over and over again",
-    playerCount: 2
-},
-{
-    string: "<1> sees <2> running away from something and helps <2them> escape",
-    playerCount: 2
-},
-{
-    string: "<1> hits <2> with a chair",
-    playerCount: 2
-},
-{
-    string: "<1> and <2> both hide from each other, thinking that one wants to kill the other",
-    playerCount: 2
-},
-{
-    string: "<1> and <2> make some kind of device together",
-    playerCount: 2
-},
-{
-    string: "<1> watches <2> and sees something <1they> should not have",
-    playerCount: 2
-},
-{
-    string: "<1> promises <2> not to kill <2them> in return for all <2their> supplies, but <2> only gives <1> a punch in the face",
-    playerCount: 2
-},
-{
-    string: "<1> and <2> :)",
-    playerCount: 2
-},
-
-{
-    string: "<1> notices <2> and <3> following <1them> and tries to escape",
-    playerCount: 3
-},
-{
-    string: "<1> intimidates <2> and <3> and kicks them out of <1their> tendril",
-    playerCount: 3
-},
-{
-    string: "<1> and <2> invite <3> to join them, but <3they> silently leave3>",
-    playerCount: 3
-},
-{
-    string: "<1> sees <2> waving and waves back. Then realizes that <2> is waving not to <1them>, but to <3>",
-    playerCount: 3
-},
-{
-    string: "<1> and <2> team up to kill <3>, but they never gather the courage to do it",
-    playerCount: 3
-},
-{
-    string: "<1> and <2> ambush <3>, but <3> is well armed and defends <3themself>",
-    playerCount: 3
-},
-{
-    string: "<1> blows up a bunch of sludged junk for fun, nearly killing <2> and <3> hiding nearby",
-    playerCount: 3
-},
-{
-    string: "<1> and <2> want to set up an ambush for <3>, but they can not agree on a plan",
-    playerCount: 3
-},
-
-{
-    string: "<1>, <2> and <3> watch some husks fight in a pit and place bets. <4>, who falls into the pit, wins",
-    playerCount: 4
-},
-{
-    string: "<1> stockpiles weapons, <2> steals them, <3> catches <2them> in the act and goes to tell everyone, and <4> tries <4their> best to stop that from happening",
-    playerCount: 4
-},
-{
-    string: "<1> and <2> run away from <3> and <4> in absolute terror",
-    playerCount: 4
-},
-{
-    string: "<1> and <2> try to track down and kill <3> and <4> while <3> and <4> try to track down and kill <1> and <2>",
-    playerCount: 4
-},
-{
-    string: "<1>, <2> and <3>, <4> are arguing over the right to take <5> on their team. Before it gets to a fight, <5> silently slips out of their sight",
-    playerCount: 5
-},
-{
-    string: "<1> declares that the Corru Games is an unfair and cold-blooded system. <1they> <1are> joined by <2> and <3>, wanting fairness, while <4> and <5>  laugh at the idea",
-    playerCount: 5
-},
-{
-    string: "<1> and <2> fight fiercely, but a group of <3>, <4> and <5> comes and chases them away",
-    playerCount: 5
-},
-
-{
-    string: "<1>, <2> and <3> compete with <4>, <5> and <6> for resources",
-    playerCount: 6
-},
+                string: "<1>, <2> and <3> compete with <4>, <5> and <6> for resources",
+                playerCount: 6
+            },
         ],
         lethal: [
             {
@@ -2084,7 +2316,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "<die1> can not handle the amount of foes that has surrounded <1them>",
+                string: "<die1> cannot handle the amount of foes that has surrounded <1them>",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -7794,7 +8026,7 @@ function theRace() {
     updateDataBeforeUse();
     titleChanger("!!__THE_COLLAPSE__!!");
 
-    var htmlContentToInsert = `Out of nowhere, every corner of the embassy erupts in a signal of pain and rage. The frightened qou are given an order through distorted words of the... groundsmind?<br/><i><font color='ff0066'>KILL and dont BE KILLED!! only 1 of u ll get a chance to survive >:]</font></i><br><br>` + generateEvents(eventRace) + declareTheDiedThisCycleNumber() + `<br/><a href = "#" onclick = "goToPage('1')"> proceed.</a> `;
+    var htmlContentToInsert = `Out of nowhere, every corner of the embassy erupts in a signal of pain and rage. The frightened qou are given an order through distorted words of the... groundsmind? No, it cannot be-<br/><i><font color='ff0066'>WELCAME TO DA CORRU GAMES!!!!!!!!!!<br>KILL and dont BE KILLED!! only 1 of u ll get a chance to survive >:]</font></i><br><br>` + generateEvents(eventRace) + declareTheDiedThisCycleNumber() + `<br/><a href = "#" onclick = "goToPage('1')"> proceed.</a> `;
     var content = document.getElementById("content");
     content.innerHTML = htmlContentToInsert;
 
@@ -7919,7 +8151,7 @@ function thePlacements() {
     doubleCheck();
     titleChanger("!!__RANKINGS__!!");
 
-    var htmlContentToInsert = declarePlacements() + declareOtherPlacements() + `<br/><a href = "#" onclick = "location.reload()"> reload the page and play again!</a> `;
+    var htmlContentToInsert = declarePlacements() + declareOtherPlacements() + `<br/><a href = "#" onclick = "location.reload()">reload the page and play again!</a>`;
     var content = document.getElementById("content");
     content.innerHTML = htmlContentToInsert;
 

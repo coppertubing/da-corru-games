@@ -1836,7 +1836,7 @@ var eventCycle = {
     playerCount: 1
 },
 {
-    string: "<1> scribbles on a wall: \"(Player1) was here\"",
+    string: "<1> scribbles on a wall: \"<1> was here\"",
     playerCount: 1
 },
 {

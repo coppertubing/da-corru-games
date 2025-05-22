@@ -2,6 +2,20 @@
 // здесь дуто разрешает тыкаться в нужные штуки
 
 var characters = [
+    
+    {
+        name: "CARNAGE ☄️",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`],
+        singular: true,
+        image: "https://i.ibb.co/bMmBHZKw/carnar.png",
+        alive: true,
+        beenUsed: false,
+        kills: 0,
+        hasKilled: [],
+        killedBy: undefined,
+        oldKilledBys: [],
+        revived: 0
+    },
     {
         name: "Akizet",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`],

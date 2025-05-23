@@ -7174,8 +7174,109 @@ var eventCycle = {
     }
 }*/
 
-/*var eventsRandom = [
+var eventsRandom = [
     {
+        used: false,
+        string: `Every corner of the embassy is all of a sudden filled with hundreds of containers... And these containers are-<br><font color='ff0066'>RABID n EVIL AS FUCK!!!!!!!!!!!!!!!!!!!!!!</font>`,
+        eventGenus: {
+            regular: function () {
+                var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`regular`]);
+
+                var playerCount = eventObject.playerCount;
+
+                var players = decidePlayers(playerCount);
+                currentUnusedCharacterNumber -= playerCount;
+
+                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
+                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
+                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
+                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
+                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
+                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
+                console.log(eventString, players);
+
+                if (playerCount === 1) var eventImage = makeImages(players[0].image)
+                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
+                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
+                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
+                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
+                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+
+                var event = eventImage + eventString + `<br><br>`;
+
+                return event;
+            },
+            lethal: function () {
+                do var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`lethal`])
+                while (eventObject.howManyDeaths >= currentCharacterNumber);
+
+                var playerCount = eventObject.playerCount;
+
+                var players = decidePlayers(playerCount);
+                currentUnusedCharacterNumber -= playerCount;
+
+                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
+                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
+                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
+                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
+                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
+                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
+                console.log(eventString, players);
+
+                if (playerCount === 1) var eventImage = makeImages(players[0].image)
+                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
+                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
+                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
+                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
+                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+
+                var event = eventImage + eventString + `<br><br>`;
+
+                eventObject.updateData.apply(eventObject, players);
+
+                return event;
+            },
+            revival: function () {
+                var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`revival`]);
+
+                var playerCount = eventObject.playerCount;
+
+                var revivedPlayers = decideRevivedPlayers(eventObject.howManyRevivals);
+                if (revivedPlayers == "stop") return "stop";
+                var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals);
+
+                var players = revivedPlayers.concat(justPlayers);
+
+                currentUnusedCharacterNumber -= playerCount - eventObject.howManyRevivals;
+
+                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
+                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
+                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
+                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
+                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
+                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
+                console.log(eventString, players);
+
+                if (playerCount === 1) var eventImage = makeImages(players[0].image)
+                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
+                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
+                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
+                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
+                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+
+                var event = eventImage + eventString + `<br><br>`;
+
+                eventObject.updateData.apply(eventObject, players);
+
+                return event;
+            },
+            array: {
+                regular: [],
+                lethal: []
+            }
+        }
+    } // 1000 containers 
+    /*{
         used: false,
         string: `Внезапно на фоне начинает играть замедленная версия Kayava...<br>"Я должен найти пару или умереть"`,
         eventGenus: {
@@ -7669,8 +7770,8 @@ var eventCycle = {
                 ]
             }
         }
-    }
-]*/
+    }*/
+]
 
 
 

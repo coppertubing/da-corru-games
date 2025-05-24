@@ -34,7 +34,7 @@ function getRandomDeadCharacter() {
 
 function declareTheDiedThisCycleNumber() {
     const strings = [
-        [
+        /*1*/[
             "only 1s participants died todays. Poor guy.",
             "let us congratulate the only participant who died!!",
             "YAYAYAYA 1 guy dead!!",
@@ -53,7 +53,7 @@ function declareTheDiedThisCycleNumber() {
             "oooooooooooooooone",
             "ONE- *intro music plays* /ref"
         ],
-        [
+        /*2-4*/[
             diedThisCycle + "!!!!!! " + diedThisCycle + "!!!!!!!!!!!!!!",
             "today " + diedThisCycle + " died 👍",
             "oops (" + diedThisCycle + ")",
@@ -79,7 +79,7 @@ function declareTheDiedThisCycleNumber() {
             "remember to stay hydrated guys ^^ those " + diedThisCycle + " sure didnt",
             "eating " + diedThisCycle + " participants"
         ],
-        [
+        /*5-10*/[
             "cruel and unusual punishment for " + diedThisCycle + " people",
             diedThisCycle + " peoples",
             diedThisCycle + " are not there anymore",
@@ -101,7 +101,7 @@ function declareTheDiedThisCycleNumber() {
             diedThisCycle + " " + diedThisCycle + " " + diedThisCycle,
             "damn, " + diedThisCycle + " died"
         ],
-        [
+        /*11-16*/[
             diedThisCycle + "!!!!!! " + diedThisCycle + "!!!!!!!!!!!!!!",
             "heeeeehehehehehee. " + diedThisCycle + ".",
             "anyways, " + diedThisCycle + ".",
@@ -121,6 +121,7 @@ function declareTheDiedThisCycleNumber() {
             "muy sillies................. i.......... " + diedThisCycle + " ... .",
             "wow! " + diedThisCycle + " do not exist anymore! in fact they do not exist so hard i forgor uhhh what was i ralking about here? AH YES the ",
             "eatin popcorn; " + diedThisCycle + " die a horrible death",
+            "hey girl are you an infectious embodiment of bloodlust and violence cause i be getting the urge to kill " + diedThisCycle + " people just from looking at you",
             "HA now we know that " + diedThisCycle + "% of corru game participants are loooosrs (yes this is how percentages work. trust)",
             "someone died! " + diedThisCycle + " times!",
             diedThisCycle + " participants are sludgy",
@@ -128,7 +129,8 @@ function declareTheDiedThisCycleNumber() {
             "ultrakilling " + diedThisCycle,
             "the corru games are on a roll today! " + diedThisCycle + " dead, " + currentCharacterNumber - (Math.round(Math.random() * 6) + 5) + " injured"
         ],
-        [
+        /*17-24*/[
+            "hey girl are you an infectious embodiment of bloodlust and violence cause i be getting the urge to kill " + diedThisCycle + " people just from looking at you",
             diedThisCycle + "?????!!!!!! " + diedThisCycle + "?????????????!!!!!!!!!!!!!!",
             "AHAHAHA okay okay. (" + diedThisCycle + ")",
             "okay but " + diedThisCycle + " is pretty big? nuber?",
@@ -150,7 +152,7 @@ function declareTheDiedThisCycleNumber() {
             "did you know that corru games are a rewrite of the much more ancient 'RWHG'? did you know i wrote them in two days of nonstop coding in a row? did you know that " + diedThisCycle + " participants died? did you know that i am cool? did you know that you are cool?",
             "insert funny joke about number " + diedThisCycle
         ],
-        [
+        /*>24*/[
             "!!!!!!!!!!!!!!!!!!" + diedThisCycle + "!!!!!!!!!!!!!!!",
             "WHAT THE FUCK (" + diedThisCycle + ")",
             "man. i even gakvu cloning wont help (" + diedThisCycle + ")",
@@ -166,9 +168,9 @@ function declareTheDiedThisCycleNumber() {
 
     if (diedThisCycle === 0) return ``
     else if (diedThisCycle === 1) return `<br/>` + strings[0][Math.floor(Math.random() * strings[0].length)] + `<br/>`
-    else if (diedThisCycle === 3 && Math.random() < 0.2) return "<br/>triple affirmative<br/>"
-    else if (diedThisCycle === 4 && Math.random() < 0.2) return "<br/>fourp<br/>"
-    else if (diedThisCycle === 12 && Math.random() < 0.2) return "<br/>twolve<br/>"
+    else if (diedThisCycle === 3 && Math.random() < 0.15) return "<br/>triple affirmative<br/>"
+    else if (diedThisCycle === 4 && Math.random() < 0.15) return "<br/>fourp<br/>"
+    else if (diedThisCycle === 12 && Math.random() < 0.15) return "<br/>twolve<br/>"
     else if (diedThisCycle === 13 && Math.random() < 0.2) return "<br/>is it friday today?<br/>"
     else if (1 < diedThisCycle && diedThisCycle <= 4) return `<br/>` + strings[1][Math.floor(Math.random() * strings[1].length)] + `<br/>`
     else if (4 < diedThisCycle && diedThisCycle <= 10) return `<br/>` + strings[2][Math.floor(Math.random() * strings[2].length)] + `<br/>`

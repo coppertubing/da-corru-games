@@ -568,6 +568,10 @@ var eventRace = {
                 playerCount: 1
             },
             {
+                string: "<1> blames it all on the bright cousins",
+                playerCount: 1
+            },
+            {
                 string: "<1> thinks that this is a very weird prank but promptly changes <1their> mind upon seeing a horde of rabid containers",
                 playerCount: 1
             },
@@ -624,6 +628,10 @@ var eventRace = {
                 playerCount: 1
             },
             {
+                string: "<1> feels weird",
+                playerCount: 1
+            },
+            {
                 string: "<1> cannot believe the absurdity of the situation",
                 playerCount: 1
             },
@@ -652,6 +660,10 @@ var eventRace = {
             },
             {
                 string: "<1> offers <2> to work together, but <2they> respond2> by trying to kill <1them>",
+                playerCount: 2
+            },
+            {
+                string: "<1> and <2> search for the exit together. Oooh, but one cannot escape the Corru Games!",
                 playerCount: 2
             },
             {
@@ -1671,7 +1683,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "<1> overhears someone talking but does not recognize the voices. <1they> <decide1> to back off",
+                string: "<1> overhears someone talking but does not recognize the voices. <1they> decide1> to back off",
                 playerCount: 1
             },
             {
@@ -1740,6 +1752,14 @@ var eventCycle = {
             },
             {
                 string: "For a split blink, <1> hears someone calling out <1their> name",
+                playerCount: 1
+            },
+            {
+                string: "<1> hopes the bright cousins are okay",
+                playerCount: 1
+            },
+            {
+                string: "<1> cannot remember how much time has passed",
                 playerCount: 1
             },
             {
@@ -1967,6 +1987,10 @@ var eventCycle = {
             },
             {
                 string: "<1> calls out <2>'s name, but <2they> <2do> not answer, choosing to stay hidden",
+                playerCount: 2
+            },
+            {
+                string: "<1> smiles gently at <2>. <2they> ask2> what the fuck <1are> <1they> doing with <1their> face",
                 playerCount: 2
             },
             {

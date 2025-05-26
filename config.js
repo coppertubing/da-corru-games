@@ -2,7 +2,7 @@
 // здесь дуто разрешает тыкаться в нужные штуки
 
 var characters = [
-        {
+    {
         name: "akizet 👁‍🗨",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
         image: "img/participants/canon/aki.png",

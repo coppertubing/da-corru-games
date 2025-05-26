@@ -2,48 +2,53 @@
 // здесь дуто разрешает тыкаться в нужные штуки
 
 var characters = [
+        {
+        name: "akizet 👁‍🗨",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/canon/aki.png",
+    },
     {
-        name: "duto",
+        name: "duto 🟪",
         pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
         image: "img/participants/we/duto.PNG",
     },
     {
-        name: "gakvu \"the antisun\"",
+        name: "gakvu \"the antisun\" 🌐",
         pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
         image: "img/participants/we/gakvu.PNG",
     },
     {
-        name: "haze/thesis/metadata",
+        name: "haze/thesis/metadata 🌪",
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
         image: "img/participants/we/hazethesismetadata.PNG",
     },
     {
-        name: "id?il",
+        name: "id?il 🔲",
         pronoun: [`sh*`,`h*r`,`h*r`,`h*rs`,`h*rself`], singular: true,
         image: "img/participants/we/idwil.PNG",
     },
     {
-        name: "Juniper",
+        name: "Juniper 🫐",
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
         image: "img/participants/we/juniper.PNG",
     },
     {
-        name: "kazkin't",
+        name: "kazkin't 🌑",
         pronoun: [`fae`,`faer`,`faer`,`faers`,`faerself`], singular: true,
         image: "img/participants/we/kazkin't.PNG",
     },
     {
-        name: "knifefight",
+        name: "knifefight 🔪",
         pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
         image: "img/participants/we/knifefight.PNG",
     },
     {
-        name: "tozikoric",
+        name: "tozikoric ✖️",
         pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
         image: "img/participants/we/tozik.PNG",
     },
     {
-        name: "TRANSLATORFRIEND",
+        name: "TRANSLATORFRIEND 🔸",
         pronoun: [`IT`,`IT`,`ITS`,`ITS`,`ITSELF`], singular: true,
         image: "img/participants/we/trend.PNG",
     },

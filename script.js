@@ -375,11 +375,11 @@ function parseNamesAndPronouns(string, number, character) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
     }
 
-    string = string.replaceAll(`[` + number + `]`, `[strong][font color="ffff0"]` + character.name + `[/font][/strong]`);
+    string = string.replaceAll(`[` + number + `]`, `<strong><font color="ffff00">` + character.name + `</font></strong>`);
 
-    string = string.replaceAll(`[die` + number + `]`, `[strong][font color="` + nicknamecolor_died + `"]` + character.name + `[/font][/strong]`);
+    string = string.replaceAll(`[die` + number + `]`, `<strong><font color="` + nicknamecolor_died + `">` + character.name + `</font></strong>`);
 
-    string = string.replaceAll(`[rev` + number + `]`, `[strong][font color="` + nicknamecolor_revived + `"]` + character.name + `[/font][/strong]`);
+    string = string.replaceAll(`[rev` + number + `]`, `<strong><font color="` + nicknamecolor_revived + `">` + character.name + `</font></strong>`);
 
     string = string.replaceAll(`. [` + number + `they]`, `. ` + capitalizeFirstLetter(character.pronoun[0]));
     string = string.replaceAll(`. [` + number + `them]`, `. ` + capitalizeFirstLetter(character.pronoun[1]));

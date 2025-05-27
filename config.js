@@ -3,7 +3,7 @@
 
 var characters = [
     {
-        name: "akizet 👁‍🗨",
+        name: "akizet 🎲",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
         image: "img/participants/we/akizet.PNG",
     },

@@ -1917,7 +1917,7 @@ var eventCycle = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player4, `Ides of March (killed by [1], [3] and [3])`, player1, player2, player3)
+                    theFunnyKillFunction(player4, `Ides of March (killed by [1], [2] and [3])`, player1, player2, player3)
                 },
             },
         ],

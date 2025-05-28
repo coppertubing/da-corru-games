@@ -1720,6 +1720,16 @@ var eventCycle = {
                 },
             },
             {
+                string: "[die1] dies in the ceremony unceremoniously",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+                    theFunnyKillFunction(player1, `Victim of a really stupid event pun`)
+                },
+            },
+            {
                 string: "[die1] cannot handle the amount of foes that has surrounded [1them]",
                 playerCount: 1,
                 howManyDeaths: 1,

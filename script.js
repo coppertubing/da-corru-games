@@ -1995,7 +1995,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] clarifies that [1they] [1did] not <i>die</i> - [1they] <u>died</u>",
+                string: "[rev1] clarifies that [1they] did not <i>die</i> - [1they] <u>died</u>",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,

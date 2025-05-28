@@ -489,27 +489,34 @@ function makeImages(image1, image2, image3, image4, image5, image6) {
 function theFunnyKillFunction(who, why, whoKiller1, whoKiller2, whoKiller3, whoKiller4, whoKiller5) {
     placements.push(who);
     who.alive = false;
-    who.killedBy = why;
+    var killerSet = [];
     if (whoKiller1 != undefined) {
         whoKiller1.kills++;
         whoKiller1.hasKilled.push(who.name)
+        killerSet.push(whoKiller1)
         if (whoKiller2 != undefined) {
             whoKiller2.kills++;
             whoKiller2.hasKilled.push(who.name)
+            killerSet.push(whoKiller2)
             if (whoKiller3 != undefined) {
                 whoKiller3.kills++;
                 whoKiller3.hasKilled.push(who.name)
+                killerSet.push(whoKiller3)
                 if (whoKiller4 != undefined) {
                     whoKiller4.kills++;
                     whoKiller4.hasKilled.push(who.name)
+                    killerSet.push(whoKiller4)
                     if (whoKiller5 != undefined) {
                         whoKiller5.kills++;
                         whoKiller5.hasKilled.push(who.name)
+                        killerSet.push(whoKiller5)
                     }
                 }
             }
         }
     }
+    who.killedBy = parseNamesAndPronouns(parseAllNamesAndPronouns(why, killerSet), 0, who)
+    
 }
 
 // сами ивенты в массивах и функции которые к ним применяются
@@ -967,6 +974,10 @@ var eventCycle = {
     array: {
         regular: [
             {
+                string: "[1] tries to figure out where the fuck [1are] [1they]",
+                playerCount: 1
+            },
+            {
                 string: "[1] sneezes. Wait, what? Qou bodies are not supposed to do that",
                 playerCount: 1
             },
@@ -980,6 +991,10 @@ var eventCycle = {
             },
             {
                 string: "[1] is",
+                playerCount: 1
+            },
+            {
+                string: "[1] feels a little incoherent",
                 playerCount: 1
             },
             {
@@ -1211,6 +1226,10 @@ var eventCycle = {
             },
             {
                 string: "[1] wants to win so badly that [2] starts rooting for [1them]",
+                playerCount: 2
+            },
+            {
+                string: "[1] and [2] feel <i>really</i> awkward",
                 playerCount: 2
             },
             {
@@ -1501,7 +1520,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] and [2] ambush [3], but [3] is well armed and defends [3themself]",
+                string: "[1] and [2] ambush [3], but [3] is armed well and successfully defends [3themself]",
                 playerCount: 3
             },
             {
@@ -1518,6 +1537,10 @@ var eventCycle = {
             },
             {
                 string: "[1] wants to kill [2] but cannot risk attacking while [3] is nearby",
+                playerCount: 3
+            },
+            {
+                string: "[1], [2] and [3] are having fun and playing",
                 playerCount: 3
             },
             {
@@ -1796,6 +1819,63 @@ var eventCycle = {
                 },
             },
 
+            // 2's
+
+            {
+                string: "[1] bets that [die2] cannot jump over that huge gap in the floor",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Lost a bet`)
+                },
+            },
+            {
+                string: "[1] sends [die2] to the backstage",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Finished [0their] performance with the help of [1]`, player1)
+                },
+            },
+            {
+                string: "[1] successfully lands " + (Math.round(Math.random() * 100) + 31) + " frenzy critical hits on [die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Totally frenzied by [1]`, player1)
+                },
+            },
+            {
+                string: "[1] tells [die2] to close [2their] eyes because [1they] [1are] going to show [2them] a surprise! The surprise was death",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Surprised by [1]`, player1)
+                },
+            },
+            {
+                string: "[1] shoots [die2] with a \"gun's\"",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Guns are cool (shot by [1])`, player1)
+                },
+            },
             {
                 string: "[die1] accidentally explodes [1themself] along with [die2]",
                 playerCount: 2,
@@ -1810,7 +1890,24 @@ var eventCycle = {
 
                     placements.push(player2);
                     player2.alive = false;
-                    player2.killedBy = `Got caught in [strong][font color="ffff00"]` + player1.name + `[/font][/strong]'s explosion`;
+                    player2.killedBy = `Got caught in <strong><font color="ffff00">` + player1.name + `</font></strong>'s explosion`;
+                },
+            },
+
+            // 3's
+
+
+            // 4's
+
+            {
+                string: "[1], [2] and [3] gather around [die4] and stab [4them] 23 times",
+                playerCount: 4,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3, player4) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player4, `Ides of March (killed by [1], [3] and [3])`, player1, player2, player3)
                 },
             },
         ],
@@ -1870,7 +1967,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] decides [1they] [1are] not dead anymore",
+                string: "[rev1] declares [1they] [1are] not dead anymore",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -1888,7 +1985,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] clarifies that [1they] [1did] not [i]die[/i], [1they] [u]died[/u]",
+                string: "[rev1] clarifies that [1they] [1did] not <i>die</i> - [1they] <u>died</u>",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -1903,6 +2000,319 @@ var eventCycle = {
                     player1.killedBy = undefined;
 
                     placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "Velzie's fondness for [rev1] is truly nauseating",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] emerges from a wall",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] reverse-dies",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] simply refuses to lose like that",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] accidentally begins existing again",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] cancels [1their] death",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] is back on stage",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] wishes everyone a great gaze",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] is actually alive now",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "Through a giggle of Velzie, [rev1] is back",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+
+            // 2's
+
+            {
+                string: "[rev1] chases after [2] for the entire wink, trying to ask what eye it is right now",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] is revived by [2] through the power of friendship and love",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] is revived by [2] through the power of <i>a lot</i> of obscure technical knowledge. [2] where did you learn this",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1]'s ghost haunts [2] into finding [1their] remains and reviving [1them]",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] still feels weird after being revived. [1they] ask1] [2] for assistance",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
+            {
+                string: "[rev1] steals [die2]'s body and rejoins the Corru Games",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+
+                    theFunnyKillFunction(player2, `<strong><font color="ffff00">` + player1.name + `</font></strong> asked to borrow the body`, player1)
+                }
+            },
+            {
+                string: "[rev1] comes back to life just to kill [die2]",
+                playerCount: 2,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+
+                    theFunnyKillFunction(player2, `Got <strong><font color="ffff00">` + player1.name + `</font></strong> so mad [1they] came1] back from the afterlife to kill`, player1)
                 }
             },
         ]

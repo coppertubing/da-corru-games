@@ -3,6 +3,12 @@
     padding: 0
 }
 
+#version {
+    margin-left: 75%;
+    font-size: 80%;
+    color: #4f354f
+}
+
 html {
     height: 100%
 }

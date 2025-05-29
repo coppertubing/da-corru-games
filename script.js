@@ -3274,7 +3274,7 @@ console.log("%c---", 'color: #666666');
 
 function theMenu() {
     console.log('%c---  THE MENU  ---', 'background: #0000b3; color: #cce6ff')
-    var htmlContentToInsert = htmlCharacterRowBuilder() + `<a href = "#" onclick = "theGenerate()">proceed.</a> `;
+    var htmlContentToInsert = htmlCharacterRowBuilder() + `<a href = "#" onclick = "theGenerate()">proceed.</a> <div id="version">` + ver + `</div>`;
     var content = document.getElementById("content");
     content.innerHTML = htmlContentToInsert;
 

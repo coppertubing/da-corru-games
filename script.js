@@ -1854,12 +1854,9 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] successfully lands " + this.random() + " frenzy critical hits on [die2]",
+                string: "[1] successfully lands " + (Math.round(Math.random() * 100) + 31) + " frenzy critical hits on [die2]",
                 playerCount: 2,
                 howManyDeaths: 1,
-                random: function () {
-                    return (Math.round(Math.random() * 100) + 31)
-                },
                 updateData: function (player1, player2) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;

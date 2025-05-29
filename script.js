@@ -1854,9 +1854,12 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] successfully lands " + (Math.round(Math.random() * 100) + 31) + " frenzy critical hits on [die2]",
+                string: "[1] successfully lands " + this.random() + " frenzy critical hits on [die2]",
                 playerCount: 2,
                 howManyDeaths: 1,
+                random: function () {
+                    return (Math.round(Math.random() * 100) + 31)
+                },
                 updateData: function (player1, player2) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
@@ -1884,6 +1887,17 @@ var eventCycle = {
                     diedThisCycle += this.howManyDeaths;
 
                     theFunnyKillFunction(player2, `Guns are cool (shot by [1])`, player1)
+                },
+            },
+            {
+                string: "[1] commits vehicular manslaughter on [die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Vehicularmanslaughtered by [1]`, player1)
                 },
             },
             {

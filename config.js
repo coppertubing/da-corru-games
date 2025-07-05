@@ -46,7 +46,7 @@ var characters = [
     {
         name: "Interviewer",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
-        image: "/img/local/ocean/ship/interviewerportrait.gif",
+        image: "https://corru.observer/img/local/ocean/ship/interviewerportrait.gif",
     },
     {
         name: "Maze Shit",

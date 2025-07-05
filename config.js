@@ -1,58 +1,118 @@
 // ---- ПЕРСОНАЖИ и ВЕСЕЛЫЕ ПЕРЕМЕННЫЕ и СПИСОК ИВЕНТОВ -----
 // здесь дуто разрешает тыкаться в нужные штуки
-var ver = "beta1"
+var ver = "all corru"
 
 var characters = [
+
     {
-        name: "akizet 🎲",
+        name: "Interloper",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "https://static.wikitide.net/corruwiki/c/c9/Interloper_portrait.gif",
+    },
+    {
+        name: "Moth",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "https://static.wikitide.net/corruwiki/a/ac/MothCropped.gif",
+    },
+
+
+
+    {
+        name: "Sentries",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "img/participants/allcorru/sentry.png",
+    },
+
+
+    {
+        name: "Funfriend",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/3/39/Funfriend_Log_Portrait.gif",
+    },
+
+
+    {
+        name: "Gordon",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "https://corru.observer/img/local/city/envoybutton.gif",
+    },
+    {
+        name: "Oliver",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "https://corru.observer/img/local/city/realeye.gif",
+    },
+
+
+    {
+        name: "Interviewer",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
-        image: "img/participants/we/akizet.PNG",
+        image: "/img/local/ocean/ship/interviewerportrait.gif",
     },
     {
-        name: "duto 🟪",
-        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
-        image: "img/participants/we/duto.PNG",
-    },
-    {
-        name: "gakvu \"the antisun\" 🌐",
-        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
-        image: "img/participants/we/gakvu.PNG",
-    },
-    {
-        name: "haze/thesis/metadata 🌪",
+        name: "Maze Shit",
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
-        image: "img/participants/we/hazethesismetadata.PNG",
+        image: "https://corru.observer/img/local/ocean/ship/help.gif",
     },
+
+
     {
-        name: "id?il 🔲",
-        pronoun: [`sh*`,`h*r`,`h*r`,`h*rs`,`h*rself`], singular: true,
-        image: "img/participants/we/idwil.PNG",
-    },
-    {
-        name: "Juniper 🫐",
+        name: "Memoryhole",
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
-        image: "img/participants/we/juniper.PNG",
+        image: "https://static.wikitide.net/corruwiki/a/a9/Eyeswarped.gif",
+    },
+
+
+    {
+        name: "God",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/0/04/God-whitebg.gif",
+    },
+
+
+    {
+        name: "Council",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "https://static.wikitide.net/corruwiki/a/a4/CouncilIcon.gif",
     },
     {
-        name: "kazkin't 🌑",
-        pronoun: [`fae`,`faer`,`faer`,`faers`,`faerself`], singular: true,
-        image: "img/participants/we/kazkin't.PNG",
+        name: "Fairy",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "https://static.wikitide.net/corruwiki/9/97/FairyIcon.gif",
     },
     {
-        name: "knifefight 🔪",
+        name: "Isabel",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/c/c9/IsabelIcon.gif",
+    },
+    {
+        name: "Geli",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/f/f9/BsteliPortrait.gif",
+    },
+    {
+        name: "Effigy",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/4/49/EffigyIcon.gif",
+    },
+    {
+        name: "BSTRD",
         pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
-        image: "img/participants/we/knifefight.PNG",
+        image: "https://static.wikitide.net/corruwiki/0/0a/BSTRD.gif",
     },
     {
-        name: "tozikoric ✖️",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
-        image: "img/participants/we/tozik.PNG",
+        name: "Stowaway",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/c/c8/Stowaway.gif",
     },
+
+
+
     {
-        name: "TRANSLATORFRIEND 🔸",
-        pronoun: [`IT`,`IT`,`ITS`,`ITS`,`ITSELF`], singular: true,
-        image: "img/participants/we/trend.PNG",
+        name: "Drowning",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/d/de/Drowningportrait.gif",
     },
+
 
 
     {
@@ -91,28 +151,51 @@ var characters = [
         image: "img/participants/canon/mil.png",
     },
     {
+        name: "Itzil",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "https://static.wikitide.net/corruwiki/4/4e/Itzil_sprite.gif",
+    },
+    {
+        name: "Karik",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/7/77/Karik_sprite.gif",
+    },
+    {
+        name: "Dozkallvi",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/8/8c/Dozkallviportrait.gif",
+    },
+    {
         name: "Idril",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
         image: "img/participants/canon/idr.png",
     },
-    
+    {
+        name: "Telyu",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/d/d2/Telyu_portrait.gif",
+    },
+    {
+        name: "Vekoa",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/e/eb/VekoaSpectre.gif",
+    },
 
+
+
+
+    {
+        name: "Velzie (Thoughtform)",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "https://static.wikitide.net/corruwiki/8/81/Velzie.png",
+    },
+
+    {
+        name: "Velzie (God)",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "https://corru.observer/img/local/embassy/wallm2.gif",
+    },
     
-    {
-        name: "CARNAGE ☄️",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
-        image: "img/participants/carnar.png",
-    },
-    {
-        name: "Kotzu",
-        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
-        image: "img/participants/kotzu.gif",
-    },
-    {
-        name: "Azzun",
-        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
-        image: "img/participants/azzun.gif",
-    },
 ]
 
 characters.forEach(function (element) {

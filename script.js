@@ -1252,7 +1252,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[Participant1] finds a bug",
+                string: "[Participant] finds a bug",
                 playerCount: 1
             },
             {
@@ -3520,7 +3520,7 @@ function declareWinner() {
     </tbody>
  </table>
  <br>
- Победитель - ` + winner.name + `!!!!!!!!!<br>`
+ Winner - ` + winner.name + `!!!!!!!!!<br>`
     return winnerDeclaration;
 }
 
@@ -3530,8 +3530,8 @@ function declarePlacements() {
 
     var html = "";
 
-    var fullRows = Math.floor(initialCharacterNumber / 4);
-    var notFullRows = initialCharacterNumber % 4;
+    var fullRows = Math.floor(initialCharacterNumber / 6);
+    var notFullRows = initialCharacterNumber % 6;
     
     function itits(pronoun) {
         if (pronoun === "it") return "its"
@@ -3545,12 +3545,16 @@ function declarePlacements() {
                <td valign="top"><img src="` + placements[1].image + `" height="90" width="90" /></td>
                <td valign="top"><img src="` + placements[2].image + `" height="90" width="90" /></td>
                <td valign="top"><img src="` + placements[3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[0].name + `</font></strong><br>` + placements[0].pronoun[0] + `/` + itits(placements[0].pronoun[1]) + `<br>` + `Winner` + `<br>` + hasKills(placements[0]) + `</td>
                <td valign="top"><strong><font color="ffff00">` + placements[1].name + `</font></strong><br>` + placements[1].pronoun[0] + `/` + itits(placements[1].pronoun[1]) + `<br>` + `2nd Place` + `<br>` + hasKills(placements[1]) + `<br>` + placements[1].killedBy + `</td>
                <td valign="top"><strong><font color="ffff00">` + placements[2].name + `</font></strong><br>` + placements[2].pronoun[0] + `/` + itits(placements[2].pronoun[1]) + `<br>` + `3rd Place` + `<br>` + hasKills(placements[2]) + `<br>` + placements[2].killedBy + `</td>
                <td valign="top"><strong><font color="ffff00">` + placements[3].name + `</font></strong><br>` + placements[3].pronoun[0] + `/` + itits(placements[3].pronoun[1]) + `<br>` + `4th Place` + `<br>` + hasKills(placements[3]) + `<br>` + placements[3].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[4].name + `</font></strong><br>` + placements[4].pronoun[0] + `/` + itits(placements[4].pronoun[1]) + `<br>` + `5th Place` + `<br>` + hasKills(placements[4]) + `<br>` + placements[4].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[5].name + `</font></strong><br>` + placements[5].pronoun[0] + `/` + itits(placements[5].pronoun[1]) + `<br>` + `6th Place` + `<br>` + hasKills(placements[5]) + `<br>` + placements[5].killedBy + `</td>
             </tr>
             </table>
     <br/>`;
@@ -3558,16 +3562,20 @@ function declarePlacements() {
     for (var i = 1; i < fullRows; i++) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + placements[i * 4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 4 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 4 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 4 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
-               <td valign="top"><strong><font color="ffff00">` + placements[i * 4].name + `</font></strong><br>` + placements[i * 4].pronoun[0] + `/` + itits(placements[i * 4].pronoun[1]) + `<br>` + (i * 4 + 1) + `th Place` + `<br>` + hasKills(placements[i * 4]) + `<br>` + placements[i * 4].killedBy + `</td>
-               <td valign="top"><strong><font color="ffff00">` + placements[i * 4 + 1].name + `</font></strong><br>` + placements[i * 4 + 1].pronoun[0] + `/` + itits(placements[i * 4 + 1].pronoun[1]) + `<br>` + (i * 4 + 2) + `th Place` + `<br>` + hasKills(placements[i * 4 + 1]) + `<br>` + placements[i * 4 + 1].killedBy + `</td>
-               <td valign="top"><strong><font color="ffff00">` + placements[i * 4 + 2].name + `</font></strong><br>` + placements[i * 4 + 2].pronoun[0] + `/` + itits(placements[i * 4 + 2].pronoun[1]) + `<br>` + (i * 4 + 3) + `th Place` + `<br>` + hasKills(placements[i * 4 + 2]) + `<br>` + placements[i * 4 + 2].killedBy + `</td>
-               <td valign="top"><strong><font color="ffff00">` + placements[i * 4 + 3].name + `</font></strong><br>` + placements[i * 4 + 3].pronoun[0] + `/` + itits(placements[i * 4 + 3].pronoun[1]) + `<br>` + (i * 4 + 4) + `th Place` + `<br>` + hasKills(placements[i * 4 + 3]) + `<br>` + placements[i * 4 + 3].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 1].name + `</font></strong><br>` + placements[i * 6 + 1].pronoun[0] + `/` + itits(placements[i * 6 + 1].pronoun[1]) + `<br>` + (i * 6 + 2) + `th Place` + `<br>` + hasKills(placements[i * 6 + 1]) + `<br>` + placements[i * 6 + 1].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 2].name + `</font></strong><br>` + placements[i * 6 + 2].pronoun[0] + `/` + itits(placements[i * 6 + 2].pronoun[1]) + `<br>` + (i * 6 + 3) + `th Place` + `<br>` + hasKills(placements[i * 6 + 2]) + `<br>` + placements[i * 6 + 2].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 3].name + `</font></strong><br>` + placements[i * 6 + 3].pronoun[0] + `/` + itits(placements[i * 6 + 3].pronoun[1]) + `<br>` + (i * 6 + 4) + `th Place` + `<br>` + hasKills(placements[i * 6 + 3]) + `<br>` + placements[i * 6 + 3].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 4].name + `</font></strong><br>` + placements[i * 6 + 4].pronoun[0] + `/` + itits(placements[i * 6 + 4].pronoun[1]) + `<br>` + (i * 6 + 5) + `th Place` + `<br>` + hasKills(placements[i * 6 + 4]) + `<br>` + placements[i * 6 + 4].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 5].name + `</font></strong><br>` + placements[i * 6 + 5].pronoun[0] + `/` + itits(placements[i * 6 + 5].pronoun[1]) + `<br>` + (i * 6 + 6) + `th Place` + `<br>` + hasKills(placements[i * 6 + 5]) + `<br>` + placements[i * 6 + 5].killedBy + `</td>
             </tr>
             </table>
     <br/>`;
@@ -3575,39 +3583,73 @@ function declarePlacements() {
     if (notFullRows === 1) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img src="` + placements[i * 4].image + `" height="90" width="90" /></td>
+        <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
-        <td valign="top"><strong><font color="ffff00">` + placements[i * 4].name + `</font></strong><br>` + placements[i * 4].pronoun[0] + `/` + itits(placements[i * 4].pronoun[1]) + `<br>` + (i * 4 + 1) + `th Place` + `<br>` + hasKills(placements[i * 4]) + `<br>` + placements[i * 4].killedBy + `</td>
+        <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
         </tr>
         </table>
     <br/>`
     } else if (notFullRows === 2) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img src="` + placements[i * 4].image + `" height="90" width="90" /></td>
-        <td valign="top"><img src="` + placements[i * 4 + 1].image + `" height="90" width="90" /></td>
+        <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
-        <td valign="top"><strong><font color="ffff00">` + placements[i * 4].name + `</font></strong><br>` + placements[i * 4].pronoun[0] + `/` + itits(placements[i * 4].pronoun[1]) + `<br>` + (i * 4 + 1) + `th Place` + `<br>` + hasKills(placements[i * 4]) + `<br>` + placements[i * 4].killedBy + `</td>
-        <td valign="top"><strong><font color="ffff00">` + placements[i * 4 + 1].name + `</font></strong><br>` + placements[i * 4 + 1].pronoun[0] + `/` + itits(placements[i * 4 + 1].pronoun[1]) + `<br>` + (i * 4 + 2) + `th Place` + `<br>` + hasKills(placements[i * 4 + 1]) + `<br>` + placements[i * 4 + 1].killedBy + `</td>
+        <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
+        <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 1].name + `</font></strong><br>` + placements[i * 6 + 1].pronoun[0] + `/` + itits(placements[i * 6 + 1].pronoun[1]) + `<br>` + (i * 6 + 2) + `th Place` + `<br>` + hasKills(placements[i * 6 + 1]) + `<br>` + placements[i * 6 + 1].killedBy + `</td>
         </tr>
         </table>
     <br/>`
     } else if (notFullRows === 3) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img src="` + placements[i * 4].image + `" height="90" width="90" /></td>
-        <td valign="top"><img src="` + placements[i * 4 + 1].image + `" height="90" width="90" /></td>
-        <td valign="top"><img src="` + placements[i * 4 + 2].image + `" height="90" width="90" /></td>
+        <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+        <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
-        <td valign="top"><strong><font color="ffff00">` + placements[i * 4].name + `</font></strong><br>` + placements[i * 4].pronoun[0] + `/` + itits(placements[i * 4].pronoun[1]) + `<br>` + (i * 4 + 1) + `th Place` + `<br>` + hasKills(placements[i * 4]) + `<br>` + placements[i * 4].killedBy + `</td>
-        <td valign="top"><strong><font color="ffff00">` + placements[i * 4 + 1].name + `</font></strong><br>` + placements[i * 4 + 1].pronoun[0] + `/` + itits(placements[i * 4 + 1].pronoun[1]) + `<br>` + (i * 4 + 2) + `th Place` + `<br>` + hasKills(placements[i * 4 + 1]) + `<br>` + placements[i * 4 + 1].killedBy + `</td>
-        <td valign="top"><strong><font color="ffff00">` + placements[i * 4 + 2].name + `</font></strong><br>` + placements[i * 4 + 2].pronoun[0] + `/` + itits(placements[i * 4 + 2].pronoun[1]) + `<br>` + (i * 4 + 3) + `th Place` + `<br>` + hasKills(placements[i * 4 + 2]) + `<br>` + placements[i * 4 + 2].killedBy + `</td>
+        <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
+        <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 1].name + `</font></strong><br>` + placements[i * 6 + 1].pronoun[0] + `/` + itits(placements[i * 6 + 1].pronoun[1]) + `<br>` + (i * 6 + 2) + `th Place` + `<br>` + hasKills(placements[i * 6 + 1]) + `<br>` + placements[i * 6 + 1].killedBy + `</td>
+        <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 2].name + `</font></strong><br>` + placements[i * 6 + 2].pronoun[0] + `/` + itits(placements[i * 6 + 2].pronoun[1]) + `<br>` + (i * 6 + 3) + `th Place` + `<br>` + hasKills(placements[i * 6 + 2]) + `<br>` + placements[i * 6 + 2].killedBy + `</td>
         </tr>
         </table>
     <br/>`
+    } else if (notFullRows === 4) {
+        html += `<table class="tribute">
+            <tr>
+               <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+            </tr>
+            <tr>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 1].name + `</font></strong><br>` + placements[i * 6 + 1].pronoun[0] + `/` + itits(placements[i * 6 + 1].pronoun[1]) + `<br>` + (i * 6 + 2) + `th Place` + `<br>` + hasKills(placements[i * 6 + 1]) + `<br>` + placements[i * 6 + 1].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 2].name + `</font></strong><br>` + placements[i * 6 + 2].pronoun[0] + `/` + itits(placements[i * 6 + 2].pronoun[1]) + `<br>` + (i * 6 + 3) + `th Place` + `<br>` + hasKills(placements[i * 6 + 2]) + `<br>` + placements[i * 6 + 2].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 3].name + `</font></strong><br>` + placements[i * 6 + 3].pronoun[0] + `/` + itits(placements[i * 6 + 3].pronoun[1]) + `<br>` + (i * 6 + 4) + `th Place` + `<br>` + hasKills(placements[i * 6 + 3]) + `<br>` + placements[i * 6 + 3].killedBy + `</td>
+            </tr>
+            </table>
+    <br/>`;
+    } else if (notFullRows === 5) {
+        html += `<table class="tribute">
+            <tr>
+               <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>a
+            </tr>
+            <tr>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 1].name + `</font></strong><br>` + placements[i * 6 + 1].pronoun[0] + `/` + itits(placements[i * 6 + 1].pronoun[1]) + `<br>` + (i * 6 + 2) + `th Place` + `<br>` + hasKills(placements[i * 6 + 1]) + `<br>` + placements[i * 6 + 1].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 2].name + `</font></strong><br>` + placements[i * 6 + 2].pronoun[0] + `/` + itits(placements[i * 6 + 2].pronoun[1]) + `<br>` + (i * 6 + 3) + `th Place` + `<br>` + hasKills(placements[i * 6 + 2]) + `<br>` + placements[i * 6 + 2].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 3].name + `</font></strong><br>` + placements[i * 6 + 3].pronoun[0] + `/` + itits(placements[i * 6 + 3].pronoun[1]) + `<br>` + (i * 6 + 4) + `th Place` + `<br>` + hasKills(placements[i * 6 + 3]) + `<br>` + placements[i * 6 + 3].killedBy + `</td>
+               <td valign="top"><strong><font color="ffff00">` + placements[i * 6 + 4].name + `</font></strong><br>` + placements[i * 6 + 4].pronoun[0] + `/` + itits(placements[i * 6 + 4].pronoun[1]) + `<br>` + (i * 6 + 5) + `th Place` + `<br>` + hasKills(placements[i * 6 + 4]) + `<br>` + placements[i * 6 + 4].killedBy + `</td>
+            </tr>
+            </table>
+    <br/>`;
     }
     return html;
 }

@@ -674,6 +674,22 @@ var eventRace = {
                 string: "[1] immediately rushes toward the exit, but it disappears before [1their] eyes. One cannot escape the Corru Games!",
                 playerCount: 1
             },
+            {
+                string: "[1] is happy [1they] did not die first",
+                playerCount: 1
+            },
+            {
+                string: "[1] does not like this game",
+                playerCount: 1
+            },
+            {
+                string: "[1] seeks shelter",
+                playerCount: 1
+            },
+            {
+                string: "[1] immediately throws an explosive in a random direction. This yields no result",
+                playerCount: 1
+            },
 
             // 2's
 
@@ -698,7 +714,7 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] turns to [2] to ask about what is happening, but [2] throws a cyst at [1them] and runs off",
+                string: "[1] turns to [2] to ask about what is happening, but [2] throws a heavy cyst at [1them] and runs off",
                 playerCount: 2
             },
             {
@@ -722,7 +738,7 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] helps [2] fight off a sudden attendant attack",
+                string: "[1] helps [2] fend off a sudden attack",
                 playerCount: 2
             },
             {
@@ -742,11 +758,11 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] grabs a bunch of weapons and tells [2] to do the same if [2they] want to survive",
+                string: "[1] grabs a bunch of weapons and tells [2] to do the same if [2they] want2] to survive",
                 playerCount: 2
             },
             {
-                string: "[1] asks [2] if they have any useful items. [2] offers [1them] a couple of restoratives",
+                string: "[1] asks [2] if [2they] [2have] any useful items. [2] offers [1them] a couple of restoratives",
                 playerCount: 2
             },
             {
@@ -762,7 +778,7 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] both find an aima cyst, but they do not want to share it. Eventually it breaks and they part ways",
+                string: "[1] and [2] both find an aima cyst, however no one wants to share it. Eventually it breaks and they part ways",
                 playerCount: 2
             },
 
@@ -823,6 +839,10 @@ var eventRace = {
                 string: "[1], [2], [3] and [4] search for other participants",
                 playerCount: 4
             },
+            {
+                string: "[1], [2], [3] and [4] argue over who's fault is all this",
+                playerCount: 4
+            },
 
         ],
         lethal: [
@@ -862,8 +882,162 @@ var eventRace = {
                     theFunnyKillFunction(player1, `Okidoia'd but like really violently`)
                 },
             },
+            {
+                string: "Unsuspecting [die1] is stabbed to death by a hostile golem",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Stabbed by a golem`)
+                },
+            },
+            {
+                string: "[die1] cannot fight off the suddenly aggressive corru constructs",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Killed by corru constructs`)
+                },
+            },
+            {
+                string: "[die1] is distracted from [1their] work by a container tearing [1their] mindcore in half",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `No mindcore anymore`)
+                },
+            },
+            {
+                string: "All of a sudden, a veilklight attacks [die1] and kills [1them]",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Bad veilklight encounter`)
+                },
+            },
+            {
+                string: "[die1], weakened by the signal, finds [1themself] to be easy prey for hostile corru",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Too weak to fight`)
+                },
+            },
+            {
+                string: "[die1] successfully fights off corru constructs but ends up bleeding to death",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Buncgture`)
+                },
+            },
+            {
+                string: "[die1] is fatally wounded by an unexpected attendant attack",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Too injured`)
+                },
+            },
+            {
+                string: "[die1] does not know what to do when a really weird golem approaches. [1they] [1are] killed",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `You need to fight stupid`)
+                },
+            },
+            {
+                string: "[die1] dies in a way that has nothing to do with the collapse. Life is just like that",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Died of death`)
+                },
+            },
+            {
+                string: "A random explosive kills [die1]?? Where did that come from??",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Explode`)
+                },
+            },
 
             // 2's
+            {
+                string: "[1] watches in horror as nearby golems turn aggressive and kill [die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Backstory material for <strong><font color="ffff00">` + player1.name + `</font></strong>`)
+                },
+            },
+            {
+                string: "[1] tries to warn [die2] of the hostile corru constructs, but distracts [2them] just as one suddenly appears, ready to strike",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `<strong><font color="ffff00">` + player1.name + `</font></strong> will never stop feeling guilty`)
+                },
+            },
+            {
+                string: "[1] runs away, leaving [die2] alone to fight. [2they] die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Did not get any help`)
+                },
+            },
+            {
+                string: "[die1] tries to help [2] fend off the sudden attack but ends up killed",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Was just trying to help`)
+                },
+            },
 
 
             // 3's
@@ -1078,7 +1252,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[Participant] finds a bug",
+                string: "[Participant1] finds a bug",
                 playerCount: 1
             },
             {
@@ -1090,7 +1264,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] talks to a very strange door... It does not look like made out of corru…",
+                string: "[1] talks to a very strange door... It does not look like made out of corru...",
                 playerCount: 1
             },
             {
@@ -1205,6 +1379,14 @@ var eventCycle = {
                 string: "[1] thinks about orange juice",
                 playerCount: 1
             },
+            {
+                string: "[1] almost dies",
+                playerCount: 1
+            },
+            {
+                string: "[1] stares at [1their] bloodied claws",
+                playerCount: 1
+            },
 
             // 2's
 
@@ -1213,7 +1395,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] scribbles on a wall: \"[2] is a dumbass\"",
+                string: "[1] scribbles on a wall: \"[2] is a kelnit\"",
                 playerCount: 2
             },
             {
@@ -1289,7 +1471,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] attacks [2], hoping to take [2their] resources, but [2] fights [1them] off",
+                string: "[1] attacks [2], hoping to take [2their] resources, but [2] fends [1them] off",
                 playerCount: 2
             },
             {
@@ -1413,7 +1595,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] thinks [1they] [1have] found [2]'s corpse, but in reality [2] is pretending to be dead",
+                string: "[1] thinks [1they] [1have] found [2]'s corpse, but in reality [2] is playing dead",
                 playerCount: 2
             },
             {
@@ -1429,7 +1611,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] gives all the junk he found to [2] and takes away all the valuable stuff [1themself]",
+                string: "[1] gives all the junk [1they] found to [2] and takes away all the valuable stuff [1themself]",
                 playerCount: 2
             },
             {
@@ -1449,11 +1631,11 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] tries to scare away [2], but accidentally becomes [2their] friend",
+                string: "[1] tries to scare away [2] but accidentally becomes [2their] friend",
                 playerCount: 2
             },
             {
-                string: "[1] and [2] fight for the entire wink, but continue to evade each other's attacks over and over again",
+                string: "[1] and [2] battle for the entire wink, but continue to evade each other's attacks over and over again",
                 playerCount: 2
             },
             {
@@ -1492,6 +1674,14 @@ var eventCycle = {
                 string: "[1] tries to wrestle a kavruka away from [2], but [2they] throw2] it to the side, detonating it",
                 playerCount: 2
             },
+            {
+                string: "[1] makes [2] feel weird",
+                playerCount: 2
+            },
+            {
+                string: "[1] asks [2] about [2their] thoughts on the Call. Inexplicably, [2] grows very nervous",
+                playerCount: 2
+            },
 
             // 3's
 
@@ -1500,7 +1690,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] explains the mechanics of the dull to [2] and [3] in excruciating detail. [2] is actually invested, but the other one wants to kill [1] just so [3they] do not have to listen to this",
+                string: "[1] explains the mechanics of the dull to [2] and [3] in excruciating detail. [2] is actually invested, but the other one wants to kill [1] just so [3they] [3do] not have to listen to this",
                 playerCount: 3
             },
             {
@@ -1666,9 +1856,20 @@ var eventCycle = {
                 string: "[1], [2], [3] and [4] decide to play a cousinly game called \"Monopoly\", but no one knows the rules",
                 playerCount: 4
             },
-
             {
                 string: "[1] tells [2], [3] and [4] everything about the meteorite and the conflict around it",
+                playerCount: 4
+            },
+            {
+                string: "[1], [2], [3] and [4] kill everything on sight",
+                playerCount: 4
+            },
+            {
+                string: "[1] and [2] seem suspicious to [3], but [4] does not listen to [3their] worries",
+                playerCount: 4
+            },
+            {
+                string: "[1] is bullied by [2], [3] and [4]",
                 playerCount: 4
             },
 
@@ -1688,6 +1889,14 @@ var eventCycle = {
             },
             {
                 string: "[1] is rude to [2], who gets upset and complains to [3], who tells [4] about the situation, who asks [5] for help, who punches [1] in the face",
+                playerCount: 5
+            },
+            {
+                string: "[1] throws an explosive at the group of [2], [3], [4] and [5]. Everyone scatters and, by a giggle of Velzie, no one dies",
+                playerCount: 5
+            },
+            {
+                string: "[1] and [2] pick a fight with [3], [4] and [5], but leave quickly after realizing they are outnumbered",
                 playerCount: 5
             },
 
@@ -1828,6 +2037,160 @@ var eventCycle = {
                     theFunnyKillFunction(player1, `Cursed`)
                 },
             },
+            {
+                string: "[die1] is transferred onto the enemy team",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Switched teams`)
+                },
+            },
+            {
+                string: "[die1] slips on the floor and dies",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Too clumsy`)
+                },
+            },
+            {
+                string: "[die1] succumbs to contact affliction",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Got afflicted`)
+                },
+            },
+            {
+                string: "[die1] ascends to a higher plane of existence",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Where tf [0are] [0they]`)
+                },
+            },
+            {
+                string: "[die1] is found out to be cheating and gets automatically eliminated",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Cheats on`)
+                },
+            },
+            {
+                string: "[die1] chokes on a piece of sfer",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Just wanted a little snack`)
+                },
+            },
+            {
+                string: "[die1] attempts to escape the Games by jumping off the embassy",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Not a good escape plan`)
+                },
+            },
+            {
+                string: "[die1] hugs a hostile corru construct. It hugs [1them] back. With a sharpened tendril. Through the mindcore",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Friendship and love did not save [0them]`)
+                },
+            },
+            {
+                string: "[die1] follows [1their] dreams. They lead straight to death",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Pure claws humor`)
+                },
+            },
+            {
+                string: "[die1] dies on the whim of the randomizer on which the Corru Games run",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Killed by the Games`)
+                },
+            },
+            {
+                string: "[die1] tries to use the dull to teleport away but it goes horribly wrong. Obviously",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Teleported to the other side`)
+                },
+            },
+            {
+                string: "[die1] breaks the rules of combat and is killed by a daemon",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Angered the framing device`)
+                },
+            },
+            {
+                string: "[die1] fights and kills and hits and fights and... finally collapses from exhaustion",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Fought well`)
+                },
+            },
+            {
+                string: "[die1]'s qou body fails and [1their] exposed mindcore is soon attacked and sludged",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Debodied and dealived`)
+                },
+            },
 
             // 2's
 
@@ -1840,6 +2203,17 @@ var eventCycle = {
                     diedThisCycle += this.howManyDeaths;
 
                     theFunnyKillFunction(player2, `Lost a bet`)
+                },
+            },
+            {
+                string: "[1] kills [die2] because [2they] [2are] so fucking annoying",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Assigned annoying by [1]`, player1)
                 },
             },
             {
@@ -1876,7 +2250,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] shoots [die2] with a \"gun's\"",
+                string: "[1] shoots [die2] with a gun's",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -1912,6 +2286,29 @@ var eventCycle = {
                     placements.push(player2);
                     player2.alive = false;
                     player2.killedBy = `Got caught in <strong><font color="ffff00">` + player1.name + `</font></strong>'s explosion`;
+                },
+            },
+            {
+                string: "[die1] is killed despite [2]'s best efforts to keep [1them] safe",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Killed despite <strong><font color="ffff00">` + player2.name + `</font></strong>'s efforts`)
+                },
+            },
+            {
+                string: "[die1] and [2die] get into a fight but disagree on who should die. As a compromise, they both politely die",
+                playerCount: 2,
+                howManyDeaths: 2,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Found a compromise with [1]`, player2)
+                    theFunnyKillFunction(player2, `Found a compromise with [1]`, player1)
                 },
             },
 
@@ -2203,6 +2600,24 @@ var eventCycle = {
                     placements = placements.filter(o => o.name !== player1.name);
                 }
             },
+            {
+                string: "[rev1]'s mangled husk rises to terrible life... Though [1they] feel1] kinda normal? Like, not possessed by an entity far larger than any qou can comprehend?",
+                playerCount: 1,
+                howManyDeaths: 0,
+                howManyRevivals: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    currentCharacterNumber += this.howManyRevivals;
+                    diedThisCycle += this.howManyDeaths;
+
+                    player1.alive = true;
+                    player1.revived++;
+                    player1.oldKilledBys.push(player1.killedBy);
+                    player1.killedBy = undefined;
+
+                    placements = placements.filter(o => o.name !== player1.name);
+                }
+            },
 
             // 2's
 
@@ -2299,7 +2714,7 @@ var eventCycle = {
             {
                 string: "[rev1] steals [die2]'s body and rejoins the Corru Games",
                 playerCount: 2,
-                howManyDeaths: 0,
+                howManyDeaths: 1,
                 howManyRevivals: 1,
                 updateData: function (player1, player2) {
                     currentCharacterNumber -= this.howManyDeaths;
@@ -2319,7 +2734,7 @@ var eventCycle = {
             {
                 string: "[rev1] comes back to life just to kill [die2]",
                 playerCount: 2,
-                howManyDeaths: 0,
+                howManyDeaths: 1,
                 howManyRevivals: 1,
                 updateData: function (player1, player2) {
                     currentCharacterNumber -= this.howManyDeaths;

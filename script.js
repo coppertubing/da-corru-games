@@ -2261,6 +2261,17 @@ var eventCycle = {
                 },
             },
             {
+                string: "[1] opens inspect element and accidentally deletes [die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Erased from existence by [1]`, player1)
+                },
+            },
+            {
                 string: "[1] commits vehicular manslaughter on [die2]",
                 playerCount: 2,
                 howManyDeaths: 1,
@@ -2300,7 +2311,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] and [2die] get into a fight but disagree on who should die. As a compromise, they both politely die",
+                string: "[die1] and [die2] get into a fight but disagree on who should die. As a compromise, they both politely die",
                 playerCount: 2,
                 howManyDeaths: 2,
                 updateData: function (player1, player2) {

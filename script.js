@@ -690,6 +690,22 @@ var eventRace = {
                 string: "[1] immediately throws an explosive in a random direction. This yields no result",
                 playerCount: 1
             },
+            {
+                string: "[1] cannot imagine killing another obesk",
+                playerCount: 1
+            },
+            {
+                string: "[1] giggles",
+                playerCount: 1
+            },
+            {
+                string: "[1] thinks that this is not very good",
+                playerCount: 1
+            },
+            {
+                string: "[1] grabs a disabler",
+                playerCount: 1
+            },
 
             // 2's
 
@@ -1387,6 +1403,19 @@ var eventCycle = {
                 string: "[1] stares at [1their] bloodied claws",
                 playerCount: 1
             },
+            {
+                string: "[1] self-modifies",
+                playerCount: 1
+            },
+            {
+                string: "[1] shouts at a golem and, somehow, this scares it away",
+                playerCount: 1
+            },
+            {
+                string: "[1] lies on the floor",
+                playerCount: 1
+            },
+            
 
             // 2's
 
@@ -1395,11 +1424,15 @@ var eventCycle = {
                 playerCount: 2
             },
             {
+                string: "[1] notices [2] acting strangely",
+                playerCount: 2
+            },
+            {
                 string: "[1] scribbles on a wall: \"[2] is a kelnit\"",
                 playerCount: 2
             },
             {
-                string: "[1] is sullenly silent to any attempts by [2] to make conversation. [2they] take2] offense and decide2] to kill [1] whenever possible in the future",
+                string: "[1] is silent to any attempts by [2] to make conversation. [2they] take2] offense and decide2] to kill [1] whenever possible in the future",
                 playerCount: 2
             },
             {
@@ -1587,7 +1620,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] resort to playing rock-acid-claws in order to settle a debate",
+                string: "[1] and [2] resort to playing rock-acid-claws to settle a debate",
                 playerCount: 2
             },
             {
@@ -1682,9 +1715,33 @@ var eventCycle = {
                 string: "[1] asks [2] about [2their] thoughts on the Call. Inexplicably, [2] grows very nervous",
                 playerCount: 2
             },
+            {
+                string: "[1] and [2] hold claws",
+                playerCount: 2
+            },
+            {
+                string: "[1] thinks about killing [2]",
+                playerCount: 2
+            },
+            {
+                string: "[1] beats [2] up but does not kill [2them]",
+                playerCount: 2
+            },
+            {
+                string: "[1] contacts [2] about [2their] extended dull vessel warranty",
+                playerCount: 2
+            },
+            {
+                string: "[1] begs [2] to let [1them] kill [2them]",
+                playerCount: 2
+            },
 
             // 3's
 
+            {
+                string: "[1] whispers to [2] that [3] does not seem quite the same as before",
+                playerCount: 3
+            },
             {
                 string: "[1] notices [2] and [3] following [1them] and tries to escape",
                 playerCount: 3
@@ -1750,11 +1807,11 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] and [2] encounter [3], who wants to join their group despite [2]'s protest. [1] decides to abandon [2] to navigate the embassy with [3] instead",
+                string: "[1] and [2] encounter [3], who wants to join their group. [2] protests. [1] decides to abandon [2] to navigate the embassy with [3] instead",
                 playerCount: 3
             },
             {
-                string: "[1] and [2] encounter [3], who wants to join their group despite [2]'s protest. [1] decides to stay with [2], and [3] begrudgingly leaves",
+                string: "[1] and [2] encounter [3], who wants to join their group despite. [2] protests. [1] decides to stay with [2], and [3] begrudgingly leaves",
                 playerCount: 3
             },
             {
@@ -1770,7 +1827,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] wounds [2] badly but does not get enough time to finish [2them] off before [3] appears out of nowhere and fights [1them] off",
+                string: "[1] wounds [2] badly but does not get enough time to finish [2them] off before [3] appears out of nowhere",
                 playerCount: 3
             },
             {
@@ -1815,6 +1872,22 @@ var eventCycle = {
             },
             {
                 string: "[1] betrays [2] and [3], stealing their supplies and running away",
+                playerCount: 3
+            },
+            {
+                string: "[1] barely manages to escape [2] and [3]'s ambush",
+                playerCount: 3
+            },
+            {
+                string: "[1], [2] and [3] explore damaged sections of the embassy together",
+                playerCount: 3
+            },
+            {
+                string: "[1] and [2] rescue [3] from under the debris",
+                playerCount: 3
+            },
+            {
+                string: "[1], [2] and [3] decide to become best friends",
                 playerCount: 3
             },
 
@@ -2137,7 +2210,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] dies on the whim of the randomizer on which the Corru Games run",
+                string: "[die1] dies by the whim of the randomizer on which the Corru Games run",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2159,7 +2232,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] breaks the rules of combat and is killed by a daemon",
+                string: "[die1] breaks the rules of combat and is obliterated by a daemon",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2191,6 +2264,28 @@ var eventCycle = {
                     theFunnyKillFunction(player1, `Debodied and dealived`)
                 },
             },
+            {
+                string: "[die1] spontaneously combusts",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Supernova`)
+                },
+            },
+            {
+                string: "[die1] falls over and shatters into a million pieces",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Rest in pieces`)
+                },
+            },
 
             // 2's
 
@@ -2205,6 +2300,40 @@ var eventCycle = {
                     theFunnyKillFunction(player2, `Lost a bet`)
                 },
             },
+            {
+                string: "[die1] is killed despite [2]'s best efforts to keep [1them] safe",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Killed despite <strong><font color="ffff00">` + player2.name + `</font></strong>'s efforts`)
+                },
+            },
+            {
+                string: "[1] watches [die2] being beaten to death by incoherent foes but does not intervene",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Beaten to death`)
+                },
+            },
+            {
+                string: "[1] sees [die2] struggling in fights, but [2they] swear2] that [2they] can handle it. [2they] cannot",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Arrogant`)
+                },
+            },
+
             {
                 string: "[1] kills [die2] because [2they] [2are] so fucking annoying",
                 playerCount: 2,
@@ -2228,14 +2357,14 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] successfully lands " + (Math.round(Math.random() * 100) + 31) + " frenzy critical hits on [die2]",
+                string: "[1] successfully lands 9876542 frenzy critical hits on [die2]",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player2, `Totally frenzied by [1]`, player1)
+                    theFunnyKillFunction(player2, `[1] just kept going`, player1)
                 },
             },
             {
@@ -2261,6 +2390,17 @@ var eventCycle = {
                 },
             },
             {
+                string: "[1] strikes [die2] when [2they] least expect2] it",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Caught off guard by [1]`, player1)
+                },
+            },
+            {
                 string: "[1] opens inspect element and accidentally deletes [die2]",
                 playerCount: 2,
                 howManyDeaths: 1,
@@ -2279,9 +2419,65 @@ var eventCycle = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player2, `Vehicularmanslaughtered by [1]`, player1)
+                    theFunnyKillFunction(player2, `Vehicular manslaughtered by [1]`, player1)
                 },
             },
+            {
+                string: "[1] persues [die2] relentlessly and murders [2them] upon finally catching up",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Hunted down by [1]`, player1)
+                },
+            },
+            {
+                string: "[1] casts \"die\" on [die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `[1]'s sorcery`, player1)
+                },
+            },
+            {
+                string: "[1] mauls [die2]",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Mauled by [1]`, player1)
+                },
+            },
+            {
+                string: "[1] groundminds the walls around [die2] to shape themselves into deadly spikes",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Groundsminded by [1]`, player1)
+                },
+            },
+            {
+                string: "[1] quietly mutters \"<i>sorry...</i>\" before stabbing [die2] from behind",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Backstabbed by [1]`, player1)
+                },
+            },
+
             {
                 string: "[die1] accidentally explodes [1themself] along with [die2]",
                 playerCount: 2,
@@ -2300,18 +2496,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] is killed despite [2]'s best efforts to keep [1them] safe",
-                playerCount: 2,
-                howManyDeaths: 1,
-                updateData: function (player1, player2) {
-                    currentCharacterNumber -= this.howManyDeaths;
-                    diedThisCycle += this.howManyDeaths;
-
-                    theFunnyKillFunction(player1, `Killed despite <strong><font color="ffff00">` + player2.name + `</font></strong>'s efforts`)
-                },
-            },
-            {
-                string: "[die1] and [die2] get into a fight but disagree on who should die. As a compromise, they both politely die",
+                string: "[die1] and [die2] get into a fight but disagree on who should be killed. As a compromise, they both die politely",
                 playerCount: 2,
                 howManyDeaths: 2,
                 updateData: function (player1, player2) {
@@ -2320,6 +2505,30 @@ var eventCycle = {
 
                     theFunnyKillFunction(player1, `Found a compromise with [1]`, player2)
                     theFunnyKillFunction(player2, `Found a compromise with [1]`, player1)
+                },
+            },
+            {
+                string: "While fighting over a disabler, [die1] and [die2] accidentally activate it",
+                playerCount: 2,
+                howManyDeaths: 2,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Improper disabler use`, player2)
+                    theFunnyKillFunction(player2, `Improper disabler use`, player1)
+                },
+            },
+            {
+                string: "[die1] and [die2] wound each other fatally",
+                playerCount: 2,
+                howManyDeaths: 2,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Wounded and killed by [1]`, player2)
+                    theFunnyKillFunction(player2, `Wounded and killed by [1]`, player1)
                 },
             },
 
@@ -2414,7 +2623,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] clarifies that [1they] did not <i>die</i> - [1they] <u>died</u>",
+                string: "[rev1] clarifies that [1they] did not <i>die</i>, [1they] <u>died</u>",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -2705,7 +2914,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] still feels weird after being revived. [1they] ask1] [2] for assistance",
+                string: "[rev1] feels weird after being revived. [1they] ask1] [2] for assistance",
                 playerCount: 2,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -2759,7 +2968,7 @@ var eventCycle = {
 
                     placements = placements.filter(o => o.name !== player1.name);
 
-                    theFunnyKillFunction(player2, `Got <strong><font color="ffff00">` + player1.name + `</font></strong> so mad [1they] came1] back from the afterlife to kill`, player1)
+                    theFunnyKillFunction(player2, `Got <strong><font color="ffff00">` + player1.name + `</font></strong> so mad [1they] came1] back from the backstage to get revenge`, player1)
                 }
             },
         ]
@@ -2769,108 +2978,7 @@ var eventCycle = {
 var eventsRandom = [
     {
         used: false,
-        string: `Every corner of the embassy is all of a sudden filled with hundreds of containers... And these containers are-<br><font color='ff0066'>RABID n EVIL AS FUCK!!!!!!!!!!!!!!!!!!!!!!</font>`,
-        eventGenus: {
-            regular: function () {
-                var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`regular`]);
-
-                var playerCount = eventObject.playerCount;
-
-                var players = decidePlayers(playerCount);
-                currentUnusedCharacterNumber -= playerCount;
-
-                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
-                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
-                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
-                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
-                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
-                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
-                console.log(eventString, players);
-
-                if (playerCount === 1) var eventImage = makeImages(players[0].image)
-                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
-
-                var event = eventImage + eventString + `<br><br>`;
-
-                return event;
-            },
-            lethal: function () {
-                do var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`lethal`])
-                while (eventObject.howManyDeaths >= currentCharacterNumber);
-
-                var playerCount = eventObject.playerCount;
-
-                var players = decidePlayers(playerCount);
-                currentUnusedCharacterNumber -= playerCount;
-
-                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
-                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
-                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
-                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
-                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
-                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
-                console.log(eventString, players);
-
-                if (playerCount === 1) var eventImage = makeImages(players[0].image)
-                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
-
-                var event = eventImage + eventString + `<br><br>`;
-
-                eventObject.updateData.apply(eventObject, players);
-
-                return event;
-            },
-            revival: function () {
-                var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`revival`]);
-
-                var playerCount = eventObject.playerCount;
-
-                var revivedPlayers = decideRevivedPlayers(eventObject.howManyRevivals);
-                if (revivedPlayers == "stop") return "stop";
-                var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals);
-
-                var players = revivedPlayers.concat(justPlayers);
-
-                currentUnusedCharacterNumber -= playerCount - eventObject.howManyRevivals;
-
-                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
-                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
-                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
-                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
-                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
-                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
-                console.log(eventString, players);
-
-                if (playerCount === 1) var eventImage = makeImages(players[0].image)
-                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
-
-                var event = eventImage + eventString + `<br><br>`;
-
-                eventObject.updateData.apply(eventObject, players);
-
-                return event;
-            },
-            array: {
-                regular: [],
-                lethal: []
-            }
-        }
-    } // 1000 containers 
-    /*{
-        used: false,
-        string: `Внезапно на фоне начинает играть замедленная версия Kayava...<br>"Я должен найти пару или умереть"`,
+        string: `Every corner of the embassy is all of a sudden filled with hundreds of containers... And these containers are-<br><font color='ff0066'>RABID n EVIL AS F*CK!!!!!!!!!!!!!!!!!!!!!!</font>`,
         eventGenus: {
             regular: function () {
                 var eventObject = decideEventObject(eventsRandom[0][`eventGenus`][`array`][`regular`]);
@@ -2965,404 +3073,361 @@ var eventsRandom = [
             },
             array: {
                 regular: [
+                    // 1's
+
                     {
-                        string: "(Player1) остро реагирует на появление Инва и со злобой убивает его",
+                        string: "[1] opens a door, sees containers, closes the door",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) заводит тридцать семь котят с Инвом, после чего Инв навсегда пропадает, уйдя за фруктами",
+                        string: "[1] throws an explosive at the absurd amount of containers",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) оказался настолько несимпатичным, что даже Инв предпочитает избегать егоеё",
+                        string: "[1] withstands an attack of numerous containers thanks to satik cysts",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) оказывается даже слишком напористым и Инв сбегает",
+                        string: "[1] hides desperately",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) пугается Инва и убивает его",
+                        string: "[1] locks [1themself] in a container-free room and waits for this to end",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) отказывается встречаться, потому что у него/неё уже есть вторая половинка, но Инв не отстаёт и оказывается убит",
+                        string: "[1] convinces the containers that [1they] [1are] one of them",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) везёт с тем, чтобы не встретить Инва",
+                        string: "[1] kills so, so many containers",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) видит Инва на расстоянии и решает убежать",
+                        string: "[1] screams in horror",
                         playerCount: 1
                     },
                     {
-                        string: "Инв предлагает подарить (Player1) трусы, но (Player1) отказывается",
+                        string: "[1] curses Velzie for this madness as a dozen containers chase [1them]",
                         playerCount: 1
                     },
                     {
-                        string: "Инв предлагает (Player1) поцеловаться, но (Player1) не умеет",
+                        string: "[1] fights the containers without mercy",
                         playerCount: 1
                     },
                     {
-                        string: "Инв дарит (Player1) яйцо, но (Player1) не знает, что с ним делать. Инв злится и уходит со свидания",
+                        string: "[1] wishes for the containers to leave [1them] alone",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) так сильно хочет встречаться с Инвом, что тот пугается и тихо убегает",
+                        string: "[1] lures some containers in a damaged chamber and throws a bomb in there, causing it to collapse and kill everything inside",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) предлагает Инву поиграть в прятки и немедленно сбегает как только тот закрывает глаза",
+                        string: "[1] stabs through multiple containers at once",
                         playerCount: 1
                     },
                     {
-                        string: "Инв почти завоёвывает сердце (Player1), но делает неправильный выбор и (Player1) обижается на него, уходя со свидания",
+                        string: "[1] is stuck in a room with containers skittering on the floor, walls and ceiling",
                         playerCount: 1
                     },
                     {
-                        string: "У Инва и (Player1) не получается завести отношения, однако они становятся замечательными друзьями и проходят вместе через уйму приключений",
+                        string: "[1] is pissed at the stupid amount of containers",
                         playerCount: 1
                     },
                     {
-                        string: "Инв спрашивает у (Player1), не дама ли он, и оказывается убит",
+                        string: "[1] sobs quietly as [1they] hear1] containers hitting [1their] door",
                         playerCount: 1
                     },
                     {
-                        string: "(Player1) заманивает Инва к себе домой и продает его на органы",
+                        string: "[1] rips a container in half",
                         playerCount: 1
-                    },
+                    },   
+
+                    // 2's
+
                     {
-                        string: "(Player1) убеждает Инва вознестись, но тот возвращается в виде ужасного Отголоска второй кармы. Спасения нет",
-                        playerCount: 1
-                    },
-                    {
-                        string: "(Player1) и Инв ночуют вместе в одном убежище ;)",
-                        playerCount: 1
-                    },
-                    {
-                        string: "(Player1) целуется с Инвом. (Player2) проходит мимо и расплакивается от увиденного",
+                        string: "[1] and [2] help each other defend against the containers",
                         playerCount: 2
                     },
                     {
-                        string: "(Player1) думает, что идёт на свидание с Инвом, но попадается на пранк и получает неловкую встречу с (Player2) ",
+                        string: "[1] and [2] search escape from the container hell",
                         playerCount: 2
                     },
                     {
-                        string: "(Player1) переполняется любовью к Инву, но путается и целует (Player2)",
+                        string: "[1] asks [2] for help with the containers",
                         playerCount: 2
                     },
+
+                    // 3's
+
                     {
-                        string: "Инв пытается познакомиться с (Player1), но его тут же убивает ревнивый (Player2)",
-                        playerCount: 2
-                    },
-                    {
-                        string: "(Player1) разводится с (Player2) чтобы стать парой Инва",
-                        playerCount: 2
-                    },
-                    {
-                        string: "(Player1) попадается Инву, но быстро толкает (Player2) к нему вместо себя",
-                        playerCount: 2
-                    },
-                    {
-                        string: "Инв пытается замутить с (Player1), но каким-то образом в результате (Player1) и (Player2) начинают встречаться",
-                        playerCount: 2
-                    },
-                    {
-                        string: "(Player1), (Player2) и Инв образуют поликулу",
-                        playerCount: 2
-                    },
-                    {
-                        string: "(Player1) предлагает познакомить Инва с (Player2), но (Player2) отказывается, потому как влюблён в (Player3)",
+                        string: "[1], [2] and [3] compete with [4], [5] and [6] for resources",
                         playerCount: 3
-                    }
+                    },
+
+                    // 4's
+
+                    {
+                        string: "[1], [2] and [3] compete with [4], [5] and [6] for resources",
+                        playerCount: 4
+                    },
+
+                    // 5's
+
+                    {
+                        string: "[1], [2] and [3] compete with [4], [5] and [6] for resources",
+                        playerCount: 5
+                    },
+
+                    // 6's
+
+                    {
+                        string: "[1], [2] and [3] compete with [4], [5] and [6] for resources",
+                        playerCount: 6
+                    },
                 ],
                 lethal: [
                     {
-                        string: "Инв приглашает (Player1) на свидание, вследствие чего (Player1-Died) умирает",
+                        string: "[die1] is torn apart by the containers",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Пошёл на свидание Инва`;
-                        }
+                            theFunnyKillFunction(player1, `Torn apart by containers`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) и Инв хорошо проводят время вместе и влюбляются друг в друга. Яйцо сингулярности объединяет их в одно целое и они живут счастливо до конца",
+                        string: "[die1] is crushed under the weight of a thousand containers",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Счастливо живёт с Инвом`;
-                        }
+                            theFunnyKillFunction(player1, `Containers weigh a lot`)
+                        },        
                     },
                     {
-                        string: "Инв дарит цветы (Player1-Died), но у (Player1-Died) оказывается на них аллергия, и (Player1-Died) погибает страшной смертью",
+                        string: "[die1] is pierced right through [1their] mindcore by the containers",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Погиб от аллергической реакции`;
-                        }
+                            theFunnyKillFunction(player1, `Pierced by containers`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) почти соглашается стать его парой, но благодаря паранормальной неудаче Инва, с неба падает левиафан, моментально убивая (Player1-Died)",
+                        string: "[die1] is lost in the container flood",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Был раздавлен небесным левиафаном`;
-                        }
+                            theFunnyKillFunction(player1, `Container flood`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died), не веря, что коты могут страдать, разбивает сердце Инву. В итоге он использует яйцо, чтобы покончить с жизнью и отомстить (Player1-Died)",
+                        string: "Every single part of [die1] is bitten off by the containers",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Разбил Инву сердце`;
-                        }
+                            theFunnyKillFunction(player1, `Bited by containers`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) отбирает яйцо у Инва и взрывает его, вызывая разлом вселенной, крах законов физики и собственную смерть",
+                        string: "[die1] is dismantled by the containers",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Взорвал яйцо Инва`;
-                        }
+                            theFunnyKillFunction(player1, `Dismantled by containers`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) соглашается пойти на свидание с Инвом, однако сама вселенная против того, чтобы Инв нашел свое счастье, и убивает (Player1-Died)",
+                        string: "[die1] reaches a dead end while running away from the containers, ending up dead",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Стал жертвой паранормального невезения Инва`;
-                        }
+                            theFunnyKillFunction(player1, `No escape from containers`)
+                        },        
                     },
                     {
-                        string: "Инв случайно разбивает сердце (Player1-Died). Буквально. Крови было много",
+                        string: "[die1] is not properly equipped to handle this many containers and gets killed",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Погиб от разбитого сердца`;
-                        }
+                            theFunnyKillFunction(player1, `Too many containers`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) и Инв гуляют вместе, как вдруг на них сваливается 83 красных сколопендры",
+                        string: "[die1] loses against a singular container",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Поздоровался с 83-емя красными сколопендрами`;
-                        }
-                    },
-                    {
-                        string: "(Player1-Died) травится едой на свидании с Инвом и умирает",
-                        playerCount: 1,
-                        howManyDeaths: 1,
-                        updateData: function (player1) {
-                            currentCharacterNumber -= this.howManyDeaths;
-                            diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Отравился на свидании с Инвом`;
-                        }
-                    },
-                    {
-                        string: "(Player1-Died) и Инв идут возноситься вместе в знак своей вечной любви, но сваливаются в Рубикон",
-                        playerCount: 1,
-                        howManyDeaths: 1,
-                        updateData: function (player1) {
-                            currentCharacterNumber -= this.howManyDeaths;
-                            diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Застрял с Инвом в пустоте`;
-                        }
-                    },
-                    {
-                        string: "Инв флиртует с (Player1-Died), и тот хочет кое-что ему показать, но случайно давится собственной рукой",
-                        playerCount: 1,
-                        howManyDeaths: 1,
-                        updateData: function (player1) {
-                            currentCharacterNumber -= this.howManyDeaths;
-                            diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Неудачно показал фокус`;
-                        }
-                    },
-                    {
-                        string: "Инв красуется перед (Player1-Died) своими яйцами сингулярности, но (Player1-Died) случайно детонирует их",
-                        playerCount: 1,
-                        howManyDeaths: 1,
-                        updateData: function (player1) {
-                            currentCharacterNumber -= this.howManyDeaths;
-                            diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Потрогал яйцо Инва`;
-                        }
-                    },
-                    {
-                        string: "Инв оказывается настолько горячим, что (Player1-Died) расплавляется",
-                        playerCount: 1,
-                        howManyDeaths: 1,
-                        updateData: function (player1) {
-                            currentCharacterNumber -= this.howManyDeaths;
-                            diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Не выдержал высокие температуры`;
-                        }
+                            theFunnyKillFunction(player1, `Just weak`)
+                        },        
                     },
 
+                    // 2's
+
                     {
-                        string: "(Player1) требует от Инва доказать свою любовь, убив (Player2-Died)",
+                        string: "[die1] sacrifices [1themself] to the containers in order to save [2]",
                         playerCount: 2,
                         howManyDeaths: 1,
                         updateData: function (player1, player2) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            placements.push(player2);
-                            player1.kills++;
-                            player1.hasKilled.push(player2.name);
-                            player2.alive = false;
-                            player2.killedBy = `Был убит Инвом, нанятым <strong><font color="ffff00">` + player1.name + `</font></strong>`;
-                        }
+                            theFunnyKillFunction(player1, `Sacrificed [0themself] for the sake of <strong><font color="ffff00">` + player2.name + `</font></strong>`)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) идет на свидание с Инвом, но (Player2) убивает его - не из-за ревности или подобного, однако по закону подлости Инва",
+                        string: "[die1] is viciously murdered by the containers; [2] vows revenge",
                         playerCount: 2,
                         howManyDeaths: 1,
                         updateData: function (player1, player2) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player2.kills++;
-                            player2.hasKilled.push(player1.name);
-                            player1.alive = false;
-                            player1.killedBy = `Был убит <strong><font color="ffff00">` + player2.name + `</font></strong> по закону подлости Инва`;
-                        }
+                            theFunnyKillFunction(player1, `Murdered by containers`)
+                        },        
                     },
+
                     {
-                        string: "(Player1-Died) устраивает культ в честь Инва, но его сжигает (Player2), последователь Искательницы",
+                        string: "[1] locks [die2] in a chamber with containers and leaves [2them] to die",
                         playerCount: 2,
                         howManyDeaths: 1,
                         updateData: function (player1, player2) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player2.kills++;
-                            player2.hasKilled.push(player1.name);
-                            player1.alive = false;
-                            player1.killedBy = `Нарвался на культиста <strong><font color="ffff00">` + player2.name + `</font></strong>`;
-                        }
+                            theFunnyKillFunction(player2, `Locked in a room with containers by [1]`, player1)
+                        },        
                     },
                     {
-                        string: "(Player1-Died) и (Player2-Died) выслеживают Инва с целью убить, но проигрывают в схватке против него и погибают",
+                        string: "[1] throws [die2] at the containers, which promptly annihilate [2them]",
                         playerCount: 2,
-                        howManyDeaths: 2,
+                        howManyDeaths: 1,
                         updateData: function (player1, player2) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-
-                            
-                            player1.alive = false;
-                            player1.killedBy = `Был убит Инвом`;
-                            placements.push(player2);
-                            player2.alive = false;
-                            player2.killedBy = `Был убит Инвом`;
-                        }
+                            theFunnyKillFunction(player2, `Thrown at containers by [1]`, player1)
+                        },        
                     },
-
                     {
-                        string: "(Player1-Died), (Player2-Died) и (Player3-Died) очень желают встречаться с Инвом, но так и не решают, кто из них троих достойнее, и в битве убивают друг друга",
-                        playerCount: 3,
-                        howManyDeaths: 3,
-                        updateData: function (player1, player2, player3) {
+                        string: "[1] uses the ensuing chaos as an opportunity to kill [die2]",
+                        playerCount: 2,
+                        howManyDeaths: 1,
+                        updateData: function (player1, player2) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
+                            theFunnyKillFunction(player2, `Killed by [1] in the midst of container chaos`, player1)
+                        },        
+                    },
+                ],
+                revival: [
+                    {
+                        string: "A hostile container wobbles oddly and turns into [rev1]",
+                        playerCount: 1,
+                        howManyDeaths: 0,
+                        howManyRevivals: 1,
+                        updateData: function (player1) {
+                            currentCharacterNumber -= this.howManyDeaths;
+                            currentCharacterNumber += this.howManyRevivals;
+                            diedThisCycle += this.howManyDeaths;
 
-                            
-                            placements.push(player2);
-                            placements.push(player3);
+                            player1.alive = true;
+                            player1.revived++;
+                            player1.oldKilledBys.push(player1.killedBy);
+                            player1.killedBy = undefined;
 
-                            player1.kills++;
-                            player1.kills++;
-                            player1.hasKilled.push(player2.name);
-                            player1.hasKilled.push(player3.name);
-
-                            player2.kills++;
-                            player2.kills++;
-                            player2.hasKilled.push(player1.name);
-                            player2.hasKilled.push(player3.name);
-
-                            player3.kills++;
-                            player3.kills++;
-                            player3.hasKilled.push(player1.name);
-                            player3.hasKilled.push(player2.name);
-
-                            player1.alive = false;
-                            player1.killedBy = `Боролся за сердце Инва с <strong><font color="ffff00">` + player2.name + `</font></strong> и <strong><font color="ffff00">` + player3.name + `</font></strong>`;
-                            player2.alive = false;
-                            player2.killedBy = `Боролся за сердце Инва с <strong><font color="ffff00">` + player1.name + `</font></strong> и <strong><font color="ffff00">` + player3.name + `</font></strong>`;
-                            player3.alive = false;
-                            player3.killedBy = `Боролся за сердце Инва с <strong><font color="ffff00">` + player1.name + `</font></strong> и <strong><font color="ffff00">` + player2.name + `</font></strong>`;
+                            placements = placements.filter(o => o.name !== player1.name);
                         }
-                    }
+                    },
+                    {
+                        string: "A hostile container falls over and opens, revealing [rev1] inside",
+                        playerCount: 1,
+                        howManyDeaths: 0,
+                        howManyRevivals: 1,
+                        updateData: function (player1) {
+                            currentCharacterNumber -= this.howManyDeaths;
+                            currentCharacterNumber += this.howManyRevivals;
+                            diedThisCycle += this.howManyDeaths;
+
+                            player1.alive = true;
+                            player1.revived++;
+                            player1.oldKilledBys.push(player1.killedBy);
+                            player1.killedBy = undefined;
+
+                            placements = placements.filter(o => o.name !== player1.name);
+                        }
+                    },
+                    {
+                        string: "A couple of containers gather in a group and assemble into [rev1]",
+                        playerCount: 1,
+                        howManyDeaths: 0,
+                        howManyRevivals: 1,
+                        updateData: function (player1) {
+                            currentCharacterNumber -= this.howManyDeaths;
+                            currentCharacterNumber += this.howManyRevivals;
+                            diedThisCycle += this.howManyDeaths;
+
+                            player1.alive = true;
+                            player1.revived++;
+                            player1.oldKilledBys.push(player1.killedBy);
+                            player1.killedBy = undefined;
+
+                            placements = placements.filter(o => o.name !== player1.name);
+                        }
+                    },
+                    {
+                        string: "[rev1] rises to life from the sludge of a hundred dead containers",
+                        playerCount: 1,
+                        howManyDeaths: 0,
+                        howManyRevivals: 1,
+                        updateData: function (player1) {
+                            currentCharacterNumber -= this.howManyDeaths;
+                            currentCharacterNumber += this.howManyRevivals;
+                            diedThisCycle += this.howManyDeaths;
+
+                            player1.alive = true;
+                            player1.revived++;
+                            player1.oldKilledBys.push(player1.killedBy);
+                            player1.killedBy = undefined;
+
+                            placements = placements.filter(o => o.name !== player1.name);
+                        }
+                    },
+                    {
+                        string: "A container explodes with a large cloud of smoke. [rev1] emerges from it",
+                        playerCount: 1,
+                        howManyDeaths: 0,
+                        howManyRevivals: 1,
+                        updateData: function (player1) {
+                            currentCharacterNumber -= this.howManyDeaths;
+                            currentCharacterNumber += this.howManyRevivals;
+                            diedThisCycle += this.howManyDeaths;
+
+                            player1.alive = true;
+                            player1.revived++;
+                            player1.oldKilledBys.push(player1.killedBy);
+                            player1.killedBy = undefined;
+
+                            placements = placements.filter(o => o.name !== player1.name);
+                        }
+                    },
                 ]
             }
         }
-    }*/
+    }
 ]
 
 

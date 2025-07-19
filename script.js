@@ -1164,6 +1164,13 @@ var eventCycle = {
     array: {
         regular: [
             {
+                string: "[1] is now to be called something cooler",
+                playerCount: 1,
+                updateData: function (player1) {
+                    player1.name = "~Xx"+player.name+"xX~"
+                },        
+            },
+            {
                 string: "[1] tries to figure out where the fuck [1are] [1they]",
                 playerCount: 1
             },
@@ -2988,12 +2995,7 @@ var eventsRandom = [
                 var players = decidePlayers(playerCount);
                 currentUnusedCharacterNumber -= playerCount;
 
-                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
-                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
-                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
-                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
-                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
-                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
+                var eventString = parseAllNamesAndPronouns(eventObject.string, players)
                 console.log(eventString, players);
 
                 if (playerCount === 1) var eventImage = makeImages(players[0].image)
@@ -3016,12 +3018,7 @@ var eventsRandom = [
                 var players = decidePlayers(playerCount);
                 currentUnusedCharacterNumber -= playerCount;
 
-                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
-                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
-                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
-                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
-                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
-                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
+                var eventString = parseAllNamesAndPronouns(eventObject.string, players)
                 console.log(eventString, players);
 
                 if (playerCount === 1) var eventImage = makeImages(players[0].image)
@@ -3050,12 +3047,7 @@ var eventsRandom = [
 
                 currentUnusedCharacterNumber -= playerCount - eventObject.howManyRevivals;
 
-                if (playerCount === 1) var eventString = replacePlaceholderName(eventObject.string, players[0].name)
-                else if (playerCount === 2) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name)
-                else if (playerCount === 3) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name)
-                else if (playerCount === 4) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name)
-                else if (playerCount === 5) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name)
-                else if (playerCount === 6) var eventString = replacePlaceholderName(eventObject.string, players[0].name, players[1].name, players[2].name, players[3].name, players[4].name, players[5].name);
+                var eventString = parseAllNamesAndPronouns(eventObject.string, players)
                 console.log(eventString, players);
 
                 if (playerCount === 1) var eventImage = makeImages(players[0].image)

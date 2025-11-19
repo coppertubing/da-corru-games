@@ -60,7 +60,7 @@ function declareTheDiedThisCycleNumber() {
             "do you think that " + diedThisCycle + " dead is enough?",
             "still, " + diedThisCycle + " is not enough for a real bloodbath",
             diedThisCycle + " will not live to see the next gaze",
-            diedThisCycle + " have left velzie's stage",
+            diedThisCycle + " have left <def>Velzie's stage</def>",
             "UHhhhhhhUh,ammsnfgh " + diedThisCycle,
             "my favorite number is " + diedThisCycle + ".",
             "every day someone dies. but today " + diedThisCycle + " more guys died",
@@ -92,7 +92,7 @@ function declareTheDiedThisCycleNumber() {
             "remember to stay hydrated guys ^^ those " + diedThisCycle + " sure didnt",
             "awwwwwwwwwwww (" + diedThisCycle + ")",
             "people say " + diedThisCycle + " is a lucky number",
-            "the losses: " + (diedThisCycle - 1) + " qou and 1 funny",
+            "the losses: " + (diedThisCycle - 1) + " <def>qou</def> and 1 funny",
             "being alive >>>>>>>>>>> those " + diedThisCycle + " dudes (stupids) (why die) (-" + (Math.round(Math.random() * 100) + 33) + " respect)",
             "hey todays a nice harvest. " + diedThisCycle + " pretty silly guys",
             diedThisCycle + " participants are a dissapointment today",
@@ -108,7 +108,7 @@ function declareTheDiedThisCycleNumber() {
             "huh. " + diedThisCycle + " died.",
             "what action! what battle! what " + diedThisCycle + " dead participants!",
             "listen, the corru games are just like that, the corru games just kill " + diedThisCycle + " people a day",
-            diedThisCycle + " okidoiad",
+            diedThisCycle + " <def>okidoia</def>d",
             "remember to stay hydrated guys ^^ those " + diedThisCycle + " sure didnt",
             "..." + diedThisCycle + ". could be better.",
             "lets play a game!!!!!!! how many died? %>)<br/>A) " + (Math.round(Math.random() * 100) + 83) + "; B) " + (Math.round(Math.random() * 100)) + "; C) " + diedThisCycle + " (worng answrr)",
@@ -136,7 +136,7 @@ function declareTheDiedThisCycleNumber() {
             "okay but " + diedThisCycle + " is pretty big? nuber?",
             "horrible. " + diedThisCycle + " poor. gys. are not. in corru. games. anymore. cause. they dead.",
             "the corru games are on a roll today! " + diedThisCycle + " dead, " + currentCharacterNumber + " injured",
-            "what a great gaze. " + diedThisCycle + " d-",
+            "what a great <def>gaze</def>. " + diedThisCycle + " d-",
             "eatin popcorn; " + diedThisCycle + " die a horrible death",
             diedThisCycle + " participants are sludgy",
             "being alive >>>>>>>>>>> those " + diedThisCycle + " dudes (stupids) (why die) (why so many) (bad) (-" + (Math.round(Math.random() * 100) + 43) + " respect)",
@@ -640,7 +640,7 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] is immediately attacked by a golem but manages to escape",
+                string: "[1] is immediately attacked by a <def>golem</def> but manages to escape",
                 playerCount: 1
             },
             {
@@ -752,23 +752,23 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] finds a disabler",
+                string: "[1] finds a <def>disabler</def>",
                 playerCount: 1
             },
             {
-                string: "[1] finds a satik cyst",
+                string: "[1] finds a <def>satik cyst</def>",
                 playerCount: 1
             },
             {
-                string: "[1] finds a kavruka",
+                string: "[1] finds a <def>kavruka</def>",
                 playerCount: 1
             },
             {
-                string: "[1] finds a restorative",
+                string: "[1] finds a <def>restorative</def>",
                 playerCount: 1
             },
             {
-                string: "[1] finds an aima cyst",
+                string: "[1] finds an <def>aima cyst</def>",
                 playerCount: 1
             },
             {
@@ -778,7 +778,7 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] finds a sfer cube",
+                string: "[1] finds a <def>sfer</def> cube",
                 playerCount: 1
             },
             {
@@ -901,7 +901,7 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] both find an aima cyst, however with no want to share it. Eventually it breaks and they part ways",
+                string: "[1] and [2] both find an <def>aima cyst</def>, however with no want to share it. Eventually it breaks and they part ways",
                 playerCount: 2
             },
             {
@@ -984,7 +984,7 @@ var eventRace = {
                 playerCount: 3
             },
             {
-                string: "[1], [2] and [3] shout at each other over a satik cyst they found",
+                string: "[1], [2] and [3] shout at each other over a <def>satik cyst</def> they found",
                 playerCount: 3
             },
             {
@@ -1007,7 +1007,7 @@ var eventRace = {
                 playerCount: 4
             },
             {
-                string: "[1] finds a disabler... that is taken from [1them] by [2], [3] and [4] via force",
+                string: "[1] finds a <def>disabler</def>... that is taken from [1them] by [2], [3] and [4] via force",
                 playerCount: 4
             },
 
@@ -1046,22 +1046,22 @@ var eventRace = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Okidoia'd but like really violently`)
+                    theFunnyKillFunction(player1, `<def>okidoia</def>'d but like really violently`)
                 },
             },
             {
-                string: "Unsuspecting [die1] is stabbed to death by a hostile golem",
+                string: "Unsuspecting [die1] is stabbed to death by a hostile <def>golem</def>",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Stabbed by a golem`)
+                    theFunnyKillFunction(player1, `Stabbed by a <def>golem</def>`)
                 },
             },
             {
-                string: "[die1] cannot fight off a group of suddenly aggressive archival golems",
+                string: "[die1] cannot fight off a group of suddenly aggressive archival <def>golems</def>",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -1127,7 +1127,7 @@ var eventRace = {
                 },
             },
             {
-                string: "[die1] does not know what to do when a really weird golem approaches. [1they] [1are] killed",
+                string: "[die1] does not know what to do when a really weird <def>golem</def> approaches. [1they] [1are] killed",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -1169,13 +1169,13 @@ var eventRace = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `You know, [0they] [0are] probably alive out there`)
+                    theFunnyKillFunction(player1, `You know, [0they] [0are] probably <def>dead</def> out there`)
                 },
             },
 
             // 2's
             {
-                string: "[1] watches in horror as nearby golems turn aggressive and kill [die2]",
+                string: "[1] watches in horror as nearby <def>golems</def> turn aggressive and kill [die2]",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -1186,7 +1186,7 @@ var eventRace = {
                 },
             },
             {
-                string: "[1] tries to warn [die2] of the hostile corru constructs, but distracts [2them] just as one suddenly appears, ready to strike",
+                string: "[1] tries to warn [die2] of the hostile corru constructs, but ends up distracting [2them] just as one suddenly appears, ready to strike",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -1362,7 +1362,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] sneezes. Wait, what? Qou bodies are not supposed to do that",
+                string: "[1] sneezes. Wait, what? <def>Qou</def> bodies are not supposed to do that",
                 playerCount: 1
             },
             {
@@ -1391,7 +1391,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] searches for sfer and useful items",
+                string: "[1] searches for <def>sfer</def> and useful items",
                 playerCount: 1
             },
             {
@@ -1403,7 +1403,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] mends [1their] wounds with restorative cysts",
+                string: "[1] mends [1their] wounds with <def>restorative cysts</def>",
                 playerCount: 1
             },
             {
@@ -1423,7 +1423,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] finds a kavruka. Yay! Explode everything!",
+                string: "[1] finds a <def>kavruka</def>. Yay! Explode everything!",
                 playerCount: 1
             },
             {
@@ -1431,7 +1431,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] finds bright weaponry and uses it to shoot a nearby golem 28 times before running out of ammunition",
+                string: "[1] finds bright weaponry and uses it to shoot a nearby <def>golem</def> 28 times before running out of ammunition",
                 playerCount: 1
             },
             {
@@ -1479,7 +1479,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] curses Velzie",
+                string: "[1] curses <def>Velzie</def>",
                 playerCount: 1
             },
             {
@@ -1491,7 +1491,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] prays for Velzie to smile on [1them]",
+                string: "[1] prays for <def>Velzie</def> to smile on [1them]",
                 playerCount: 1
             },
             {
@@ -1503,7 +1503,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "For a split blink, [1] hears someone calling out [1their] name",
+                string: "For a split <def>blink</def>, [1] hears someone calling out [1their] name",
                 playerCount: 1
             },
             {
@@ -1515,7 +1515,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] prays for Velzie to play tricks on [1their] enemies",
+                string: "[1] prays for <def>Velzie</def> to play tricks on [1their] enemies",
                 playerCount: 1
             },
             {
@@ -1539,7 +1539,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] decides who will be [1their] victim in the next wink",
+                string: "[1] decides who will be [1their] victim in the next <def>wink</def>",
                 playerCount: 1
             },
             {
@@ -1599,7 +1599,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] shouts at a golem and, somehow, this scares it away",
+                string: "[1] shouts at a <def>golem</def> and, somehow, this scares it away",
                 playerCount: 1
             },
             {
@@ -1619,7 +1619,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] scribbles on a wall: \"[2] is a kelnit\"",
+                string: "[1] scribbles on a wall: \"[2] is a <def>kelnit</def>\"",
                 playerCount: 2
             },
             {
@@ -1663,7 +1663,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] play a game of parasite",
+                string: "[1] and [2] play a game of <def>parasite</def>",
                 playerCount: 2
             },
             {
@@ -1851,7 +1851,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] bump into each other several times in a row and decide to go together, believing it to be a sign from Velzie",
+                string: "[1] and [2] bump into each other several times in a row and decide to go together, believing it to be a sign from <def>Velzie</def>",
                 playerCount: 2
             },
             {
@@ -1859,7 +1859,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] battle for the entire wink, but continue to evade each other's attacks over and over again",
+                string: "[1] and [2] battle for the entire <def>wink</def>, but continue to evade each other's attacks over and over again",
                 playerCount: 2
             },
             {
@@ -1895,7 +1895,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] tries to wrestle a kavruka away from [2], but [2they] throw2] it to the side, detonating it",
+                string: "[1] tries to wrestle a <def>kavruka</def> away from [2], but [2they] throw2] it to the side, detonating it",
                 playerCount: 2
             },
             {
@@ -1916,6 +1916,8 @@ var eventCycle = {
             },
             {
                 string: "[1] beats [2] up but does not kill [2them]",
+                altString: "[1] beats [2] up but only a little",
+                alt: 0.5,
                 playerCount: 2
             },
             {
@@ -2156,7 +2158,7 @@ var eventCycle = {
                 playerCount: 5
             },
             {
-                string: "[1] throws an explosive at the group of [2], [3], [4] and [5]. Everyone scatters and, by a giggle of Velzie, no one dies",
+                string: "[1] throws an explosive at the group of [2], [3], [4] and [5]. Everyone scatters and, by a giggle of <def>Velzie</def>, no one dies",
                 playerCount: 5
             },
             {
@@ -2183,17 +2185,17 @@ var eventCycle = {
                 },        
             },
             {
-                string: "[die1] joins the okidoia",
+                string: "[die1] joins the <def>okidoia</def>",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
-                    theFunnyKillFunction(player1, `Okidoia'd`)
+                    theFunnyKillFunction(player1, `<def>okidoia</def>'d`)
                 },
             },
             {
-                string: "[die1] dies in the ceremony unceremoniously",
+                string: "[die1] dies in the <def>ceremony</def> unceremoniously",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2291,7 +2293,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] curses Velzie. Velzie curses [1them] back",
+                string: "[die1] curses <def>Velzie</def>. <def>Velzie</def> curses [1them] back",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2346,7 +2348,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] chokes on a piece of sfer",
+                string: "[die1] chokes on a piece of <def>sfer</def>",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2436,7 +2438,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1]'s qou body fails and [1their] exposed mindcore is soon attacked and sludged",
+                string: "[die1]'s qou-body fails and [1their] exposed mindcore is soon attacked and sludged",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2565,7 +2567,9 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] successfully lands 9876542 frenzy critical hits on [die2]",
+                string: ()=> {`[1] successfully lands ${Math.floor(Math.random()*10+6)} frenzy critical hits on [die2]`},
+                altString: ()=> {`[1] successfully lands ${Math.floor(Math.random()*100+36)} frenzy critical hits on [die2]`},
+                alt: 0.3,
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -2576,7 +2580,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] tells [die2] to close [2their] eyes because [1they] [1are] going to show [2them] a surprise! The surprise was death",
+                string: "[1] tells [die2] to close [2their] eyes because [1they] [1are] going to show [2them] a surprise! The surprise was final death",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -2664,7 +2668,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] groundminds the walls around [die2] to shape themselves into deadly spikes",
+                string: "[1] <def>groundminds</def> the walls around [die2] to shape themselves into deadly spikes",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -2727,7 +2731,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "While fighting over a disabler, [die1] and [die2] accidentally activate it",
+                string: "While fighting over a <def>disabler</def>, [die1] and [die2] accidentally activate it",
                 playerCount: 2,
                 howManyDeaths: 2,
                 updateData: function (player1, player2) {
@@ -2860,7 +2864,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "Velzie's fondness for [rev1] is truly nauseating",
+                string: "<def>Velzie</def>'s fondness for [rev1] is truly nauseating",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -2986,7 +2990,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] wishes everyone a great gaze",
+                string: "[rev1] wishes everyone a <def>great gaze</def>",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -3022,7 +3026,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "Through a giggle of Velzie, [rev1] is back",
+                string: "Through a giggle of <def>Velzie</def>, [rev1] is back",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -3040,7 +3044,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1]'s mangled husk rises to terrible life... Though [1they] feel1] kinda normal? Like, not possessed by an entity far larger than any qou can comprehend?",
+                string: "[rev1]'s mangled husk rises to <def>terrible life.</def>.. Though [1they] feel1] kinda normal? Like, not possessed by an entity far larger than any <def>qou</def> can comprehend?",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -3061,7 +3065,7 @@ var eventCycle = {
             // 2's
 
             {
-                string: "[rev1] chases after [2] for the entire wink, trying to ask what eye it is right now",
+                string: "[rev1] chases after [2] for the entire <def>wink</def>, trying to ask what <def>eye</def> it is right now",
                 playerCount: 2,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -3305,7 +3309,7 @@ var eventsRandom = [
                         playerCount: 1
                     },
                     {
-                        string: "[1] curses Velzie for this madness as a dozen containers chase [1them]",
+                        string: "[1] curses <def>Velzie</def> for this madness as a dozen containers chase [1them]",
                         playerCount: 1
                     },
                     {
@@ -4024,7 +4028,7 @@ function theRace() {
     updateDataBeforeUse();
     titleChanger("!!__THE_COLLAPSE__!!");
 
-    var htmlContentToInsert = `Out of nowhere, every corner of the embassy erupts in a signal of pain and rage. The frightened qou are given an order through distorted words of the... groundsmind? No, it cannot be-<br/><em><font color='ff0066'>WELCAME TO DA CORRU GAMES!!!!!!!!!!<br>KILL and dont BE KILLED!! only 1 of u ll get a chance to survive >:]</font></em><br><br>` + generateEvents(eventRace) + declareTheDiedThisCycleNumber() + `<br/><a href = "#" onclick = "goToPage('1')"> proceed.</a> `;
+    var htmlContentToInsert = `Out of nowhere, every corner of the embassy erupts in a signal of pain and rage. The frightened <def>qou</def> are given an order through distorted words of the... groundsmind? No, it cannot be-<br/><em><font color='ff0066'>WELCAME TO DA CORRU GAMES!!!!!!!!!!<br>KILL and dont BE KILLED!! only 1 of u ll get a chance to survive >:]</font></em><br><br>` + generateEvents(eventRace) + declareTheDiedThisCycleNumber() + `<br/><a href = "#" onclick = "goToPage('1')"> proceed.</a> `;
     var content = document.getElementById("content");
     content.innerHTML = htmlContentToInsert;
 

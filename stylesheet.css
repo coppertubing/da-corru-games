@@ -10,7 +10,7 @@
 }
 
 def {
-    text-decoration-style: dashed;
+    text-decoration: dashed underline 1.5px;
 }
 
 .evil {

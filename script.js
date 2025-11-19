@@ -389,7 +389,7 @@ function parseNamesAndPronouns(string, number, character) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
     }
 
-    string = string.replaceAll(`[` + number + `]`, `<strong><font color="ffff00">` + character.name + `</font></strong>`);
+    string = string.replaceAll(`[` + number + `]`, `<strong><font color="ffff00">` + character.name + `</font></strong>`)
 
     string = string.replaceAll(`[die` + number + `]`, `<strong><font color="` + nicknamecolor_died + `">` + character.name + `</font></strong>`);
 
@@ -426,28 +426,53 @@ function parseNamesAndPronouns(string, number, character) {
     return string;
 }
 
+function evillization(name) {
+    evilname = name;
+
+    if (evilname.substring(0,2) == "Xx_") {cool == true; evilname = evilname.substring(3,evilname.length-3)}
+    if (evilname.substring(evilname.length-9, evilname.length) == ".observer") {obs == true; evilname = evilname.substring(0,evilname.length-9)}
+    if (evilname.substring(0,3) == "The ") {the == true; evilname = evilname.substring(4)}
+    if (evilname.substring(evilname.length-3, evilname.length) == " ;)") {smile == true; evilname = evilname.substring(0,evilname.length-3)}
+
+    if (evilname.replace("Cool", "EVIL") != evilname) return `<font color="ff0066">` + evilname.replace("Cool", "EVIL").toUpperCase() + `</font>`
+
+    if (evilname.substring(evilname.length-9, evilname.length == "the Great")) return `<font color="ff0066">` + evilname.substring().toUpperCase() + "DA EVIL" + `</font>`
+
+    if (evilname == "Please Do Not Kill") return `<font color="ff0066">` + "DO KILL" + `</font>`;
+
+    evilname=evilname.replaceAll(".","!")
+    evilname=evilname.replaceAll("?","!")
+
+    if (evilname == "BSTRD") evilname == "RUINOUS BSTRD"
+    else if (evilname.length >= 10) evilname == "EVIL"+evilname.substring(5).toUpperCase()
+    else if (evilname.length >= 8) evilname == "EVIL"+evilname.substring(4).toUpperCase()
+    else if (evilname.length >= 6) evilname == "EVIL"+evilname.substring(3).toUpperCase()
+    else if (evilname.length >= 5) evilname == "EVIL"+evilname.substring(2).toUpperCase()
+    else if (evilname.length >= 4) evilname == "EVIL"+evilname.substring(1).toUpperCase()
+    else evilname == "EVIL "+evilname.toUpperCase()
+
+    if (smile == true) evilname += " ;]"
+    if (the == true) evilname = "THE " + evilname
+    if (obs == true) evilname += "!OBSRVR"
+    if (cool == true) evilname = "Xx_"+evilname+"_xX"
+
+    evilname=evilname.replaceAll("THE","DA")
+
+    return `<font color="ff0066">` + evilname + `</font>`;
+}
 
 function makeImages(players) {
-
-    special = []
-
-    for (i = 0; i < players.length; i++) {
-        yourownpersonalspecial = ""
-        if (players[i].special.evil == true) yourownpersonalspecial += "evil "
-        if (players[i].special.afflicted == true) yourownpersonalspecial += "afflicted "
-        special.push(yourownpersonalspecial)
-    }
     
     if (players[5]?.image != undefined) {
         var imageMade = `<table class="tribute">
         <tbody>
            <tr>
-              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
-              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
-              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
-              <td><img class="` + special[3] + `" src="` + players[3].image + `" height="90" width="90"></td>
-              <td><img class="` + special[4] + `" src="` + players[4].image + `" height="90" width="90"></td>
-              <td><img class="` + special[5] + `" src="` + players[5].image + `" height="90" width="90"></td>
+              <td><img class="` + players[0].filter.join(" ") + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + players[1].filter.join(" ") + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + players[2].filter.join(" ") + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + players[3].filter.join(" ") + `" src="` + players[3].image + `" height="90" width="90"></td>
+              <td><img class="` + players[4].filter.join(" ") + `" src="` + players[4].image + `" height="90" width="90"></td>
+              <td><img class="` + players[5].filter.join(" ") + `" src="` + players[5].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -456,11 +481,11 @@ function makeImages(players) {
         var imageMade = `<table class="five">
         <tbody>
            <tr>
-              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
-              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
-              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
-              <td><img class="` + special[3] + `" src="` + players[3].image + `" height="90" width="90"></td>
-              <td><img class="` + special[4] + `" src="` + players[4].image + `" height="90" width="90"></td>
+              <td><img class="` + players[0].filter.join(" ") + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + players[1].filter.join(" ") + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + players[2].filter.join(" ") + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + players[3].filter.join(" ") + `" src="` + players[3].image + `" height="90" width="90"></td>
+              <td><img class="` + players[4].filter.join(" ") + `" src="` + players[4].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -469,10 +494,10 @@ function makeImages(players) {
         var imageMade = `<table class="four">
         <tbody>
            <tr>
-              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
-              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
-              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
-              <td><img class="` + special[3] + `" src="` + players[3].image + `" height="90" width="90"></td>
+              <td><img class="` + players[0].filter.join(" ") + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + players[1].filter.join(" ") + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + players[2].filter.join(" ") + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + players[3].filter.join(" ") + `" src="` + players[3].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -481,9 +506,9 @@ function makeImages(players) {
         var imageMade = `<table class="three">
         <tbody>
            <tr>
-              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
-              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
-              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + players[0].filter.join(" ") + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + players[1].filter.join(" ") + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + players[2].filter.join(" ") + `" src="` + players[2].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -492,8 +517,8 @@ function makeImages(players) {
         var imageMade = `<table class="two">
         <tbody>
            <tr>
-              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
-              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + players[0].filter.join(" ") + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + players[1].filter.join(" ") + `" src="` + players[1].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -502,7 +527,7 @@ function makeImages(players) {
         var imageMade = `<table class="one">
         <tbody>
            <tr>
-              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + players[0].filter.join(" ") + `" src="` + players[0].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -557,6 +582,8 @@ var eventRace = {
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
+        eventObject.updateData.apply(eventObject, players);
+
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
@@ -576,6 +603,8 @@ var eventRace = {
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
+
+        eventObject.updateData.apply(eventObject, players);
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
@@ -744,6 +773,8 @@ var eventRace = {
             },
             {
                 string: "[1] finds a will to live",
+                altString: "[Participant] finds a bug",
+                alt: 0.5,
                 playerCount: 1
             },
             {
@@ -1223,10 +1254,7 @@ var eventCycle = {
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
-        /*if (Object.hasOwn(eventObject, `updatePlayerData`)) {
-            console.log("O-o-oh, there's an updatePlayerData function! Executing...")
-            eventObject.updatePlayerData.apply(eventObject, players);
-        }*/
+        if (Object.hasOwn(eventObject, `updateData`)) eventObject.updateData.apply(eventObject, players);
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
@@ -1248,14 +1276,14 @@ var eventCycle = {
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
+        eventObject.updateData.apply(eventObject, players);
+
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
         var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
-
-        eventObject.updateData.apply(eventObject, players);
 
         return event;
     },
@@ -1274,14 +1302,14 @@ var eventCycle = {
 
         currentUnusedCharacterNumber -= playerCount - eventObject.howManyRevivals;
 
+        eventObject.updateData.apply(eventObject, players);
+
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
         var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
-
-        eventObject.updateData.apply(eventObject, players);
 
         return event;
     },
@@ -1291,7 +1319,42 @@ var eventCycle = {
                 string: "[1] is now to be called something cooler",
                 playerCount: 1,
                 updateData: function (player1) {
-                    player1.name = "~Xx"+player.name+"xX~"
+                    function capitalizeFirstLetter(val) {
+                        return String(val).charAt(0).toUpperCase() + String(val).slice(1).toLowerCase();
+                    }
+                    function speakLeet(str) {
+                        var leetCode = {A:"4",B:'8',C:'C',D:'d',E:'3',F:'F',G:'6',H:'h',I:'!',J:'J',K:'k',L:'1', M:'m',N:'n',O:'0', P:'p',Q:'Q',R:'r',S:'5',T:'7',U:'u',V:'v',W:'w',X:'x',Y:'Y',Z:'2'}
+                        var translatedStr = "";
+                        for (i = 0; i < str.length; i++) {
+                            translatedStr += leetCode[str.charAt(i).toUpperCase()];
+                            }
+                        return translatedStr;
+                    }
+                    function ihatespaces(name, replacer = "") {
+                        arr = name.split(" ")
+                        for (i = 0; i<arr.length;i++) {
+                            name = capitalizeFirstLetter(arr[i])
+                        }
+                        name = arr.join(replacer)
+                        return name;
+                    }
+                    terriblehorriblenames = [
+                        "Xx_"+ihatespaces(player1.name,"_").toLowerCase()+"_xX",
+                        ihatespaces(player1.name)+"SecriSlayer"+Math.floor(Math.random()*100),
+                        ihatespaces(player1.name)+"ZuzucriKiller"+Math.floor(Math.random()*100),
+                        ihatespaces(player1.name)+"VeilkFeller"+Math.floor(Math.random()*100),
+                        ihatespaces(player1.name)+" the Great",
+                        "The "+ihatespaces(player1.name, " ") + " " + capitalizeFirstLetter(player1.pronoun[5]),
+                        player1.name+" 2.0",
+                        ihatespaces(player1.name).toLowerCase()+".observer",
+                        "Cool"+player1.name.substring(2),
+                        "Please Do Not Kill",
+                        player1.name + " ;)",
+                        player1.name.substring(0,2)
+                    ]
+                    if (player1.name.toLowerCase() != player1.name) terriblehorriblenames.push(player1.name.toLowerCase())
+                    if (speakLeet(player1.name) != player1.name) terriblehorriblenames.push(speakLeet(player1.name))
+                    player1.name = terriblehorriblenames[Math.floor(Math.random() * terriblehorriblenames.length)]
                 },        
             },
             {
@@ -1397,10 +1460,6 @@ var eventCycle = {
             },
             {
                 string: "[1] chews on corru",
-                playerCount: 1
-            },
-            {
-                string: "[Participant] finds a bug",
                 playerCount: 1
             },
             {
@@ -3150,15 +3209,12 @@ var eventsRandom = [
                 var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
 
+                if (Object.hasOwn(eventObject, `updateData`)) eventObject.updateData.apply(eventObject, players);
+
                 var eventString = parseAllNamesAndPronouns(eventObject.string, players)
                 console.log(eventString, players);
 
-                if (playerCount === 1) var eventImage = makeImages(players[0].image)
-                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+                var eventImage = makeImages(players)
 
                 var event = eventImage + eventString + `<br><br>`;
 
@@ -3175,19 +3231,14 @@ var eventsRandom = [
                 var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
 
+                eventObject.updateData.apply(eventObject, players);
+
                 var eventString = parseAllNamesAndPronouns(eventObject.string, players)
                 console.log(eventString, players);
 
-                if (playerCount === 1) var eventImage = makeImages(players[0].image)
-                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+                var eventImage = makeImages(players)
 
                 var event = eventImage + eventString + `<br><br>`;
-
-                eventObject.updateData.apply(eventObject, players);
 
                 return event;
             },
@@ -3198,25 +3249,22 @@ var eventsRandom = [
 
                 var revivedPlayers = decideRevivedPlayers(eventObject.howManyRevivals);
                 if (revivedPlayers == "stop") return "stop";
-                var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals);
+                condition = ()=>{true}
+                if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+                var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals, condition);
 
                 var players = revivedPlayers.concat(justPlayers);
 
                 currentUnusedCharacterNumber -= playerCount - eventObject.howManyRevivals;
 
+                eventObject.updateData.apply(eventObject, players);
+
                 var eventString = parseAllNamesAndPronouns(eventObject.string, players)
                 console.log(eventString, players);
 
-                if (playerCount === 1) var eventImage = makeImages(players[0].image)
-                else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-                else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-                else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-                else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-                else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+                var eventImage = makeImages(players)
 
                 var event = eventImage + eventString + `<br><br>`;
-
-                eventObject.updateData.apply(eventObject, players);
 
                 return event;
             },
@@ -3726,10 +3774,11 @@ function titleChanger(title) {
 
 function declareWinner() {
     var winner = getRandomAliveCharacter();
+    
     var winnerDeclaration = `<table class="one">
     <tbody>
        <tr>
-          <td><img class="" src="` + winner.image + `" height="90" width="90"></td>
+          <td><img class="`+ winner.filter.join(" ") +`" src="` + winner.image + `" height="90" width="90"></td>
        </tr>
     </tbody>
  </table>
@@ -3755,12 +3804,12 @@ function declarePlacements() {
 
     html += `<table class="tribute">
             <tr>
-               <td valign="top"><img class="" src="` + placements[0].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[0].filter.join(" ") +`" src="` + placements[0].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[1].filter.join(" ") +`" src="` + placements[1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[2].filter.join(" ") +`" src="` + placements[2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[3].filter.join(" ") +`" src="` + placements[3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[4].filter.join(" ") +`" src="` + placements[4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[5].filter.join(" ") +`" src="` + placements[5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[0].name + `</font></strong><br>` + placements[0].pronoun[0] + `/` + itits(placements[0].pronoun[1]) + `<br>` + `Winner` + `<br>` + hasKills(placements[0]) + `</td>
@@ -3776,12 +3825,12 @@ function declarePlacements() {
     for (var i = 1; i < fullRows; i++) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 1].filter.join(" ") +`" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 2].filter.join(" ") +`" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 3].filter.join(" ") +`" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 4].filter.join(" ") +`" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3797,7 +3846,7 @@ function declarePlacements() {
     if (notFullRows === 1) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
         <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3807,8 +3856,8 @@ function declarePlacements() {
     } else if (notFullRows === 2) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-        <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="`+ placements[i * 6 + 1].filter.join(" ") +`" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
         <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3819,9 +3868,9 @@ function declarePlacements() {
     } else if (notFullRows === 3) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-        <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-        <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="`+ placements[i * 6 + 1].filter.join(" ") +`" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="`+ placements[i * 6 + 2].filter.join(" ") +`" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
         <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3833,10 +3882,10 @@ function declarePlacements() {
     } else if (notFullRows === 4) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 1].filter.join(" ") +`" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 2].filter.join(" ") +`" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 3].filter.join(" ") +`" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3849,11 +3898,11 @@ function declarePlacements() {
     } else if (notFullRows === 5) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>a
+               <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 1].filter.join(" ") +`" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 2].filter.join(" ") +`" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 3].filter.join(" ") +`" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 4].filter.join(" ") +`" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>a
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>

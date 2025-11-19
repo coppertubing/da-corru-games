@@ -14,11 +14,22 @@ def {
 }
 
 .evil {
-    filter: contrast(150%) hue-rotate(180deg) saturate(300%);
+    filter: sepia(100%) hue-rotate(305deg) saturate(800%) contrast(150%);
+    &.afflicted {
+        filter: sepia(100%) hue-rotate(305deg) saturate(800%) contrast(90%) grayscale(35%) url(#CMYKchromaticAberation);
+        border: 1px solid #FFFFFF33;
+    }
 }
 
 .afflicted {
-    filter:  grayscale(50%) blur(1px) brightness(199%) hue-rotate(350deg);
+    filter: contrast(90%) grayscale(70%) blur(0.75px) brightness(150%) url(#CMYKchromaticAberation);
+    border: 1px solid #FFFFFF33;
+}
+
+.mindcore {
+    border-radius: 50%;
+    height: 70%;
+    width: 70%
 }
 
 html {

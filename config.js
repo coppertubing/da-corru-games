@@ -207,6 +207,7 @@ characters.forEach(function (element) {
     element.oldKilledBys = []
     element.revived = 0
     element.special = { afflicted: false, evil: false}
+    element.filter = []
 });
 
 var placements = [];

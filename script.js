@@ -582,7 +582,7 @@ var eventRace = {
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
-        eventObject.updateData.apply(eventObject, players);
+        if (Object.hasOwn(eventObject, `updateData`))  eventObject.updateData.apply(eventObject, players);
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);

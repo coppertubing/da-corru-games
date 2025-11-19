@@ -49,7 +49,7 @@ function declareTheDiedThisCycleNumber() {
             "1 (one, unit, unity) is a number, numeral, and glyph. It is the first and smallest positive integer of the infinite sequence of natural numbers. This fundamental property has led to its unique uses in other fields, ranging from science to sports, where it commonly denotes the first, leading, or top thing in a group. 1 is th",
             "we will remember you, dead one (threat) /silly",
             "did you know that 1 is",
-            "haha h a <i>ONE</i> /ref",
+            "haha h a <em>ONE</em> /ref",
             "oooooooooooooooone",
             "ONE- *intro music plays* /ref"
         ],
@@ -310,7 +310,22 @@ function decideEventObject(eventArrayType) {
     for (var i = 0; i < 73792; i++) {
         index = Math.floor(Math.random() * eventArrayType.length)
         object = eventArrayType[index];
-        if (object.playerCount <= currentUnusedCharacterNumber) return object;
+
+        if (Object.hasOwn(object, "preAlt")) object.preAlt(object)
+        if (object == "no lol") continue; // check if the object has become unavailiable
+
+        if (Object.hasOwn(object, "altString")) {
+            if (Math.random() < object.alt) object.string = object.altString
+        }
+
+        if (typeof object.string == "function") object.string(object)
+        if (object == "no lol") continue; // check if the object has become unavailiable
+
+        if (object.playerCount <= currentUnusedCharacterNumber) {
+            if (Object.hasOwn(object, "postQualified")) object.postQualified(object)
+            if (object == "no lol") continue; // check if the object has become unavailiable
+            return object
+        };
     };
 }
 
@@ -332,20 +347,23 @@ function decideEventGenus() {
     };
 }
 
-function decidePlayers(playerCount) {
-    var players = [];
-    // var lookForParaffin = 0;
-    for (var i = 0; i < playerCount; i++) {
-        var player = getRandomAliveCharacter();
-        player.beenUsed = true;
-        players.push(player);
-        // if (player.name == "Бесподобная Невинность") lookForParaffin++;
-        // if (player.name == "Пара Пустяков") lookForParaffin++;
-    };
-    /* if (lookForParaffin == 2) {
-        paraffinIndex++;
-        paraffinChecker = true;
-    } */
+function decidePlayers(playerCount, condition) {
+    var players;
+    do {
+        players = [];
+        // var lookForParaffin = 0;
+        for (var i = 0; i < playerCount; i++) {
+            var player = getRandomAliveCharacter();
+            players.push(player);
+            // if (player.name == "Бесподобная Невинность") lookForParaffin++;
+            // if (player.name == "Пара Пустяков") lookForParaffin++;
+        };
+        /* if (lookForParaffin == 2) {
+            paraffinIndex++;
+            paraffinChecker = true;
+        } */
+       } while (!condition(players))
+    for (i=0;i<playerCount;i++) {characters.find((aguy) => aguy.name == players[i].name).beenUsed = true}
     return players;
 }
 
@@ -395,12 +413,14 @@ function parseNamesAndPronouns(string, number, character) {
 
     if (character.singular == true) {
         string = string.replaceAll(`[` + number + `are]`, `is`);
+        string = string.replaceAll(`[` + number + `were]`, `was`);
         string = string.replaceAll(`[` + number + `have]`, `has`);
         string = string.replaceAll(`[` + number + `do]`, `does`);
         string = string.replaceAll(number + 'e]', `es`);
         string = string.replaceAll(number + ']', `s`);
     } else {
         string = string.replaceAll(`[` + number + `are]`, `are`);
+        string = string.replaceAll(`[` + number + `were]`, `were`);
         string = string.replaceAll(`[` + number + `have]`, `have`);
         string = string.replaceAll(`[` + number + `do]`, `do`);
         string = string.replaceAll(number + 'e]', ``);
@@ -411,63 +431,73 @@ function parseNamesAndPronouns(string, number, character) {
 }
 
 
-function makeImages(image1, image2, image3, image4, image5, image6) {
-    if (image6 != undefined) {
+function makeImages(players) {
+
+    special = []
+
+    for (i = 0; i < players.length; i++) {
+        yourownpersonalspecial = ""
+        if (players[i].special.evil == true) yourownpersonalspecial += "evil "
+        if (players[i].special.afflicted == true) yourownpersonalspecial += "afflicted "
+        special.push(yourownpersonalspecial)
+    }
+    
+    if (players[5]?.image != undefined) {
         var imageMade = `<table class="tribute">
         <tbody>
            <tr>
-              <td><img src="` + image1 + `" height="90" width="90"></td>
-              <td><img src="` + image2 + `" height="90" width="90"></td>
-              <td><img src="` + image3 + `" height="90" width="90"></td>
-              <td><img src="` + image4 + `" height="90" width="90"></td>
-              <td><img src="` + image5 + `" height="90" width="90"></td>
-              <td><img src="` + image6 + `" height="90" width="90"></td>
+              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + special[3] + `" src="` + players[3].image + `" height="90" width="90"></td>
+              <td><img class="` + special[4] + `" src="` + players[4].image + `" height="90" width="90"></td>
+              <td><img class="` + special[5] + `" src="` + players[5].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
      <br>`
-    } else if (image5 != undefined) {
+    } else if (players[4]?.image != undefined) {
         var imageMade = `<table class="five">
         <tbody>
            <tr>
-              <td><img src="` + image1 + `" height="90" width="90"></td>
-              <td><img src="` + image2 + `" height="90" width="90"></td>
-              <td><img src="` + image3 + `" height="90" width="90"></td>
-              <td><img src="` + image4 + `" height="90" width="90"></td>
-              <td><img src="` + image5 + `" height="90" width="90"></td>
+              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + special[3] + `" src="` + players[3].image + `" height="90" width="90"></td>
+              <td><img class="` + special[4] + `" src="` + players[4].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
      <br>`
-    } else if (image4 != undefined) {
+    } else if (players[3]?.image != undefined) {
         var imageMade = `<table class="four">
         <tbody>
            <tr>
-              <td><img src="` + image1 + `" height="90" width="90"></td>
-              <td><img src="` + image2 + `" height="90" width="90"></td>
-              <td><img src="` + image3 + `" height="90" width="90"></td>
-              <td><img src="` + image4 + `" height="90" width="90"></td>
+              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
+              <td><img class="` + special[3] + `" src="` + players[3].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
      <br>`
-    } else if (image3 != undefined) {
+    } else if (players[2]?.image != undefined) {
         var imageMade = `<table class="three">
         <tbody>
            <tr>
-              <td><img src="` + image1 + `" height="90" width="90"></td>
-              <td><img src="` + image2 + `" height="90" width="90"></td>
-              <td><img src="` + image3 + `" height="90" width="90"></td>
+              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
+              <td><img class="` + special[2] + `" src="` + players[2].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
      <br>`
-    } else if (image2 != undefined) {
+    } else if (players[1]?.image != undefined) {
         var imageMade = `<table class="two">
         <tbody>
            <tr>
-              <td><img src="` + image1 + `" height="90" width="90"></td>
-              <td><img src="` + image2 + `" height="90" width="90"></td>
+              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
+              <td><img class="` + special[1] + `" src="` + players[1].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -476,7 +506,7 @@ function makeImages(image1, image2, image3, image4, image5, image6) {
         var imageMade = `<table class="one">
         <tbody>
            <tr>
-              <td><img src="` + image1 + `" height="90" width="90"></td>
+              <td><img class="` + special[0] + `" src="` + players[0].image + `" height="90" width="90"></td>
            </tr>
         </tbody>
      </table>
@@ -526,18 +556,15 @@ var eventRace = {
 
         var playerCount = eventObject.playerCount;
 
-        var players = decidePlayers(playerCount);
+        condition = true
+        if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+        var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
-        if (playerCount === 1) var eventImage = makeImages(players[0].image)
-        else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-        else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-        else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-        else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-        else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+        var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
 
@@ -549,18 +576,15 @@ var eventRace = {
 
         var playerCount = eventObject.playerCount;
 
-        var players = decidePlayers(playerCount);
+        condition = true
+        if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+        var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
-        if (playerCount === 1) var eventImage = makeImages(players[0].image)
-        else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-        else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-        else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-        else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-        else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+        var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
 
@@ -635,7 +659,7 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] grabs everything [1they] can and runs for the exit. Too bad one cannot escape the Corru Games!",
+                string: "[1] grabs everything [1they] can and runs for the exit. Too bad one cannot escape the Corru Games",
                 playerCount: 1
             },
             {
@@ -667,11 +691,11 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] yells for help as a golem approaches [1them]",
+                string: "[1] yells for help as a veilklight slowly approaches [1them]",
                 playerCount: 1
             },
             {
-                string: "[1] immediately rushes toward the exit, but it disappears before [1their] eyes. One cannot escape the Corru Games!",
+                string: "[1] immediately rushes toward the exit, but it disappears before [1their] eyes. One cannot escape the Corru Games",
                 playerCount: 1
             },
             {
@@ -691,7 +715,7 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] cannot imagine killing another obesk",
+                string: "[1] cannot imagine killing someone",
                 playerCount: 1
             },
             {
@@ -699,11 +723,67 @@ var eventRace = {
                 playerCount: 1
             },
             {
-                string: "[1] thinks that this is not very good",
+                string: "[1] thinks that this is not a very ideal situation",
                 playerCount: 1
             },
             {
-                string: "[1] grabs a disabler",
+                string: "[1] finds a disabler",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a satik cyst",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a kavruka",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a restorative",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds an aima cyst",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a will to live",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a sfer cube",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a cool orb thingy",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a scary black box",
+                playerCount: 1
+            },
+            {
+                string: "[1] finds a weird cyst",
+                playerCount: 1
+            },
+            {
+                string: "[1] is grossed out by the cyst [1they] [1were] connected to sludging",
+                playerCount: 1
+            },
+            {
+                string: "[1] freezes from fear",
+                playerCount: 1
+            },
+            {
+                string: "[1] yawns",
+                playerCount: 1
+            },
+            {
+                string: "[1] almost chokes on a simulacrum",
+                playerCount: 1
+            },
+            {
+                string: "[1] has <em>just</em> walked into the embassy",
                 playerCount: 1
             },
 
@@ -722,15 +802,15 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] offers [2] to work together, but [2they] respond2] by trying to kill [1them]",
+                string: "[1] offers [2] to work together, but [2they] respond2] by attacking [1them]",
                 playerCount: 2
             },
             {
-                string: "[1] and [2] search for the exit together. Oooh, but one cannot escape the Corru Games!",
+                string: "[1] and [2] search for the exit together. But one cannot escape the Corru Games",
                 playerCount: 2
             },
             {
-                string: "[1] turns to [2] to ask about what is happening, but [2] throws a heavy cyst at [1them] and runs off",
+                string: "[1] turns to [2] to ask about what is happening, but [2] throws a heavy object at [1them] and runs off",
                 playerCount: 2
             },
             {
@@ -770,7 +850,7 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] leaves [2] in a hurry. [2they] [2do] not understand what is going on, are they not friends?",
+                string: "[1] leaves [2] in a hurry. [2they] [2do] is heartbroken by the betrayal",
                 playerCount: 2
             },
             {
@@ -794,7 +874,23 @@ var eventRace = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] both find an aima cyst, however no one wants to share it. Eventually it breaks and they part ways",
+                string: "[1] and [2] both find an aima cyst, however with no want to share it. Eventually it breaks and they part ways",
+                playerCount: 2
+            },
+            {
+                string: "[1] and [2]'s nice little hangout is interrupted",
+                playerCount: 2
+            },
+            {
+                string: "[1] starts to panic and [2] <em>cannot</em> get [1them] to calm down",
+                playerCount: 2
+            },
+            {
+                string: "[1] tells [2] to be quiet",
+                playerCount: 2
+            },
+            {
+                string: "[1] is wounded, luckily [2] helps [1them] find shelter",
                 playerCount: 2
             },
 
@@ -813,7 +909,7 @@ var eventRace = {
                 playerCount: 3
             },
             {
-                string: "[1], [2] and [3] scatter in all directions",
+                string: "[1], [2] and [3] all scatter in all directions",
                 playerCount: 3
             },
             {
@@ -821,7 +917,7 @@ var eventRace = {
                 playerCount: 3
             },
             {
-                string: "[1] laughs at [2] and [3], who formed a group, and says that cooperation is futile in this game",
+                string: "[1] laughs at [2] and [3], who formed a group, and says that cooperation is futile here",
                 playerCount: 3
             },
             {
@@ -848,6 +944,26 @@ var eventRace = {
                 string: "[1] attempts to kill [2] and [3] in order to get their equipment, but fails and escapes by a miracle",
                 playerCount: 3
             },
+            {
+                string: "[1], [2] and [3] almost break out in an argument but are quickly silenced by enemies approaching",
+                playerCount: 3
+            },
+            {
+                string: "[1] and [2] grab [3] and try to get somewhere safe",
+                playerCount: 3
+            },
+            {
+                string: "[1] promises to [2] and [3] to guard them",
+                playerCount: 3
+            },
+            {
+                string: "[1], [2] and [3] shout at each other over a satik cyst they found",
+                playerCount: 3
+            },
+            {
+                string: "[1] eviscerates a kivskin before [2] and [3]'s eyes and runs off while apologizing",
+                playerCount: 3
+            },
 
             // 4's
 
@@ -856,7 +972,15 @@ var eventRace = {
                 playerCount: 4
             },
             {
-                string: "[1], [2], [3] and [4] argue over who's fault is all this",
+                string: "[1], [2], [3] and [4] argue over whose fault is all this",
+                playerCount: 4
+            },
+            {
+                string: "[1] tries to talk [2], [3] and [4] into forming an alliance, but all go separate ways",
+                playerCount: 4
+            },
+            {
+                string: "[1] finds a disabler... that is taken from [1them] by [2], [3] and [4] via force",
                 playerCount: 4
             },
 
@@ -884,7 +1008,7 @@ var eventRace = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Got a world record`)
+                    theFunnyKillFunction(player1, `Got a new personal best`)
                 },
             },
             {
@@ -910,14 +1034,14 @@ var eventRace = {
                 },
             },
             {
-                string: "[die1] cannot fight off the suddenly aggressive corru constructs",
+                string: "[die1] cannot fight off a group of suddenly aggressive archival golems",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Killed by corru constructs`)
+                    theFunnyKillFunction(player1, `Archived`)
                 },
             },
             {
@@ -928,7 +1052,7 @@ var eventRace = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `No mindcore anymore`)
+                    theFunnyKillFunction(player1, `No mindcore?`)
                 },
             },
             {
@@ -950,11 +1074,11 @@ var eventRace = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Too weak to fight`)
+                    theFunnyKillFunction(player1, `Too weak to defend [0themself]`)
                 },
             },
             {
-                string: "[die1] successfully fights off corru constructs but ends up bleeding to death",
+                string: "[die1] ends up bleeding to death after a fight",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -972,7 +1096,7 @@ var eventRace = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Too injured`)
+                    theFunnyKillFunction(player1, `Fatally wounded`)
                 },
             },
             {
@@ -988,6 +1112,8 @@ var eventRace = {
             },
             {
                 string: "[die1] dies in a way that has nothing to do with the collapse. Life is just like that",
+                altString: "[die1] dies in a way that has nothing to do with the collapse. Life is just like that. Or, well, death. <def>Death</def>, I mean. fuck",
+                alt: 0.15,
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -998,7 +1124,7 @@ var eventRace = {
                 },
             },
             {
-                string: "A random explosive kills [die1]?? Where did that come from??",
+                string: "A random explosive kills [die1]? Where did that come from??",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -1006,6 +1132,17 @@ var eventRace = {
                     diedThisCycle += this.howManyDeaths;
 
                     theFunnyKillFunction(player1, `Explode`)
+                },
+            },
+            {
+                string: "[die1] is simply not present in the embassy and gets disqualified",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `You know, [0they] [0are] probably alive out there`)
                 },
             },
 
@@ -1085,23 +1222,20 @@ var eventCycle = {
 
         var playerCount = eventObject.playerCount;
 
-        var players = decidePlayers(playerCount);
+        condition = true
+        if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+        var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
-        if (`updatePlayerData` in eventObject) {
+        /*if (Object.hasOwn(eventObject, `updatePlayerData`)) {
             console.log("O-o-oh, there's an updatePlayerData function! Executing...")
-            eventObject.updateData.apply(eventObject, players);
-        }
+            eventObject.updatePlayerData.apply(eventObject, players);
+        }*/
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
-        if (playerCount === 1) var eventImage = makeImages(players[0].image)
-        else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-        else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-        else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-        else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-        else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+        var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
 
@@ -1113,18 +1247,15 @@ var eventCycle = {
 
         var playerCount = eventObject.playerCount;
 
-        var players = decidePlayers(playerCount);
+        condition = true
+        if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+        var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
 
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
-        if (playerCount === 1) var eventImage = makeImages(players[0].image)
-        else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-        else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-        else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-        else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-        else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+        var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
 
@@ -1148,12 +1279,7 @@ var eventCycle = {
         var eventString = parseAllNamesAndPronouns(eventObject.string, players)
         console.log(eventString, players);
 
-        if (playerCount === 1) var eventImage = makeImages(players[0].image)
-        else if (playerCount === 2) var eventImage = makeImages(players[0].image, players[1].image)
-        else if (playerCount === 3) var eventImage = makeImages(players[0].image, players[1].image, players[2].image)
-        else if (playerCount === 4) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image)
-        else if (playerCount === 5) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image)
-        else if (playerCount === 6) var eventImage = makeImages(players[0].image, players[1].image, players[2].image, players[3].image, players[4].image, players[5].image);
+        var eventImage = makeImages(players)
 
         var event = eventImage + eventString + `<br><br>`;
 
@@ -1192,6 +1318,7 @@ var eventCycle = {
             },
             {
                 string: "[1] feels a little incoherent",
+                
                 playerCount: 1
             },
             {
@@ -1451,7 +1578,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] and [2] feel <i>really</i> awkward",
+                string: "[1] and [2] feel <em>really</em> awkward",
                 playerCount: 2
             },
             {
@@ -2015,7 +2142,7 @@ var eventCycle = {
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
-                    theFunnyKillFunction(player1, `Victim of a really stupid event pun`)
+                    theFunnyKillFunction(player1, `Victim of a really stupid pun`)
                 },
             },
             {
@@ -2140,17 +2267,6 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] succumbs to contact affliction",
-                playerCount: 1,
-                howManyDeaths: 1,
-                updateData: function (player1) {
-                    currentCharacterNumber -= this.howManyDeaths;
-                    diedThisCycle += this.howManyDeaths;
-
-                    theFunnyKillFunction(player1, `Got afflicted`)
-                },
-            },
-            {
                 string: "[die1] ascends to a higher plane of existence",
                 playerCount: 1,
                 howManyDeaths: 1,
@@ -2169,7 +2285,7 @@ var eventCycle = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Cheats on`)
+                    theFunnyKillFunction(player1, `Cheater`)
                 },
             },
             {
@@ -2228,7 +2344,9 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] tries to use the dull to teleport away but it goes horribly wrong. Obviously",
+                string: "[die1] tries to use the dull to teleport away but it goes horribly wrong",
+                altString: "[die1] tries to use the dull to teleport away but it goes horribly wrong. Obviously",
+                alt: 0.2,
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2250,7 +2368,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] fights and kills and hits and fights and... finally collapses from exhaustion",
+                string: "[die1] fights and kills and battles and fights and... finally collapses from exhaustion",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2272,7 +2390,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] spontaneously combusts",
+                string: "[die1] combusts spontaneously",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2292,6 +2410,32 @@ var eventCycle = {
 
                     theFunnyKillFunction(player1, `Rest in pieces`)
                 },
+            },
+            {
+                string: "[die1] is dissasembled by repairfriends",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Turned into spare parts`)
+                },
+            },
+            {
+                preAlt: (stupidthisisyou) => {
+                    if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false).length < 1) stupidthisisyou = "no lol"
+                },
+                string: "[die1] succumbs to contact affliction",
+                playerCount: 1,
+                howManyDeaths: 1, 
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Got afflicted`)
+                },
+                condition: (players)=>{players[0].special.afflicted == true}
             },
 
             // 2's
@@ -2474,7 +2618,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] quietly mutters \"<i>sorry...</i>\" before stabbing [die2] from behind",
+                string: "[1] quietly mutters \"<em>sorry...</em>\" before stabbing [die2] from behind",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -2482,6 +2626,17 @@ var eventCycle = {
                     diedThisCycle += this.howManyDeaths;
 
                     theFunnyKillFunction(player2, `Backstabbed by [1]`, player1)
+                },
+            },
+            {
+                string: "[die1] insults [2] and earns a claw through [1their] mindcore",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Insulted back by [1]`, player2)
                 },
             },
 
@@ -2630,7 +2785,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] clarifies that [1they] did not <i>die</i>, [1they] <u>died</u>",
+                string: "[rev1] clarifies that [1they] did not <em>die</em>, [1they] <def>died</def>",
                 playerCount: 1,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -2885,7 +3040,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[rev1] is revived by [2] through the power of <i>a lot</i> of obscure technical knowledge. [2] where did you learn this",
+                string: "[rev1] is revived by [2] through the power of <em>a lot</em> of obscure technical knowledge. [2] where did you learn this",
                 playerCount: 2,
                 howManyDeaths: 0,
                 howManyRevivals: 1,
@@ -2992,7 +3147,9 @@ var eventsRandom = [
 
                 var playerCount = eventObject.playerCount;
 
-                var players = decidePlayers(playerCount);
+                condition = true
+                if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+                var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
 
                 var eventString = parseAllNamesAndPronouns(eventObject.string, players)
@@ -3015,7 +3172,9 @@ var eventsRandom = [
 
                 var playerCount = eventObject.playerCount;
 
-                var players = decidePlayers(playerCount);
+                condition = true
+                if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+                var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
 
                 var eventString = parseAllNamesAndPronouns(eventObject.string, players)
@@ -3444,12 +3603,12 @@ function htmlCharacterRowBuilder() {
         for (var i = 0; i < initialCharacterNumber / 6; i++) {
             html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3468,12 +3627,12 @@ function htmlCharacterRowBuilder() {
         for (var i = 0; i < fullRows; i++) {
             html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + characters[i * 6 + 5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + characters[i * 6 + 5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3489,7 +3648,7 @@ function htmlCharacterRowBuilder() {
         if (notFullRows === 1) {
             html += `<table class="tribute">
         <tr>
-           <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
            <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3499,8 +3658,8 @@ function htmlCharacterRowBuilder() {
         } else if (notFullRows === 2) {
             html += `<table class="tribute">
         <tr>
-           <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
            <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3511,9 +3670,9 @@ function htmlCharacterRowBuilder() {
         } else if (notFullRows === 3) {
             html += `<table class="tribute">
         <tr>
-           <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
            <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3525,10 +3684,10 @@ function htmlCharacterRowBuilder() {
         } else if (notFullRows === 4) {
             html += `<table class="tribute">
         <tr>
-           <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
            <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3541,11 +3700,11 @@ function htmlCharacterRowBuilder() {
         } else {
             html += `<table class="tribute">
         <tr>
-           <td valign="top"><img src="` + characters[i * 6].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
-           <td valign="top"><img src="` + characters[i * 6 + 4].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 1].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 2].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 3].image + `" height="90" width="90" /></td>
+           <td valign="top"><img class="" src="` + characters[i * 6 + 4].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
            <td valign="top">` + characters[i * 6].name + `<br>` + characters[i * 6].pronoun[0] + `/` + itits(characters[i * 6].pronoun[1]) + `</td>
@@ -3572,7 +3731,7 @@ function declareWinner() {
     var winnerDeclaration = `<table class="one">
     <tbody>
        <tr>
-          <td><img src="` + winner.image + `" height="90" width="90"></td>
+          <td><img class="" src="` + winner.image + `" height="90" width="90"></td>
        </tr>
     </tbody>
  </table>
@@ -3598,12 +3757,12 @@ function declarePlacements() {
 
     html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + placements[0].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[0].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[0].name + `</font></strong><br>` + placements[0].pronoun[0] + `/` + itits(placements[0].pronoun[1]) + `<br>` + `Winner` + `<br>` + hasKills(placements[0]) + `</td>
@@ -3619,12 +3778,12 @@ function declarePlacements() {
     for (var i = 1; i < fullRows; i++) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3640,7 +3799,7 @@ function declarePlacements() {
     if (notFullRows === 1) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
         <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3650,8 +3809,8 @@ function declarePlacements() {
     } else if (notFullRows === 2) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-        <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
         <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3662,9 +3821,9 @@ function declarePlacements() {
     } else if (notFullRows === 3) {
         html += `<table class="tribute">
         <tr>
-        <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-        <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-        <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+        <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
         </tr>
         <tr>
         <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3676,10 +3835,10 @@ function declarePlacements() {
     } else if (notFullRows === 4) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3692,11 +3851,11 @@ function declarePlacements() {
     } else if (notFullRows === 5) {
         html += `<table class="tribute">
             <tr>
-               <td valign="top"><img src="` + placements[i * 6].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
-               <td valign="top"><img src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>a
+               <td valign="top"><img class="" src="` + placements[i * 6].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 1].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>a
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>
@@ -3818,7 +3977,7 @@ function theRace() {
     updateDataBeforeUse();
     titleChanger("!!__THE_COLLAPSE__!!");
 
-    var htmlContentToInsert = `Out of nowhere, every corner of the embassy erupts in a signal of pain and rage. The frightened qou are given an order through distorted words of the... groundsmind? No, it cannot be-<br/><i><font color='ff0066'>WELCAME TO DA CORRU GAMES!!!!!!!!!!<br>KILL and dont BE KILLED!! only 1 of u ll get a chance to survive >:]</font></i><br><br>` + generateEvents(eventRace) + declareTheDiedThisCycleNumber() + `<br/><a href = "#" onclick = "goToPage('1')"> proceed.</a> `;
+    var htmlContentToInsert = `Out of nowhere, every corner of the embassy erupts in a signal of pain and rage. The frightened qou are given an order through distorted words of the... groundsmind? No, it cannot be-<br/><em><font color='ff0066'>WELCAME TO DA CORRU GAMES!!!!!!!!!!<br>KILL and dont BE KILLED!! only 1 of u ll get a chance to survive >:]</font></em><br><br>` + generateEvents(eventRace) + declareTheDiedThisCycleNumber() + `<br/><a href = "#" onclick = "goToPage('1')"> proceed.</a> `;
     var content = document.getElementById("content");
     content.innerHTML = htmlContentToInsert;
 

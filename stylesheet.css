@@ -9,6 +9,18 @@
     color: #4f354f
 }
 
+def {
+    text-decoration-style: dashed;
+}
+
+.evil {
+    filter: contrast(150%) hue-rotate(180deg) saturate(300%);
+}
+
+.afflicted {
+    filter:  grayscale(50%) blur(1px) brightness(199%) hue-rotate(350deg);
+]
+
 html {
     height: 100%
 }

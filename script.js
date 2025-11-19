@@ -451,10 +451,10 @@ function evillization(name) {
     else if (evilname.length >= 4) evilname == "EVIL"+evilname.substring(1).toUpperCase()
     else evilname == "EVIL "+evilname.toUpperCase()
 
-    if (smile == true) evilname += " ;]"
-    if (the == true) evilname = "THE " + evilname
-    if (obs == true) evilname += "!OBSRVR"
-    if (cool == true) evilname = "Xx_"+evilname+"_xX"
+    if (typeof smile != "undefined") evilname += " ;]"
+    if (typeof the != "undefined") evilname = "THE " + evilname
+    if (typeof obs != "undefined") evilname += "!OBSRVR"
+    if (typeof cool != "undefined") evilname = "Xx_"+evilname+"_xX"
 
     evilname=evilname.replaceAll("THE","DA")
 

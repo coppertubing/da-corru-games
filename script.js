@@ -352,14 +352,13 @@ function decidePlayers(playerCount, condition) {
     do {
         console.log("ma")
         players = [];
-        for (var i = 0; i < playerCount; ) {
+        for (var i = 0; i < playerCount; i++) {
             var player = getRandomAliveCharacter();
             players.push(player);
-            players = players.filter((obj, index, self) =>
-                index === self.findIndex((t) => t.id === obj.id)
-            )
-            i = players.length
         };
+        players = players.filter((obj, index, self) =>
+            index === self.findIndex((t) => t.id === obj.id)
+        )
        } while (!!condition(players) || players.length != playerCount)
     for (i=0;i<playerCount;i++) {characters.find((aguy) => aguy.name == players[i].name).beenUsed = true}
     return players;

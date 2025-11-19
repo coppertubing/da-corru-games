@@ -350,19 +350,17 @@ function decideEventGenus() {
 function decidePlayers(playerCount, condition) {
     var players;
     do {
+        console.log("ma")
         players = [];
-        // var lookForParaffin = 0;
-        for (var i = 0; i < playerCount; i++) {
+        for (var i = 0; i < playerCount; ) {
             var player = getRandomAliveCharacter();
             players.push(player);
-            // if (player.name == "Бесподобная Невинность") lookForParaffin++;
-            // if (player.name == "Пара Пустяков") lookForParaffin++;
+            players = players.filter((obj, index, self) =>
+                index === self.findIndex((t) => t.id === obj.id)
+            )
+            i = players.length
         };
-        /* if (lookForParaffin == 2) {
-            paraffinIndex++;
-            paraffinChecker = true;
-        } */
-       } while (!condition(players))
+       } while (!!condition(players) || players.length != playerCount)
     for (i=0;i<playerCount;i++) {characters.find((aguy) => aguy.name == players[i].name).beenUsed = true}
     return players;
 }

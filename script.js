@@ -283,7 +283,7 @@ function generateEvents(eventGenus) {
 }
 
 function generateEvent(eventGenus) {
-    console.log("",);
+    console.log("%c-", 'color: #666666');
     var random = Math.random();
 
     var lethalChecker = chanceLethal;

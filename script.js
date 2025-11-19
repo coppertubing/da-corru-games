@@ -1485,7 +1485,9 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] finds and pets a dog",
+                string: "[1] finds and pets a <def>dog</def>",
+                altString: "[1] finds and pets a dog",
+                alt: 0.25,
                 playerCount: 1
             },
             {
@@ -2806,7 +2808,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2827,7 +2829,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2848,7 +2850,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2869,7 +2871,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2890,7 +2892,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2911,7 +2913,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2932,7 +2934,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2953,7 +2955,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2974,7 +2976,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -2995,7 +2997,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3016,7 +3018,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3037,7 +3039,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3058,7 +3060,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3079,7 +3081,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3100,7 +3102,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3121,7 +3123,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3145,7 +3147,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3166,7 +3168,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3187,7 +3189,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3208,7 +3210,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3229,7 +3231,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3250,7 +3252,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
@@ -3273,7 +3275,7 @@ var eventCycle = {
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
                     if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
-                    player1.special.forEach((e)=>{e = false});
+                    Object.keys(player1.special).forEach(v => player1.special[v] = false);
                     player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);

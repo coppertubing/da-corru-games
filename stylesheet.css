@@ -19,7 +19,7 @@ def {
 
 .afflicted {
     filter:  grayscale(50%) blur(1px) brightness(199%) hue-rotate(350deg);
-]
+}
 
 html {
     height: 100%

@@ -436,19 +436,20 @@ function evillization(name) {
 
     if (evilname.replace("Cool", "EVIL") != evilname) return `<font color="ff0066">` + evilname.replace("Cool", "EVIL").toUpperCase() + `</font>`
 
-    if (evilname.substring(evilname.length-9, evilname.length == "the Great")) return `<font color="ff0066">` + evilname.substring().toUpperCase() + "DA EVIL" + `</font>`
+    if (evilname.substring(evilname.length-9, evilname.length) == "the Great") return `<font color="ff0066">` + evilname.substring().toUpperCase() + "DA EVIL" + `</font>`
 
     if (evilname == "Please Do Not Kill") return `<font color="ff0066">` + "DO KILL" + `</font>`;
 
     evilname=evilname.replaceAll(".","!")
     evilname=evilname.replaceAll("?","!")
 
-    if (evilname == "BSTRD") evilname == "RUINOUS BSTRD"
-    else if (evilname.length >= 10) evilname == "EVIL"+evilname.substring(5).toUpperCase()
-    else if (evilname.length >= 8) evilname == "EVIL"+evilname.substring(4).toUpperCase()
-    else if (evilname.length >= 6) evilname == "EVIL"+evilname.substring(3).toUpperCase()
-    else if (evilname.length >= 5) evilname == "EVIL"+evilname.substring(2).toUpperCase()
-    else if (evilname.length >= 4) evilname == "EVIL"+evilname.substring(1).toUpperCase()
+  	console.log(evilname.length)
+    if (evilname == "BSTRD") evilname = "RUINOUS BSTRD"
+    else if (evilname.length >= 10) evilname = "EVIL"+evilname.substring(5).toUpperCase()
+    else if (evilname.length >= 8) evilname = "EVIL"+evilname.substring(4).toUpperCase()
+    else if (evilname.length >= 6) evilname = "EVIL"+evilname.substring(3).toUpperCase()
+    else if (evilname.length >= 5) evilname = "EVIL"+evilname.substring(2).toUpperCase()
+    else if (evilname.length >= 4) evilname = "EVIL"+evilname.substring(1).toUpperCase()
     else evilname == "EVIL "+evilname.toUpperCase()
 
     if (typeof smile != "undefined") evilname += " ;]"
@@ -458,8 +459,9 @@ function evillization(name) {
 
     evilname=evilname.replaceAll("THE","DA")
 
-    return `<font color="ff0066">` + evilname + `</font>`;
+    return `<font color="ff0066">` + evilname.toUpperCase() + `</font>`;
 }
+evillization("interloper")
 
 function makeImages(players) {
     

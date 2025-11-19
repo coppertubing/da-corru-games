@@ -556,7 +556,7 @@ var eventRace = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = true
+        condition = ()=>{true}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -576,7 +576,7 @@ var eventRace = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = true
+        condition = ()=>{true}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -1222,7 +1222,7 @@ var eventCycle = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = true
+        condition = ()=>{true}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -1247,7 +1247,7 @@ var eventCycle = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = true
+        condition = ()=>{true}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -3147,7 +3147,7 @@ var eventsRandom = [
 
                 var playerCount = eventObject.playerCount;
 
-                condition = true
+                condition = ()=>{true}
                 if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
                 var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
@@ -3172,7 +3172,7 @@ var eventsRandom = [
 
                 var playerCount = eventObject.playerCount;
 
-                condition = true
+                condition = ()=>{true}
                 if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
                 var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;

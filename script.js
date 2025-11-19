@@ -2567,8 +2567,8 @@ var eventCycle = {
                 },
             },
             {
-                string: ()=> {`[1] successfully lands ${Math.floor(Math.random()*10+6)} frenzy critical hits on [die2]`},
-                altString: ()=> {`[1] successfully lands ${Math.floor(Math.random()*100+36)} frenzy critical hits on [die2]`},
+                string: (youstupid)=> {youstupid.string = `[1] successfully lands ${Math.floor(Math.random()*10+6)} frenzy critical hits on [die2]`},
+                altString: (youstupid)=> {youstupid.string = `[1] successfully lands ${Math.floor(Math.random()*100+36)} frenzy critical hits on [die2]`},
                 alt: 0.3,
                 playerCount: 2,
                 howManyDeaths: 1,

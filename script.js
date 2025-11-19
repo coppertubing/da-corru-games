@@ -2805,6 +2805,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2823,6 +2826,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2841,6 +2847,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2859,6 +2868,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2877,6 +2889,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2895,6 +2910,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2913,6 +2931,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2931,6 +2952,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2949,6 +2973,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2967,6 +2994,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -2985,6 +3015,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3003,6 +3036,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3021,6 +3057,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3039,6 +3078,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3057,6 +3099,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3075,6 +3120,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3096,6 +3144,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3114,6 +3165,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3132,6 +3186,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3150,6 +3207,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3168,6 +3228,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
                 }
@@ -3186,6 +3249,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
 
@@ -3206,6 +3272,9 @@ var eventCycle = {
                     player1.revived++;
                     player1.oldKilledBys.push(player1.killedBy);
                     player1.killedBy = undefined;
+                    if (typeof player1.preevilname != "undefined") player1.name = player1.preevilname;
+                    player1.special.forEach((e)=>{e = false});
+                    player1.filter = [];
 
                     placements = placements.filter(o => o.name !== player1.name);
 

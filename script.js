@@ -352,14 +352,13 @@ function decidePlayers(playerCount, condition) {
     do {
         console.log("ma")
         players = [];
-        for (var i = 0; i < playerCount; i++) {
+        for (var i = 0; i < playerCount; i = players.length) {
             var player = getRandomAliveCharacter();
             players.push(player);
-        };
-        players = players.filter((obj, index, self) =>
-            index === self.findIndex((t) => t.id === obj.id)
+            players = players.filter((obj, index, self) => index === self.findIndex((t) => t.name === obj.name)
         )
-       } while (!!condition(players) || players.length != playerCount)
+        };
+       } while (!!condition(players))
     for (i=0;i<playerCount;i++) {characters.find((aguy) => aguy.name == players[i].name).beenUsed = true}
     return players;
 }
@@ -1267,7 +1266,9 @@ var eventCycle = {
 
         var revivedPlayers = decideRevivedPlayers(eventObject.howManyRevivals);
         if (revivedPlayers == "stop") return "stop";
-        var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals);
+        condition = ()=>{true}
+        if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
+        var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals, condition);
 
         var players = revivedPlayers.concat(justPlayers);
 

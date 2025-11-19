@@ -431,6 +431,8 @@ function parseNamesAndPronouns(string, number, character) {
 function evillization(name) {
     evilname = name;
 
+    if (evilname.search(`<font color="ff0066">`) != -1) return "LOSER";
+
     if (evilname.substring(0,2) == "Xx_") {cool == true; evilname = evilname.substring(3,evilname.length-3)}
     if (evilname.substring(evilname.length-9, evilname.length) == ".observer") {obs == true; evilname = evilname.substring(0,evilname.length-9)}
     if (evilname.substring(0,3) == "The ") {the == true; evilname = evilname.substring(4)}
@@ -451,7 +453,7 @@ function evillization(name) {
     else if (evilname.length >= 6) evilname = "EVIL"+evilname.substring(3).toUpperCase()
     else if (evilname.length >= 5) evilname = "EVIL"+evilname.substring(2).toUpperCase()
     else if (evilname.length >= 4) evilname = "EVIL"+evilname.substring(1).toUpperCase()
-    else evilname == "EVIL "+evilname.toUpperCase()
+    else evilname = "EVIL "+evilname.toUpperCase()
 
     if (typeof smile != "undefined") evilname += " ;]"
     if (typeof the != "undefined") evilname = "THE " + evilname
@@ -1372,7 +1374,9 @@ var eventCycle = {
                 playerCount: 1,
                 updateData: function (player1) {
                     player1.preevilname = player1.name;
-                    player1.name = evillization(player1.name);
+                    evil = evillization(player1.name);
+                    if (evil == "LOSER") player1.name = player1.name.substring(0,21) + "EVILER " + player1.name.substring(21)
+                        else player1.name = evil
                     player1.special.evil == true;
                     player1.filter.push("evil");
                 }

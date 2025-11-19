@@ -1358,6 +1358,24 @@ var eventCycle = {
                 },        
             },
             {
+                string: "[1] contracts the contact affliction",
+                playerCount: 1,
+                updateData: function (player1) {
+                    player1.special.afflicted == true;
+                    player1.filter.push("afflicted")
+                }
+            },
+            {
+                string: "[1] contracts the EVIL affliction",
+                playerCount: 1,
+                updateData: function (player1) {
+                    player1.preevilname = player1.name;
+                    player1.name = evillization(player1.name);
+                    player1.special.evil == true;
+                    player1.filter.push("evil");
+                }
+            },
+            {
                 string: "[1] tries to figure out where the fuck [1are] [1they]",
                 playerCount: 1
             },

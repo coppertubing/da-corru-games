@@ -389,6 +389,8 @@ function parseNamesAndPronouns(string, number, character) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
     }
 
+    console.log(string)
+
     string = string.replaceAll(`[` + number + `]`, `<strong><font color="ffff00">` + character.name + `</font></strong>`)
 
     string = string.replaceAll(`[die` + number + `]`, `<strong><font color="` + nicknamecolor_died + `">` + character.name + `</font></strong>`);
@@ -443,7 +445,6 @@ function evillization(name) {
     evilname=evilname.replaceAll(".","!")
     evilname=evilname.replaceAll("?","!")
 
-  	console.log(evilname.length)
     if (evilname == "BSTRD") evilname = "RUINOUS BSTRD"
     else if (evilname.length >= 10) evilname = "EVIL"+evilname.substring(5).toUpperCase()
     else if (evilname.length >= 8) evilname = "EVIL"+evilname.substring(4).toUpperCase()
@@ -461,7 +462,6 @@ function evillization(name) {
 
     return `<font color="ff0066">` + evilname.toUpperCase() + `</font>`;
 }
-evillization("interloper")
 
 function makeImages(players) {
     

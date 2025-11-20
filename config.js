@@ -206,7 +206,7 @@ characters.forEach(function (element) {
     element.killedBy = undefined
     element.oldKilledBys = []
     element.revived = 0
-    element.special = { afflicted: false, evil: false}
+    element.special = { afflicted: false, evil: false, mindcore:false}
     element.filter = []
 });
 

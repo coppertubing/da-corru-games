@@ -263,7 +263,7 @@ function doubleCheck() {
 // пиздец с ивентами
 // краткий словарик для ахуевающих наблюдателей ака ебать таксономия ивентов. дуто ты с дуба рухнул
 // род (genus) - это то, откуда ивент вообще (гонка, цикл, дождь, событие...)
-// тип (type) - это ну (обычный, летальный, возрождающий, afflicted)
+// тип (type) - это ну (обычный, летальный, возрождающий)
 // объект (object) - сам ивент, самая мелкая единица
 
 function generateEvents(eventGenus) {
@@ -309,22 +309,20 @@ function decideEventObject(eventArrayType) {
     var index;
     for (var i = 0; i < 73792; i++) {
         index = Math.floor(Math.random() * eventArrayType.length)
-        object = eventArrayType[index];
-
-        if (Object.hasOwn(object, "preAlt")) object.preAlt(object)
-        if (object == "no lol") continue; // check if the object has become unavailiable
-
-        if (Object.hasOwn(object, "altString")) {
-            random = Math.random()
-            if (random < object.alt) {(console.warn(random, object.alt));object.string = object.altString}
-        }
-
-        if (typeof object.string == "function") object.string(object)
-        if (object == "no lol") continue; // check if the object has become unavailiable
+        object = Object.assign({}, eventArrayType[index]);
 
         if (object.playerCount <= currentUnusedCharacterNumber) {
-            if (Object.hasOwn(object, "postQualified")) object.postQualified(object)
-            if (object == "no lol") continue; // check if the object has become unavailiable
+            eventConditionResult = false;
+            if (Object.hasOwn(object, "eventCondition")) {console.warn("[decideEventObject] - eventCondition! ", object); eventConditionResult = object.eventCondition()};
+            if (eventConditionResult) {console.warn("[decideEventObject] - " + eventConditionResult + ", another loop");;continue};  // check if the object has become unavailiable
+
+            if (Object.hasOwn(object, "altString")) {
+                random = Math.random()
+                if (random < object.alt) {(console.warn("[decideEventObject] - Picked altString, with random " + random + " < alt " + object.alt));object.string = object.altString}
+            }
+
+            if (typeof object.string == "function") object.string(object)
+
             return object
         };
     };
@@ -350,15 +348,17 @@ function decideEventGenus() {
 
 function decidePlayers(playerCount, condition) {
     var players;
+    no = 0;
+    if (typeof condition == "undefined") condition = false
     do {
         players = [];
         for (var i = 0; i < playerCount; i = players.length) {
             var player = getRandomAliveCharacter();
             players.push(player);
-            players = players.filter((obj, index, self) => index === self.findIndex((t) => t.name === obj.name)
-        )
+            players = players.filter((obj, index, self) => index === self.findIndex((t) => t.name === obj.name))
         };
-       } while (!!condition(players))
+        no++
+       } while (condition(players) && no<2000)
     for (i=0;i<playerCount;i++) {characters.find((aguy) => aguy.name == players[i].name).beenUsed = true}
     return players;
 }
@@ -581,7 +581,7 @@ var eventRace = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = ()=>{true}
+        condition = ()=>{return false}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -603,7 +603,7 @@ var eventRace = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = ()=>{true}
+        condition = ()=>{return false}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -1280,7 +1280,7 @@ var eventCycle = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = ()=>{true}
+        condition = ()=>{return false}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -1302,7 +1302,7 @@ var eventCycle = {
 
         var playerCount = eventObject.playerCount;
 
-        condition = ()=>{true}
+        condition = ()=>{return false}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var players = decidePlayers(playerCount, condition);
         currentUnusedCharacterNumber -= playerCount;
@@ -1325,7 +1325,7 @@ var eventCycle = {
 
         var revivedPlayers = decideRevivedPlayers(eventObject.howManyRevivals);
         if (revivedPlayers == "stop") return "stop";
-        condition = ()=>{true}
+        condition = ()=>{return false}
         if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
         var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals, condition);
 
@@ -2265,15 +2265,16 @@ var eventCycle = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    const outnumbered = true;
+                    outnumbered = true;
 
                     theFunnyKillFunction(player1, `Outnumbered`)
                 },
             },
             {   
-                preAlt: (stupidthisisyou) => {
-                    if (typeof outnumbered == "undefined") stupidthisisyou = "no lol"
-                        else if (outnumbered == false) stupidthisisyou = "no lol"
+                eventCondition: () => {
+                    if (typeof outnumbered == "undefined") return true
+                        else if (outnumbered == false) return true
+                        else return false
                 },
                 string: "[die1] loses a fight with a singular tiny little enemy",
                 playerCount: 1,
@@ -2282,7 +2283,7 @@ var eventCycle = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
                 
-                    theFunnyKillFunction(player1, `Numbered?`)
+                    theFunnyKillFunction(player1, `Numbered`)
                 },
             },
             {
@@ -2550,21 +2551,6 @@ var eventCycle = {
 
                     theFunnyKillFunction(player1, `Turned into spare parts`)
                 },
-            },
-            {
-                preAlt: (stupidthisisyou) => {
-                    if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false).length < 1) stupidthisisyou = "no lol"
-                },
-                string: "[die1] succumbs to contact affliction",
-                playerCount: 1,
-                howManyDeaths: 1, 
-                updateData: function (player1) {
-                    currentCharacterNumber -= this.howManyDeaths;
-                    diedThisCycle += this.howManyDeaths;
-
-                    theFunnyKillFunction(player1, `Got afflicted`)
-                },
-                condition: (players)=>{players[0].special.afflicted == true}
             },
 
             // 2's
@@ -3347,7 +3333,7 @@ var eventsRandom = [
 
                 var playerCount = eventObject.playerCount;
 
-                condition = ()=>{true}
+                condition = ()=>{return false}
                 if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
                 var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
@@ -3369,7 +3355,7 @@ var eventsRandom = [
 
                 var playerCount = eventObject.playerCount;
 
-                condition = ()=>{true}
+                condition = ()=>{return false}
                 if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
                 var players = decidePlayers(playerCount, condition);
                 currentUnusedCharacterNumber -= playerCount;
@@ -3392,7 +3378,7 @@ var eventsRandom = [
 
                 var revivedPlayers = decideRevivedPlayers(eventObject.howManyRevivals);
                 if (revivedPlayers == "stop") return "stop";
-                condition = ()=>{true}
+                condition = ()=>{return false}
                 if (Object.hasOwn(eventObject, 'condition')) condition = eventObject.condition
                 var justPlayers = decidePlayers(playerCount - eventObject.howManyRevivals, condition);
 
@@ -3424,7 +3410,7 @@ var eventsRandom = [
                         playerCount: 1
                     },
                     {
-                        string: "[1] withstands an attack of numerous containers thanks to satik cysts",
+                        string: "[1] withstands an attack of numerous containers thanks to <def>satik cysts</def>",
                         playerCount: 1
                     },
                     {
@@ -3432,7 +3418,7 @@ var eventsRandom = [
                         playerCount: 1
                     },
                     {
-                        string: "[1] locks [1themself] in a container-free room and waits for this to end",
+                        string: "[1] locks [1themself] in a container-free room and waits for the chaos to end",
                         playerCount: 1
                     },
                     {
@@ -3482,7 +3468,27 @@ var eventsRandom = [
                     {
                         string: "[1] rips a container in half",
                         playerCount: 1
-                    },   
+                    },
+                    {
+                        string: "[1] is wounded but survives the container apocalypse",
+                        playerCount: 1
+                    },
+                    {
+                        eventCondition: () => {
+                            if (characters.filter((aguy) => aguy.special.mindcore == false && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+                            else return false
+                        },
+                        string: "[1] evacuates out of [1their] body in order to appeal to the little crawly critter nature of containers",
+                        playerCount: 1,
+                        condition: (players)=>{
+                            if (players[0].special.mindcore==true) return true
+                            else return false
+                        },
+                        updateData: function (player1) {
+                            player1.special.mindcore = true;
+                            player1.filter.push("mindcore")
+                        }
+                    },
 
                     // 2's
 
@@ -3498,11 +3504,55 @@ var eventsRandom = [
                         string: "[1] asks [2] for help with the containers",
                         playerCount: 2
                     },
+                    {
+                        string: "[1] thinks of using containers as a means to finally kill [2]",
+                        playerCount: 2
+                    },
+                    {
+                        string: "[1] warns [2] about the containers",
+                        playerCount: 2
+                    },
+                    {
+                        string: "[1] and [2] manage to find a moment to fight each other instead of the infinite containers",
+                        playerCount: 2
+                    },
+                    {
+                        string: "[1] and [2] barely survive a difficult container fight",
+                        playerCount: 2
+                    },
+                    {
+                        string: "[1] offers [2] a <def>restorative cyst</def> to keep fighting the containers",
+                        playerCount: 2
+                    },
+                    {
+                        string: "[1] snickers as [1they] witness1e] [2] trying to climb onto the ceiling to escape the containers",
+                        playerCount: 2
+                    },
 
                     // 3's
 
                     {
-                        string: "[1], [2] and [3] compete with [4], [5] and [6] for resources",
+                        string: "[1] leads a swarm of containers into a room as [2] and [3] prepare to blow it up with improvised explosives",
+                        playerCount: 3
+                    },
+                    {
+                        string: "[1] promises [2] and [3] to find a place safe from the containers",
+                        playerCount: 3
+                    },
+                    {
+                        string: "[1], [2] and [3] rummage through container corpses for anything useful",
+                        playerCount: 3
+                    },
+                    {
+                        string: "[1], [2] and [3] use up all of their <def>kavrukas</def> on the containers",
+                        playerCount: 3
+                    },
+                    {
+                        string: "[1], [2] and [3] keep throwing containers at each other",
+                        playerCount: 3
+                    },
+                    {
+                        string: "[1], [2] and [3] try to make a plan for dealing with the containers but end up improvising",
                         playerCount: 3
                     },
 
@@ -3595,7 +3645,7 @@ var eventsRandom = [
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-                            theFunnyKillFunction(player1, `No escape from containers`)
+                            theFunnyKillFunction(player1, `Container dead end`)
                         },        
                     },
                     {
@@ -3605,18 +3655,18 @@ var eventsRandom = [
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-                            theFunnyKillFunction(player1, `Too many containers`)
+                            theFunnyKillFunction(player1, `Ourcontainered`)
                         },        
                     },
                     {
-                        string: "[die1] loses against a singular container",
+                        string: "[die1] is bested in combat by a single container",
                         playerCount: 1,
                         howManyDeaths: 1,
                         updateData: function (player1) {
                             currentCharacterNumber -= this.howManyDeaths;
                             diedThisCycle += this.howManyDeaths;
-                            theFunnyKillFunction(player1, `Just weak`)
-                        },        
+                            theFunnyKillFunction(player1, `Container is strong, and [0they] [0are] not`)
+                        },
                     },
 
                     // 2's
@@ -3771,6 +3821,48 @@ var eventsRandom = [
 ]
 
 
+// FUCKING VARIABLES FOR EVENTS OR WHATEVER
+let outnumbered = false;
+
+// THE SECTION OF condition-dependant events that are pushed in there multiple times to increase chance of them being picked by guys that fulfill the condition
+
+function questiommark (what) {
+    for (whuh=0;whuh<what.length;whuh++) {
+        for (huh=0;huh<what[whuh].howmanytimes;huh++) what[whuh].where.push(what[whuh])
+    }
+}
+
+var bitches = [
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 1000,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] succumbs to contact affliction",
+        playerCount: 1,
+        howManyDeaths: 1, 
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Got afflicted`)
+        },
+        condition: (players)=>{
+            if (players[0].special.afflicted == true) return false
+            else return true
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 1000,
+        string: "[die1] maow",
+        playerCount: 1
+    },
+]
+
+questiommark(bitches)
 
 
 // ---- ФУНКЦИИ-СТРАНИЧКОБИЛДЕРЫ -----

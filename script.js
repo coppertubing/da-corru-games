@@ -1409,6 +1409,14 @@ var eventCycle = {
                 }
             },
             {
+                string: "[1] loses [1their] <def>qou</def>-body",
+                playerCount: 1,
+                updateData: function (player1) {
+                    player1.special.mindcore = true;
+                    player1.filter.push("mindcore")
+                }
+            },
+            {
                 string: "[1] tries to figure out where the fuck [1are] [1they]",
                 playerCount: 1
             },
@@ -3819,7 +3827,7 @@ function questiommark (what) {
 var bitches = [
     {
         where: eventCycle["array"]["lethal"],
-        howmanytimes: 1000,
+        howmanytimes: 5,
         eventCondition: () => {
             if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
             else return false
@@ -3838,30 +3846,123 @@ var bitches = [
             else return true
         }
     },
-    {
-        where: eventCycle["array"]["regular"],
-        howmanytimes: 1000,
-        string: "[die1] maow",
-        playerCount: 1
-    },
 
-
-    // RANDOM CONTAINER FPR MINDCORES
+    // RANDOM CONTAINER FOR MINDCORES
     {
         where: eventsRandom[0]["array"]["regular"],
         howmanytimes: 2,
+
         eventCondition: () => {
             if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
             else return false
         },
-        string: "[1]'s mindcore appeals to the little crawly critter nature of containers and they let [1them] be",
-        altString: "[1] crawls into a hiding spot where the containers would not get [1them]",
-        alt: 0.5,
+        string: "[1] crawls into a hiding spot where the containers would not get [1them]",
         playerCount: 1,
         condition: (players)=>{
             if (players[0].special.mindcore==false) return true
             else return false
         }
+    },
+    {
+        where: eventsRandom[0]["array"]["regular"],
+        howmanytimes: 1,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] appeals to the little crawly critter nature of containers and they let [1them] be",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventsRandom[0]["array"]["regular"],
+        howmanytimes: 1,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] constructs a new <def>qou</def>-body out of countless container remains for [1themself]",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        },
+        updateData: function (player1) {
+            player1.special.mindcore = false;
+            player1.filter = player1.filter.filter((el) => el != "mindcore")
+        }
+    },
+    {
+        where: eventsRandom[0]["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] scitters into a corner and begs <def>Velzie</def> to direct the containers elsewhere",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventsRandom[0]["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] takes pity on the debodied [2] and protects [2them] from the containers",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventsRandom[0]["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] clings onto [2] and refuses to go away until the container catastrophy is over",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventsRandom[0]["array"]["lethal"],
+        howmanytimes: 3,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] mistakes [die2] for a container and--",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1, player2) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player2, `Too container-shaped for [1]`, player1)
+        },
     },
 ]
 

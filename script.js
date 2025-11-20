@@ -617,8 +617,6 @@ var eventRace = {
 
         var event = eventImage + eventString + `<br><br>`;
 
-        eventObject.updateData.apply(eventObject, players);
-
         return event;
     },
     array: {

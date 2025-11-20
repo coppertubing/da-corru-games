@@ -244,7 +244,7 @@ function doubleCheck() {
             uniqueObjects.push(obj);
         }
         if (isDuplicate) {
-            console.error("[doubleCheck] - Found and removed duplicate: " + obj)
+            console.error("[doubleCheck] - Found and removed duplicate: ", obj)
         }
     }
     placements.length = 0;
@@ -315,7 +315,8 @@ function decideEventObject(eventArrayType) {
         if (object == "no lol") continue; // check if the object has become unavailiable
 
         if (Object.hasOwn(object, "altString")) {
-            if (Math.random() < object.alt) object.string = object.altString
+            random = Math.random()
+            if (random < object.alt) {(console.warn(random, object.alt));object.string = object.altString}
         }
 
         if (typeof object.string == "function") object.string(object)
@@ -350,7 +351,6 @@ function decideEventGenus() {
 function decidePlayers(playerCount, condition) {
     var players;
     do {
-        console.log("ma")
         players = [];
         for (var i = 0; i < playerCount; i = players.length) {
             var player = getRandomAliveCharacter();

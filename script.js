@@ -3849,7 +3849,7 @@ var bitches = [
 
     // RANDOM CONTAINER FOR MINDCORES
     {
-        where: eventsRandom[0]["array"]["regular"],
+        where: eventsRandom[0][`eventGenus`]["array"]["regular"],
         howmanytimes: 2,
 
         eventCondition: () => {
@@ -3864,7 +3864,7 @@ var bitches = [
         }
     },
     {
-        where: eventsRandom[0]["array"]["regular"],
+        where: eventsRandom[0][`eventGenus`]["array"]["regular"],
         howmanytimes: 1,
 
         eventCondition: () => {
@@ -3879,7 +3879,7 @@ var bitches = [
         }
     },
     {
-        where: eventsRandom[0]["array"]["regular"],
+        where: eventsRandom[0][`eventGenus`]["array"]["regular"],
         howmanytimes: 1,
 
         eventCondition: () => {
@@ -3898,7 +3898,7 @@ var bitches = [
         }
     },
     {
-        where: eventsRandom[0]["array"]["regular"],
+        where: eventsRandom[0][`eventGenus`]["array"]["regular"],
         howmanytimes: 2,
 
         eventCondition: () => {
@@ -3913,7 +3913,7 @@ var bitches = [
         }
     },
     {
-        where: eventsRandom[0]["array"]["regular"],
+        where: eventsRandom[0][`eventGenus`]["array"]["regular"],
         howmanytimes: 2,
 
         eventCondition: () => {
@@ -3928,7 +3928,7 @@ var bitches = [
         }
     },
     {
-        where: eventsRandom[0]["array"]["regular"],
+        where: eventsRandom[0][`eventGenus`]["array"]["regular"],
         howmanytimes: 2,
 
         eventCondition: () => {
@@ -3943,7 +3943,7 @@ var bitches = [
         }
     },
     {
-        where: eventsRandom[0]["array"]["lethal"],
+        where: eventsRandom[0][`eventGenus`]["array"]["lethal"],
         howmanytimes: 3,
 
         eventCondition: () => {

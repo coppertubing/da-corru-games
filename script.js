@@ -1375,7 +1375,7 @@ var eventCycle = {
                         ihatespaces(player1.name)+"ZuzucriKiller"+Math.floor(Math.random()*100),
                         ihatespaces(player1.name)+"VeilkFeller"+Math.floor(Math.random()*100),
                         ihatespaces(player1.name)+" the Great",
-                        "The "+ihatespaces(player1.name, " ") + " " + capitalizeFirstLetter(player1.pronoun[5]),
+                        "The "+ihatespaces(player1.name, " ") + " " + capitalizeFirstLetter(player1.pronoun[4]),
                         player1.name+" 2.0",
                         ihatespaces(player1.name).toLowerCase()+".observer",
                         "Cool"+player1.name.substring(2),

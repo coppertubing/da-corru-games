@@ -3473,22 +3473,6 @@ var eventsRandom = [
                         string: "[1] is wounded but survives the container apocalypse",
                         playerCount: 1
                     },
-                    {
-                        eventCondition: () => {
-                            if (characters.filter((aguy) => aguy.special.mindcore == false && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
-                            else return false
-                        },
-                        string: "[1] evacuates out of [1their] body in order to appeal to the little crawly critter nature of containers",
-                        playerCount: 1,
-                        condition: (players)=>{
-                            if (players[0].special.mindcore==true) return true
-                            else return false
-                        },
-                        updateData: function (player1) {
-                            player1.special.mindcore = true;
-                            player1.filter.push("mindcore")
-                        }
-                    },
 
                     // 2's
 
@@ -3859,6 +3843,25 @@ var bitches = [
         howmanytimes: 1000,
         string: "[die1] maow",
         playerCount: 1
+    },
+
+
+    // RANDOM CONTAINER FPR MINDCORES
+    {
+        where: eventsRandom[0]["array"]["regular"],
+        howmanytimes: 2,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1]'s mindcore appeals to the little crawly critter nature of containers and they let [1them] be",
+        altString: "[1] crawls into a hiding spot where the containers would not get [1them]",
+        alt: 0.5,
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
     },
 ]
 

@@ -4170,7 +4170,7 @@ function declarePlacements() {
                <td valign="top"><img class="`+ placements[i * 6 + 2].filter.join(" ") +`" src="` + placements[i * 6 + 2].image + `" height="90" width="90" /></td>
                <td valign="top"><img class="`+ placements[i * 6 + 3].filter.join(" ") +`" src="` + placements[i * 6 + 3].image + `" height="90" width="90" /></td>
                <td valign="top"><img class="`+ placements[i * 6 + 4].filter.join(" ") +`" src="` + placements[i * 6 + 4].image + `" height="90" width="90" /></td>
-               <td valign="top"><img class="`+ placements[i * 6].filter.join(" ") +`" src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
+               <td valign="top"><img class="`+ placements[i * 6 + 5].filter.join(" ") +`" src="` + placements[i * 6 + 5].image + `" height="90" width="90" /></td>
             </tr>
             <tr>
                <td valign="top"><strong><font color="ffff00">` + placements[i * 6].name + `</font></strong><br>` + placements[i * 6].pronoun[0] + `/` + itits(placements[i * 6].pronoun[1]) + `<br>` + (i * 6 + 1) + `th Place` + `<br>` + hasKills(placements[i * 6]) + `<br>` + placements[i * 6].killedBy + `</td>

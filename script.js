@@ -1502,7 +1502,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] uses [1their] last disabler charge to escape a large group of enemies",
+                string: "[1] uses [1their] last <def>disabler</def> charge to escape a large group of enemies",
                 playerCount: 1
             },
             {
@@ -2005,7 +2005,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] intimidates [2] and [3] and kicks them out of [1their] tendril",
+                string: "[1] intimidates [2] and [3] and kicks them out of [1their] <def>tendril</def>",
                 playerCount: 3
             },
             {
@@ -2803,8 +2803,8 @@ var eventCycle = {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Improper disabler use`, player2)
-                    theFunnyKillFunction(player2, `Improper disabler use`, player1)
+                    theFunnyKillFunction(player1, `Improper <def>disabler</def> use`, player2)
+                    theFunnyKillFunction(player2, `Improper <def>disabler</def> use`, player1)
                 },
             },
             {

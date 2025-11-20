@@ -2517,12 +2517,13 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1]'s qou-body fails and [1their] exposed mindcore is soon attacked and sludged",
+                string: "[die1]'s <def>qou</def>-body fails and [1their] exposed mindcore is soon attacked and sludged",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
+
 
                     theFunnyKillFunction(player1, `Debodied and dealived`)
                 },

@@ -321,7 +321,7 @@ function decideEventObject(eventArrayType) {
                 if (random < object.alt) {(console.warn("[decideEventObject] - Picked altString, with random " + random + " < alt " + object.alt));object.string = object.altString}
             }
 
-            if (typeof object.string == "function") object.string(object)
+            if (typeof object.string == "function") object.string = object.string()
 
             return object
         };
@@ -2632,8 +2632,8 @@ var eventCycle = {
                 },
             },
             {
-                string: (youstupid)=> {youstupid.string = `[1] successfully lands ${Math.floor(Math.random()*10+6)} frenzy critical hits on [die2]`},
-                altString: (youstupid)=> {youstupid.string = `[1] successfully lands ${Math.floor(Math.random()*100+36)} frenzy critical hits on [die2]`},
+                string: ()=> {return `[1] successfully lands ${Math.floor(Math.random()*10+6)} frenzy critical hits on [die2]`},
+                altString: ()=> {return `[1] successfully lands ${Math.floor(Math.random()*100+36)} frenzy critical hits on [die2]`},
                 alt: 0.3,
                 playerCount: 2,
                 howManyDeaths: 1,

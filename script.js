@@ -938,7 +938,7 @@ var eventRace = {
                 playerCount: 3
             },
             {
-                string: "[1], [2] and [3] all scatter in all directions",
+                string: "[1], [2] and [3] scatter in all directions",
                 playerCount: 3
             },
             {
@@ -962,7 +962,7 @@ var eventRace = {
                 playerCount: 3
             },
             {
-                string: "While [1] and [2] fight over resources, [3] steals them all",
+                string: "While [1] and [2] argue over resources, [3] steals them all",
                 playerCount: 3
             },
             {
@@ -970,7 +970,7 @@ var eventRace = {
                 playerCount: 3
             },
             {
-                string: "[1] attempts to kill [2] and [3] in order to get their equipment, but fails and escapes by a miracle",
+                string: "[1] attempts to kill [2] and [3] in order to get their equipment, but fails and escapes by a pure miracle",
                 playerCount: 3
             },
             {
@@ -993,6 +993,14 @@ var eventRace = {
                 string: "[1] eviscerates a kivskin before [2] and [3]'s eyes and runs off while apologizing",
                 playerCount: 3
             },
+            {
+                string: "[1] and [2] protect [3] from the sudden attack",
+                playerCount: 3
+            },
+            {
+                string: "[1], [2] and [3] try to not panic and discuss what to do",
+                playerCount: 3
+            },
 
             // 4's
 
@@ -1002,6 +1010,8 @@ var eventRace = {
             },
             {
                 string: "[1], [2], [3] and [4] argue over whose fault is all this",
+                altString: "[1], [2], [3] and [4] argue over whose fault is all this. They end up blaming [1], who must escape quickly in order not to be killed",
+                alt: 0.25,
                 playerCount: 4
             },
             {
@@ -1010,6 +1020,14 @@ var eventRace = {
             },
             {
                 string: "[1] finds a <def>disabler</def>... that is taken from [1them] by [2], [3] and [4] via force",
+                playerCount: 4
+            },
+            {
+                string: "[1], [2], [3] and [4] decide to share resources equally instead of fighting for them",
+                playerCount: 4
+            },
+            {
+                string: "[1] runs around, warning everyone of the emergency. [2], [3] and [4] ask [1them] kindly to shut up",
                 playerCount: 4
             },
 
@@ -1107,14 +1125,14 @@ var eventRace = {
                 },
             },
             {
-                string: "[die1] ends up bleeding to death after a fight",
+                string: "[die1] ends up bleeding to death after a fight [1they] [1were] not ready for",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
 
-                    theFunnyKillFunction(player1, `Buncgture`)
+                    theFunnyKillFunction(player1, `Buncgture/Unprepared`)
                 },
             },
             {
@@ -1126,6 +1144,17 @@ var eventRace = {
                     diedThisCycle += this.howManyDeaths;
 
                     theFunnyKillFunction(player1, `Fatally wounded`)
+                },
+            },
+            {
+                string: "[die1] is swarmed by enemies",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Outnumbered`)
                 },
             },
             {
@@ -1363,7 +1392,7 @@ var eventCycle = {
                 string: "[1] contracts the contact affliction",
                 playerCount: 1,
                 updateData: function (player1) {
-                    player1.special.afflicted == true;
+                    player1.special.afflicted = true;
                     player1.filter.push("afflicted")
                 }
             },
@@ -1375,7 +1404,7 @@ var eventCycle = {
                     evil = evillization(player1.name);
                     if (evil == "LOSER") player1.name = player1.name.substring(0,21) + "EVILER " + player1.name.substring(21)
                         else player1.name = evil
-                    player1.special.evil == true;
+                    player1.special.evil = true;
                     player1.filter.push("evil");
                 }
             },
@@ -2215,7 +2244,7 @@ var eventCycle = {
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
-                    theFunnyKillFunction(player1, `<def>okidoia</def>'d`)
+                    theFunnyKillFunction(player1, `<def>Okidoia</def>'d`)
                 },
             },
             {
@@ -2235,8 +2264,25 @@ var eventCycle = {
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
+
+                    const outnumbered = true;
+
+                    theFunnyKillFunction(player1, `Outnumbered`)
+                },
+            },
+            {   
+                preAlt: (stupidthisisyou) => {
+                    if (typeof outnumbered == "undefined") stupidthisisyou = "no lol"
+                        else if (outnumbered == false) stupidthisisyou = "no lol"
+                },
+                string: "[die1] loses a fight with a singular tiny little enemy",
+                playerCount: 1,
+                howManyDeaths: 1,
+                updateData: function (player1) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
                 
-                    theFunnyKillFunction(player1, `Too many enemies`)
+                    theFunnyKillFunction(player1, `Numbered?`)
                 },
             },
             {

@@ -49,9 +49,9 @@ function declareTheDiedThisCycleNumber() {
             "1 (one, unit, unity) is a number, numeral, and glyph. It is the first and smallest positive integer of the infinite sequence of natural numbers. This fundamental property has led to its unique uses in other fields, ranging from science to sports, where it commonly denotes the first, leading, or top thing in a group. 1 is th",
             "we will remember you, dead one (threat) /silly",
             "did you know that 1 is",
-            "haha h a <em>ONE</em> /ref",
+            "haha h a <em>ONE</em>",
             "oooooooooooooooone",
-            "ONE- *intro music plays* /ref"
+            "ONE- *intro music plays*"
         ],
         /*2-4*/[
             diedThisCycle + "!!!!!! " + diedThisCycle + "!!!!!!!!!!!!!!",

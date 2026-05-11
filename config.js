@@ -23,6 +23,26 @@ var characters = [
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
         image: "img/participants/amnez/4.PNG",
     },
+    {
+        name: "Mivizl",
+        pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
+        image: "img/participants/amnez/5.PNG",
+    },
+    {
+        name: "Vedane",
+        pronoun: [`he`,`him`,`his`,`his`,`himself`], singular: true,
+        image: "img/participants/amnez/6.PNG",
+    },
+    {
+        name: "Akjellte",
+        pronoun: [`they`,`them`,`their`,`theirs`,`themself`], singular: false,
+        image: "img/participants/amnez/7.PNG",
+    },
+    {
+        name: "Caiunaka",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "img/participants/amnez/8.PNG",
+    },
 
 
 ]

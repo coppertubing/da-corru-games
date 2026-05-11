@@ -42,9 +42,7 @@ var characters = [
         name: "Caiunaka",
         pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
         image: "img/participants/amnez/8.PNG",
-    },
-
-
+    }
 ]
 
 characters.forEach(function (element) {

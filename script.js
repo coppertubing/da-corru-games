@@ -1023,7 +1023,7 @@ var eventRace = {
                 playerCount: 4
             },
             {
-                string: "[1], [2], [3] and [4] decide to share resources equally instead of fighting for them",
+                string: "[1], [2], [3] and [4] decide to share supplies equally instead of fighting for them",
                 playerCount: 4
             },
             {
@@ -1386,6 +1386,7 @@ var eventCycle = {
                     if (player1.name.toLowerCase() != player1.name) terriblehorriblenames.push(player1.name.toLowerCase())
                     if (speakLeet(player1.name) != player1.name) terriblehorriblenames.push(speakLeet(player1.name))
                     player1.name = terriblehorriblenames[Math.floor(Math.random() * terriblehorriblenames.length)]
+                    player1.special.cool = true
                 },        
             },
             {
@@ -1409,7 +1410,7 @@ var eventCycle = {
                 }
             },
             {
-                string: "[1] loses [1their] <def>qou</def>-body",
+                string: "[1] is forced to evacuate [1their] extremely injured <def>qou</def>-body",
                 playerCount: 1,
                 updateData: function (player1) {
                     player1.special.mindcore = true;
@@ -1438,7 +1439,6 @@ var eventCycle = {
             },
             {
                 string: "[1] feels a little incoherent",
-                
                 playerCount: 1
             },
             {
@@ -1450,7 +1450,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] searches for <def>sfer</def> and useful items",
+                string: "[1] searches for <def>sfer</def> and other useful items",
                 playerCount: 1
             },
             {
@@ -1482,7 +1482,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] finds a <def>kavruka</def>. Yay! Explode everything!",
+                string: "[1] finds a stash of <def>kavrukas</def>. Yay! Explode everything!",
                 playerCount: 1
             },
             {
@@ -1528,11 +1528,11 @@ var eventCycle = {
             {
                 string: "[1] finds and pets a <def>dog</def>",
                 altString: "[1] finds and pets a dog",
-                alt: 0.25,
+                alt: 0.2,
                 playerCount: 1
             },
             {
-                string: "[1] talks to a very strange door... It does not look like made out of corru...",
+                string: "[1] talks to a very strange door...? It does not look like made out of corru",
                 playerCount: 1
             },
             {
@@ -1604,7 +1604,7 @@ var eventCycle = {
                 playerCount: 1
             },
             {
-                string: "[1] dreams about victory",
+                string: "[1] dreams of victory",
                 playerCount: 1
             },
             {
@@ -1666,6 +1666,17 @@ var eventCycle = {
             {
                 string: "[1] lies on the floor",
                 playerCount: 1
+            },
+            {
+                string: "[1] changes [1their] last name to something else",
+                playerCount: 1,
+                updateData: (player1) => {
+                    newname = ''
+                    splitname = player1.name.split(" ")
+                    if (splitname.length == 3) newname = `${splitname[0]} ${splitname[1]} Something Else`
+                    else newname = player1.name + "Qou Something Else"
+                    player1.name = newname
+                }
             },
             
 
@@ -1756,11 +1767,11 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] attacks [2], hoping to take [2their] resources, but [2] fends [1them] off",
+                string: "[1] attacks [2], hoping to take [2their] supplies, but [2] fends [1them] off",
                 playerCount: 2
             },
             {
-                string: "[1] ambushes [2] and takes [2their] equipment but spares [2their] life",
+                string: "[1] ambushes [2] and takes [2their] equipment but not [2their] life",
                 playerCount: 2
             },
             {
@@ -1772,7 +1783,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] gives [2] a restorative cyst. [2] cannot stop thanking [1them]",
+                string: "[1] gives [2] a <def>restorative cyst</def>. [2] cannot stop thanking [1them]",
                 playerCount: 2
             },
             {
@@ -1880,7 +1891,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] thinks [1they] [1have] found [2]'s corpse, but in reality [2] is playing dead",
+                string: "[1] thinks [1they] [1have] found [2]'s corpse, but in reality [2] is only playing dead",
                 playerCount: 2
             },
             {
@@ -1888,7 +1899,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] challenges [2] to a fight. No one wins, but they recognize each other's strength and become friends",
+                string: "[1] challenges [2] to a fight. Neither of them wins, but they recognize each other's strength and become friends",
                 playerCount: 2
             },
             {
@@ -1940,7 +1951,7 @@ var eventCycle = {
                 playerCount: 2
             },
             {
-                string: "[1] watches [2] and sees something [1they] should not have",
+                string: "[1] spies on [2] and sees something [1they] should not have",
                 playerCount: 2
             },
             {
@@ -1978,7 +1989,7 @@ var eventCycle = {
             {
                 string: "[1] beats [2] up but does not kill [2them]",
                 altString: "[1] beats [2] up but only a little",
-                alt: 0.5,
+                alt: 0.3333333333,
                 playerCount: 2
             },
             {
@@ -1988,6 +1999,66 @@ var eventCycle = {
             {
                 string: "[1] begs [2] to let [1them] kill [2them]",
                 playerCount: 2
+            },
+            {
+                string: "[1] and [2] have a very serious conversation",
+                playerCount: 2
+            },
+            {
+                string: "[1] makes fun of [2]",
+                playerCount: 2
+            },
+            {
+                string: "[1] and [2] have a disastrous argument and declare each other enemies",
+                playerCount: 2
+            },
+            {
+                string: "[1] tries to cheer [2] up",
+                playerCount: 2
+            },
+            {
+                string: "[1] inspects [2] for wounds",
+                playerCount: 2
+            },
+            {
+                string: "[1] follows [2] around for fun",
+                playerCount: 2
+            },
+            {
+                string: "Tension of unidentified kind arises between [1] and [2]",
+                playerCount: 2
+            },
+            {
+                string: "[1] scratches [2] with [1their] claws",
+                playerCount: 2
+            },
+            {
+                string: "[1] and [2] try to make peace but end up wanting to kill each other",
+                playerCount: 2
+            },
+            {
+                string: "[1] and [2] fight for a little while, then run away from each other",
+                playerCount: 2
+            },
+            {
+                string: "[1] punches [2] in the face",
+                playerCount: 2
+            },
+            {
+                string: "[1] tries to gouge [2]'s eyes out",
+                playerCount: 2
+            },
+            {
+                string: "[1] almost kills [2] but they manage to escape and lock [2themself] in a safe room",
+                playerCount: 2
+            },
+            {
+                string: "[1] wounds [2]'s <def>qou</def>-body fatally, leaving [2them] in form of a mindcore for [1their] own amusement",
+                playerCount: 2,
+                updateData: function (player1) {
+                    player1.special.mindcore = true;
+                    player1.filter.push("mindcore")
+                }
             },
 
             // 3's
@@ -2001,7 +2072,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] explains the mechanics of the dull to [2] and [3] in excruciating detail. [2] is actually invested, but the other one wants to kill [1] just so [3they] [3do] not have to listen to this",
+                string: "[1] explains the mechanics of the dull to [2] and [3] in excruciating detail. [2] is actually invested, but the other wants to kill [1] just so [3they] [3do] not have to listen to this",
                 playerCount: 3
             },
             {
@@ -2017,11 +2088,11 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] and [2] team up to kill [3], but they never gather the courage to do it",
+                string: "[1] and [2] team up to kill [3] but never gather the courage to go through with it",
                 playerCount: 3
             },
             {
-                string: "[1] and [2] ambush [3], but [3] is armed well and successfully defends [3themself]",
+                string: "[1] and [2] ambush [3], but [3they] [3are] armed well and successfully defends [3themself]",
                 playerCount: 3
             },
             {
@@ -2069,7 +2140,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1], [2] and [3], who were on the verge of killing each other, are forced to cooperate in order to survive a group of violent kivskins",
+                string: "[1], [2] and [3], who were on the verge of killing each other, are forced to cooperate in order to survive a group of enemies",
                 playerCount: 3
             },
             {
@@ -2081,7 +2152,7 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] wounds [2] badly but does not get enough time to finish [2them] off before [3] appears out of nowhere",
+                string: "[1] wounds [2] badly but does not get enough time to finish [2them] off before [3] appears to save [2them]",
                 playerCount: 3
             },
             {
@@ -2089,11 +2160,11 @@ var eventCycle = {
                 playerCount: 3
             },
             {
-                string: "[1] sees [2] and [3] and immediately turns back",
+                string: "[1] sees [2] and [3] and immediately turns back to where [1they] came from",
                 playerCount: 3
             },
             {
-                string: "[1] and [2] argue about the sides of the meteorite conflict. [3], clueless about what are those two so angry about, listens in",
+                string: "[1] and [2] argue about the sides of the conflict. [3], clueless about what those two are so angry about, listens in",
                 playerCount: 3
             },
             {
@@ -2144,6 +2215,54 @@ var eventCycle = {
                 string: "[1], [2] and [3] decide to become best friends",
                 playerCount: 3
             },
+            {
+                string: "[1], [2] and [3] discuss the most efficient combat tactics",
+                playerCount: 3
+            },
+            {
+                string: "[1] watches as [2] and [3] beat up incoherent <def>golems</def>",
+                playerCount: 3
+            },
+            {
+                string: "[1] is accidentally rude to [2] and [3], who in turn abandon [1them]",
+                playerCount: 3
+            },
+            {
+                string: "[1] shows [2] and [3] a neat little trick",
+                playerCount: 3
+            },
+            {
+                string: "[1] promises [2] a large quantity of <def>sfer</def> in return for killing [3]",
+                playerCount: 3
+            },
+            {
+                string: "[1] and [2] run away from [3] in absolute terror",
+                playerCount: 3
+            },
+            {
+                string: "[1] finds out that [2] is good at drawing and begs [2them] to draw [3] for the entire <def>wink</def>",
+                playerCount: 3
+            },
+            {
+                string: "[1] tells [2] and [3] scary stories from the surface",
+                playerCount: 3
+            },
+            {
+                string: "[1] tries to convince [2] that [3] is already dead",
+                playerCount: 3
+            },
+            {
+                string: "[1] rambles to [2] about how much [1they] hate1] [3]",
+                playerCount: 3
+            },
+            {
+                string: "[1] and [2] corner [3], but a sudden change of heart makes them rethink their decision and spare [3them]",
+                playerCount: 3
+            },
+            {
+                string: "[1], [2] and [3] sijhgd",
+                playerCount: 3
+            },
 
             // 4's
 
@@ -2152,7 +2271,7 @@ var eventCycle = {
                 playerCount: 4
             },
             {
-                string: "While [1] and [2] battle over supplies, [3] and [4] fight over the right to steal those very supplies",
+                string: "While [1] and [2] battle over supplies, [3] and [4] battle over the right to steal those supplies",
                 playerCount: 4
             },
             {
@@ -2161,10 +2280,6 @@ var eventCycle = {
             },
             {
                 string: "[1] stockpiles weapons, [2] steals them, [3] catches [2them] in the act and goes to tell everyone, and [4] tries [4their] best to stop that from happening",
-                playerCount: 4
-            },
-            {
-                string: "[1] and [2] run away from [3] and [4] in absolute terror",
                 playerCount: 4
             },
             {
@@ -2199,6 +2314,34 @@ var eventCycle = {
                 string: "[1] is bullied by [2], [3] and [4]",
                 playerCount: 4
             },
+            {
+                string: "[1] is trying to find an excuse to get rid of [2], but [2they] [2are] too well-liked by [3] and [4]",
+                playerCount: 4
+            },
+            {
+                string: "[1] complains to [2], [3] and [4] about feeling very tired. Everyone takes a short nap",
+                playerCount: 4
+            },
+            {
+                string: "[1] is pursued ruthlessly by [2], [3] and [4] for the entire <def>wink</def>",
+                playerCount: 4
+            },
+            {
+                string: "[1] turns [2]'s allies, [3] and [4], against [2them] via lies and trickery",
+                playerCount: 4
+            },
+            {
+                string: "[1], [2], [3] and [4] get drunk on simulacra together",
+                playerCount: 4
+            },
+            {
+                string: "[1] is saved from final death by [2], [3] and [4]. Grateful, [1they] offer1] them multiple <def>aima cysts</def>",
+                playerCount: 4
+            },
+            {
+                string: "[1] warns [2] and [3] that [4] is in the area nearby, and that [4they] will <em>not</em> hesitate to kill",
+                playerCount: 4
+            },
 
             // 5's
 
@@ -2211,7 +2354,7 @@ var eventCycle = {
                 playerCount: 5
             },
             {
-                string: "[1] and [2] fight fiercely, but a group of [3], [4] and [5] comes and chases them away",
+                string: "[1] and [2] fight fiercely, but a group of [3], [4] and [5] appears and chases them away",
                 playerCount: 5
             },
             {
@@ -2219,11 +2362,27 @@ var eventCycle = {
                 playerCount: 5
             },
             {
-                string: "[1] throws an explosive at the group of [2], [3], [4] and [5]. Everyone scatters and, by a giggle of <def>Velzie</def>, no one dies",
+                string: "[1] throws an explosive at [2], [3], [4] and [5]. No one dies by a giggle of <def>Velzie</def>, and [1] gains a lot of new enemies",
                 playerCount: 5
             },
             {
                 string: "[1] and [2] pick a fight with [3], [4] and [5], but leave quickly after realizing they are outnumbered",
+                playerCount: 5
+            },
+            {
+                string: "[1], [2], [3], [4] and [5] exchange supplies and weapons",
+                playerCount: 5
+            },
+            {
+                string: "[1], [2] and [3] cannot decide who do they want to kill first: [4] or [5]",
+                playerCount: 5
+            },
+            {
+                string: "[1], [2] and [3] observe as [4] and [5] battle, too scared to intervene despite being a larger group",
+                playerCount: 5
+            },
+            {
+                string: "[1] and [2] discuss the other participants. Both agree that [3] is very nice and [4] is a prick, but have different opinions on [5]",
                 playerCount: 5
             },
 
@@ -2231,6 +2390,10 @@ var eventCycle = {
 
             {
                 string: "[1], [2] and [3] compete with [4], [5] and [6] for resources",
+                playerCount: 6
+            },
+            {
+                string: "[1], [2], [3], [4], [5] and [6] are temporarily stuck in an uncomfortably tiny room",
                 playerCount: 6
             },
         ],
@@ -2290,6 +2453,8 @@ var eventCycle = {
                 updateData: function (player1) {
                     currentCharacterNumber -= this.howManyDeaths;
                     diedThisCycle += this.howManyDeaths;
+                    
+                    outnumbered = false
                 
                     theFunnyKillFunction(player1, `Numbered`)
                 },
@@ -2328,7 +2493,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] sips from an EVIL simulacrum and DIES",
+                string: "[die1] sips from a simulacrum 500 times and dies of mental citric acid poisoning",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2394,7 +2559,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[die1] slips on the floor and dies",
+                string: "[die1] slips on the floor and breaks everything upon falling down",
                 playerCount: 1,
                 howManyDeaths: 1,
                 updateData: function (player1) {
@@ -2516,7 +2681,7 @@ var eventCycle = {
                     theFunnyKillFunction(player1, `Fought well`)
                 },
             },
-            {
+            { // karkar
                 string: "[die1]'s <def>qou</def>-body fails and [1their] exposed mindcore is soon attacked and sludged",
                 playerCount: 1,
                 howManyDeaths: 1,
@@ -2587,7 +2752,7 @@ var eventCycle = {
                 },
             },
             {
-                string: "[1] watches [die2] being beaten to death by incoherent foes but does not intervene",
+                string: "[1] sees [die2] being beaten to death by incoherent constructs and does not intervene",
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -2608,7 +2773,6 @@ var eventCycle = {
                     theFunnyKillFunction(player2, `Arrogant`)
                 },
             },
-
             {
                 string: "[1] kills [die2] because [2they] [2are] so fucking annoying",
                 playerCount: 2,
@@ -2634,7 +2798,7 @@ var eventCycle = {
             {
                 string: ()=> {return `[1] successfully lands ${Math.floor(Math.random()*10+6)} frenzy critical hits on [die2]`},
                 altString: ()=> {return `[1] successfully lands ${Math.floor(Math.random()*100+36)} frenzy critical hits on [die2]`},
-                alt: 0.3,
+                alt: 0.4,
                 playerCount: 2,
                 howManyDeaths: 1,
                 updateData: function (player1, player2) {
@@ -2755,6 +2919,17 @@ var eventCycle = {
                 },
             },
             {
+                string: "[1] convinces [die2] to commit suicide",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Driven to suicide by [1]`, player1)
+                },
+            },
+            {
                 string: "[die1] insults [2] and earns a claw through [1their] mindcore",
                 playerCount: 2,
                 howManyDeaths: 1,
@@ -2765,7 +2940,6 @@ var eventCycle = {
                     theFunnyKillFunction(player1, `Insulted back by [1]`, player2)
                 },
             },
-
             {
                 string: "[die1] accidentally explodes [1themself] along with [die2]",
                 playerCount: 2,
@@ -2819,9 +2993,98 @@ var eventCycle = {
                     theFunnyKillFunction(player2, `Wounded and killed by [1]`, player1)
                 },
             },
+            {
+                string: "[die1] is almost killed by [die2] when [1they] activate1] a <def>kavruka</def>, taking [die2] down with [1them]",
+                playerCount: 2,
+                howManyDeaths: 2,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player1, `Killed by [1]`, player2)
+                    theFunnyKillFunction(player2, `[1] took [0them] with [1them]`, player1)
+                },
+            },
+            {
+                string: "[1] is, and [die2] was",
+                playerCount: 2,
+                howManyDeaths: 1,
+                updateData: function (player1, player2) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player2, `Put in past tense by [1]`, player1)
+                },
+            },
 
             // 3's
 
+            {
+                string: "[1] swears to [2] that [1they] [1do] not know what happened to [die3]",
+                playerCount: 3,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player3, `Come on, [1] probably <em>did</em> kill [0them]`, player1)
+                },
+            },
+            {
+                string: "[1] asks [2] to help [1them] hide [die3]'s remains",
+                playerCount: 3,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player3, `Turned into a corpse by [1]`, player1)
+                },
+            },
+            {
+                string: "[1] and [2] ambush [die3], killing [3them]",
+                playerCount: 3,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player3, `Ambushed by [1] and [2]`, player1, player2)
+                },
+            },
+            {
+                string: "[1] and [2] chase after [die3] the entire <def>wink</def> and kill [3them] upon catching up",
+                playerCount: 3,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player3, `Chased down by [1] and [2]`, player1, player2)
+                },
+            },
+            {
+                string: "[1] and [2] mistake [die3] for a husk and kill [3them]",
+                playerCount: 3,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player3, `Too husk-like for [1] and [2]`, player1, player2)
+                },
+            },
+            {
+                string: "[1] and [2] try to torture [die3] for information but accidentally kill [3them]",
+                playerCount: 3,
+                howManyDeaths: 1,
+                updateData: function (player1, player2, player3) {
+                    currentCharacterNumber -= this.howManyDeaths;
+                    diedThisCycle += this.howManyDeaths;
+
+                    theFunnyKillFunction(player3, `Tortured by [1] and [2]`, player1, player2)
+                },
+            },
 
             // 4's
 
@@ -3826,9 +4089,255 @@ function questiommark (what) {
 }
 
 var bitches = [
+
+    // AFFLICTED REGULAR
+        {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] sees strange things",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] hears strange things",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] knows that something is deeply wrong",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] hallucinates",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] suspects that [1their] condition is worsening",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] does not know what is happening to [1them]",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] gains awareness of something incomprehensible",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] aches and shivers; [2] tries to comfort [1them]",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] notices [2] rippling strangely",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] is scared of [2] being potentially contagious",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[0].special.afflicted==true || players[1].special.afflicted==fals) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] is about to attack [2], but gets too frightened by [2their] symptoms to approach",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[0].special.afflicted==true || players[1].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] asks [2] about [2their] experiences with the contact affliction to document it",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.afflicted==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 3,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 2) return true
+            else return false
+        },
+        string: "[1] and [2] lament about their shared fate",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false || players[1].special.afflicted==false) return true
+            else return false
+        }
+    },
+
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] wards off [2] and [3] by threatening to infect them",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false || players[1].special.afflicted==true || players[2].special.afflicted==true) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] tries to hide [1their] affliction from [2] and [3]",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false || players[1].special.afflicted==true || players[2].special.afflicted==true) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] sees something that [2] and [3] cannot",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[0].special.afflicted==false || players[1].special.afflicted==true || players[2].special.afflicted==true) return true
+            else return false
+        }
+    },
+
+    // AFFLICTED LETHAL
     {
         where: eventCycle["array"]["lethal"],
-        howmanytimes: 5,
+        howmanytimes: 1,
         eventCondition: () => {
             if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
             else return false
@@ -3840,12 +4349,603 @@ var bitches = [
             currentCharacterNumber -= this.howManyDeaths;
             diedThisCycle += this.howManyDeaths;
 
-            theFunnyKillFunction(player1, `Got afflicted`)
+            theFunnyKillFunction(player1, `The disease`)
         },
         condition: (players)=>{
             if (players[0].special.afflicted == true) return false
             else return true
         }
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 1,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] kills [1themself] before the affliction takes [1them] fully",
+        playerCount: 1,
+        howManyDeaths: 1, 
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Better dead than hiveminded`)
+        },
+        condition: (players)=>{
+            if (players[0].special.afflicted == true) return false
+            else return true
+        }
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 1,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] disperses into a hazy spectral mist",
+        playerCount: 1,
+        howManyDeaths: 1, 
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Is now aerosol`)
+        },
+        condition: (players)=>{
+            if (players[0].special.afflicted == true) return false
+            else return true
+        }
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 1,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1], too exhausted from withstanding the affliction, is killed by corrusyctic constructs",
+        playerCount: 1,
+        howManyDeaths: 1, 
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Got finished off`)
+        },
+        condition: (players)=>{
+            if (players[0].special.afflicted == true) return false
+            else return true
+        }
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 1,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] cannot fight the affliction anymore",
+        playerCount: 1,
+        howManyDeaths: 1, 
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Afflicted`)
+        },
+        condition: (players)=>{
+            if (players[0].special.afflicted == true) return false
+            else return true
+        }
+    },
+
+
+    // AFFLICTED REVIVAL
+
+    {
+        where: eventCycle["array"]["revival"],
+        howmanytimes: 2,
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.afflicted == true && aguy.beenUsed == false && aguy.alive == false).length < 1) return true
+            else return false
+        },
+        string: "[1] feels [1themself] being torn from the whole of the meteorite...",
+        playerCount: 1,
+        howManyDeaths: 0,
+        howManyRevivals: 1,
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            currentCharacterNumber += this.howManyRevivals;
+            diedThisCycle += this.howManyDeaths;
+
+            player1.alive = true;
+            player1.revived++;
+            player1.oldKilledBys.push(player1.killedBy);
+            player1.killedBy = undefined;
+
+            placements = placements.filter(o => o.name !== player1.name);
+        }
+    },
+    
+
+    // MINDCORES REGULAR
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] scitters around",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] rolls around",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] misses [1their] <def>qou</def>-body",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] hides under furniture",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] is on the ceiling",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] crawls into a small space",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] feels tiny",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] uses [2] as a means of transport",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] carries [2] around",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] grabs [2] and does not let [2them] go",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] trips on [2] and apologizes profusely",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] threatens to squish [2] like a bug",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 3,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 2) return true
+            else return false
+        },
+        string: "[1] and [2] bond over losing their <def>qou</def>-bodies",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false || players[0].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] and [2] do their best to protect the debodied [3]",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[2].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] and [2] take turns carrying [3]",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[2].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] makes fun of how [2] looks as a mindcore. [3] tells [1them] off",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1], [2], [3] and [4] play the equivalent of volleyball with [5]",
+        playerCount: 5,
+        condition: (players)=>{
+            if (players[4].special.mindcore==false) return true
+            else return false
+        }
+    },
+    {
+        where: eventCycle["array"]["regular"],
+        howmanytimes: 1,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] and [2] construct a new <def>qou</def>-body for [3]",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[2].special.mindcore==false) return true
+            else return false
+        },
+        updateData: function (player1,player2,player3) {
+            player3.special.mindcore = false;
+            player3.filter = player3.filter.filter((el) => el != "mindcore")
+        }
+    },
+
+    // MINDCORES LETHAL
+
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 3,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1], being a defenseless mindcore, is easily killed by a <def>golem</def>",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Defenseless mindcore`)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 3,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] is too small to do anything about the enemies surrounding [1them]",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Too small`)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 3,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] falls down from somewhere, fatally injuring [1their] exposed mindcore",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Do not drop, fragile!`)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[die1] sees... [1their] own body, brought to terrible life, stumble towards [1them]",
+        playerCount: 1,
+        condition: (players)=>{
+            if (players[0].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player1, `Killed by the husk of [0their] own body`)
+        },
+    },
+
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] throws [die2] against a wall, shattering [2them]",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1, player2) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player2, `Thrown into a wall by [1]`, player1)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] breaks [die2] with [1their] bare claws",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1, player2) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player2, `Broken by [1]`, player1)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1], seeing no possibility of [die2] winning as a mere mindcore, \"mercifully\" ends their <def>death</def>",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1, player2) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player2, `[1] said [0they] would not win anyway`, player1)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] uses [die2] as a substitute for a bowling ball. The substitute for bowling pins is hungry veilklights",
+        playerCount: 2,
+        condition: (players)=>{
+            if (players[1].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1, player2) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player2, `Looked like a bowling ball to [1]`, player1)
+        },
+    },
+    {
+        where: eventCycle["array"]["lethal"],
+        howmanytimes: 2,
+
+        eventCondition: () => {
+            if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
+            else return false
+        },
+        string: "[1] and [2] try to take [die3] hostage and accidentally drop [them3] to death",
+        playerCount: 3,
+        condition: (players)=>{
+            if (players[2].special.mindcore==false) return true
+            else return false
+        },
+        howManyDeaths: 1,
+        updateData: function (player1, player2, player3) {
+            currentCharacterNumber -= this.howManyDeaths;
+            diedThisCycle += this.howManyDeaths;
+
+            theFunnyKillFunction(player3, `Dropped on the floor by [1] and [2]`, player1, player2)
+        },
     },
 
     // RANDOM CONTAINER FOR MINDCORES
@@ -3887,7 +4987,7 @@ var bitches = [
             if (characters.filter((aguy) => aguy.special.mindcore == true && aguy.beenUsed == false && aguy.alive == true).length < 1) return true
             else return false
         },
-        string: "[1] constructs a new <def>qou</def>-body out of countless container remains for [1themself]",
+        string: "[1] builds a new <def>qou</def>-body out of countless container remains for [1themself]",
         playerCount: 1,
         condition: (players)=>{
             if (players[0].special.mindcore==false) return true

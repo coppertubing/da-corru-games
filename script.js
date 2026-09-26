@@ -4758,7 +4758,7 @@ var bitches = [
         string: "[1] is scared of [2] being potentially contagious",
         playerCount: 2,
         condition: (players)=>{
-            if (players[0].special.afflicted==true || players[1].special.afflicted==fals) return true
+            if (players[0].special.afflicted==true || players[1].special.afflicted==false) return true
             else return false
         }
     },

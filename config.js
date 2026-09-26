@@ -117,6 +117,12 @@ var characters = [
     },
 
     {
+        name: "Tanyu",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://cdn.discordapp.com/attachments/1547920550402195520/1553416557986848768/39480931_1.png?ex=6ab92b68&is=6ab7d9e8&hm=893e15a4f5465d73c92f9a34f16244669da7bab4522c505a06d9f631ef4bd3c6&",
+    },
+
+    {
         name: "Maze Shit",
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
         image: "https://corru.observer/img/local/ocean/ship/help.gif",

@@ -2533,9 +2533,9 @@ var eventCycle = {
             {
                 string: "[1] wounds [2]'s <def>qou</def>-body fatally, leaving [2them] in form of a mindcore for [1their] own amusement",
                 playerCount: 2,
-                updateData: function (player1) {
-                    player1.special.mindcore = true;
-                    player1.filter.push("mindcore")
+                updateData: function (player1, player2) {
+                    player2.special.mindcore = true;
+                    player2.filter.push("mindcore")
                 }
             },
 

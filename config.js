@@ -123,6 +123,13 @@ var characters = [
     },
 
     {
+        name: "Lakkili",
+        pronoun: [`she`,`her`,`her`,`hers`,`herself`], singular: true,
+        image: "https://cdn.discordapp.com/attachments/1547920550402195520/1553419619610660874/Lakkili_beg.png?ex=6ab92e42&is=6ab7dcc2&hm=7dddf604df7ba47af4c0eb031159dfa155728b89bf3433b706b37138dc5a1058&",
+    },
+
+
+    {
         name: "Maze Shit",
         pronoun: [`it`,`it`,`its`,`its`,`itself`], singular: true,
         image: "https://corru.observer/img/local/ocean/ship/help.gif",
